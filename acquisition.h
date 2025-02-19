@@ -26,7 +26,7 @@ public:
     QSettings *LineSettings;                        // Line settings
     TwoStages *FilterMatrix;                        // Filter matrix object
     std::ofstream TimeStamps;                       // Time stamps for the images (*.csv)
-    TwoStages *PolarimeterStages;                   // Focus stage object
+    TwoStages *FocusStages;                   // Focus stage object
     Polarimeter *LCVRPolarimeter;                   // LCVR controls object
     //
     int Mode;                                       // Mode of observation

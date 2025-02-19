@@ -1,0 +1,61 @@
+07:38:03.701   FilterMatrix connecting (192.168.90.101:400)...
+07:38:03.716   FilterMatrix sending controller command: version
+07:38:03.769   FilterMatrix sending controller command: 100.000000 1 snv
+07:38:03.771   FilterMatrix received controller response: 5.050000
+
+07:38:03.823   FilterMatrix sending controller command: 100.000000 2 snv
+07:38:03.876   FocusStages connecting (192.168.90.103:400)...
+07:38:03.880   FocusStages sending controller command: version
+07:38:03.932   FocusStages sending controller command: 5.000000 1 snv
+07:38:03.934   FocusStages received controller response: 5.320000
+
+07:38:03.986   FocusStages sending controller command: 5.000000 2 snv
+07:38:04.039   ET50 connecting (192.168.90.114:10001).
+07:38:04.053   ET50 controller command sent: !QT
+07:38:04.105   ET70 connecting (192.168.90.115:10001).
+07:38:04.108   ET70 controller command sent: !QT
+Selecting pre-filter: 6
+07:38:04.162   FilterMatrix sending controller command: 331.500000 1 nm
+07:38:04.163   FilterMatrix sending controller command: 340.500000 2 nm
+Selecting pre-filter: 6
+07:38:04.166   FilterMatrix sending controller command: 331.500000 1 nm
+07:38:04.167   FilterMatrix sending controller command: 340.500000 2 nm
+07:38:04.168   FocusStages sending controller command: 12.000000 1 nm
+07:38:04.172   FocusStages sending controller command: 12.500000 2 nm
+07:38:04.173   ET50 controller command sent: I4122P1P0?
+07:38:04.175   ET70 controller command sent: I4177P1P0?
+07:38:04.207   ET50 Z-spacing counts read: 290
+07:38:04.208   ET70 Z-spacing counts read: 375
+07:38:05.667   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+07:38:05.669   BroadbandDetector exposure time is set to 50000
+07:38:05.669   BroadbandDetector frame binning is set to 1
+07:38:05.669   BroadbandDetector frame width is set to 1280
+07:38:05.669   BroadbandDetector frame height is set to 1280
+07:38:05.669   BroadbandDetector frame x-offset is set to 384
+07:38:05.669   BroadbandDetector frame y-offset is set to 384
+07:38:05.669   BroadbandDetector buffer queue size set to 39 frames
+07:38:05.669   BroadbandDetector setting up trigger: 0
+07:38:06.179   BroadbandDetector started acquisition
+07:38:07.663   BroadbandDetector stopped acquisition
+07:38:14.027   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+07:38:14.031   BroadbandDetector exposure time is set to 20000
+07:38:14.031   BroadbandDetector frame binning is set to 1
+07:38:14.031   BroadbandDetector frame width is set to 1280
+07:38:14.031   BroadbandDetector frame height is set to 1280
+07:38:14.031   BroadbandDetector frame x-offset is set to 384
+07:38:14.031   BroadbandDetector frame y-offset is set to 384
+07:38:14.031   BroadbandDetector buffer queue size set to 39 frames
+07:38:14.031   BroadbandDetector setting up trigger: 0
+07:38:14.527   BroadbandDetector started acquisition
+07:38:17.359   BroadbandDetector stopped acquisition
+07:38:29.577   FilterMatrix closing connection.
+07:38:29.578   FocusStages closing connection.
+07:38:29.580   ET50 controller command sent: I0
+07:38:29.631   ET50 controller command sent: O/2
+07:38:29.684   ET50 closing connection.
+07:38:29.686   ET70 controller command sent: I0
+07:38:29.739   ET70 controller command sent: O/2
+07:38:29.792   ET70 closing connection.
+07:38:30.010   BroadbandDetector closed successfully
+07:38:30.479   PolarimeterDetector-1 closed successfully
+07:38:30.997   PolarimeterDetector-2 closed successfully

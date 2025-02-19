@@ -1,0 +1,54 @@
+07:29:31.000   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+07:29:31.004   BroadbandDetector exposure time is set to 20000
+07:29:31.004   BroadbandDetector frame binning is set to 1
+07:29:31.004   BroadbandDetector frame width is set to 1280
+07:29:31.004   BroadbandDetector frame height is set to 1280
+07:29:31.004   BroadbandDetector frame x-offset is set to 384
+07:29:31.004   BroadbandDetector frame y-offset is set to 384
+07:29:31.004   BroadbandDetector buffer queue size set to 39 frames
+07:29:31.004   BroadbandDetector setting up trigger: 0
+07:29:31.514   BroadbandDetector started acquisition
+07:31:46.557   BroadbandDetector stopped acquisition
+07:31:55.785   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+07:31:55.789   BroadbandDetector exposure time is set to 50000
+07:31:55.789   BroadbandDetector frame binning is set to 1
+07:31:55.789   BroadbandDetector frame width is set to 1280
+07:31:55.789   BroadbandDetector frame height is set to 1280
+07:31:55.789   BroadbandDetector frame x-offset is set to 384
+07:31:55.789   BroadbandDetector frame y-offset is set to 384
+07:31:55.790   BroadbandDetector buffer queue size set to 39 frames
+07:31:55.790   BroadbandDetector setting up trigger: 0
+07:31:56.348   BroadbandDetector started acquisition
+07:32:15.987   FocusStages connecting (192.168.90.103:400)...
+07:32:16.008   FocusStages sending controller command: version
+07:32:16.060   FocusStages sending controller command: 5.000000 1 snv
+07:32:16.062   FocusStages received controller response: 5.320000
+
+07:32:16.115   FocusStages sending controller command: 5.000000 2 snv
+07:32:17.468   FocusStages sending controller command: 1 np
+07:32:17.472   FocusStages received controller response: 11.000000
+
+07:32:17.480   FocusStages sending controller command: 2 np
+07:32:17.484   FocusStages received controller response: 14.000000
+
+07:32:22.676   FocusStages sending controller command: 13.000000 2 nm
+07:32:22.971   FocusStages sending controller command: 13.500000 2 nm
+07:32:23.178   FocusStages sending controller command: 14.000000 2 nm
+07:32:23.498   FocusStages sending controller command: 14.500000 2 nm
+07:32:23.889   FocusStages sending controller command: 14.000000 2 nm
+07:32:38.179   FocusStages sending controller command: 14.500000 2 nm
+07:32:38.346   FocusStages sending controller command: 15.000000 2 nm
+07:32:40.138   FocusStages sending controller command: 15.500000 2 nm
+07:32:40.315   FocusStages sending controller command: 16.000000 2 nm
+07:32:42.600   FocusStages sending controller command: 16.500000 2 nm
+07:32:42.768   FocusStages sending controller command: 17.000000 2 nm
+07:32:43.891   FocusStages sending controller command: 16.500000 2 nm
+07:32:44.081   FocusStages sending controller command: 16.000000 2 nm
+07:32:44.816   FocusStages sending controller command: 15.500000 2 nm
+07:32:44.994   FocusStages sending controller command: 15.000000 2 nm
+07:32:45.732   FocusStages sending controller command: 14.500000 2 nm
+07:32:45.893   FocusStages sending controller command: 14.000000 2 nm
+07:32:55.943   FocusStages closing connection.
+07:33:07.475   BroadbandDetector stopped acquisition
+Creating directory : D:/20230504
+Creating directory : D:/20230504/Science_0733

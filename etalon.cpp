@@ -65,7 +65,6 @@ void Etalon::readyRead()
 //            addLog(Label + " is in order.");
             Operating = true;
         }
-        else{};
     }
     else if (Response.length() == 5) {
         int Count;
@@ -195,6 +194,7 @@ void Etalon::getCurrentStatus()
 {
     Command = "?";
     sendCommand();
+//    TCPSocket->waitForReadyRead();
     return;
 }
 

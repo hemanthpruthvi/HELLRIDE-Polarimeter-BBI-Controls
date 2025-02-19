@@ -1,0 +1,1348 @@
+13:55:36.668   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+13:55:36.672   BroadbandDetector exposure time is set to 10000
+13:55:36.672   BroadbandDetector frame binning is set to 1
+13:55:36.672   BroadbandDetector frame width is set to 1280
+13:55:36.672   BroadbandDetector frame height is set to 1280
+13:55:36.672   BroadbandDetector frame x-offset is set to 384
+13:55:36.672   BroadbandDetector frame y-offset is set to 384
+13:55:36.672   BroadbandDetector buffer queue size set to 39 frames
+13:55:36.672   BroadbandDetector setting up trigger: 0
+13:55:37.155   BroadbandDetector started acquisition
+13:55:47.231   BroadbandDetector stopped acquisition
+13:55:52.783   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+13:55:52.788   BroadbandDetector exposure time is set to 20000
+13:55:52.788   BroadbandDetector frame binning is set to 1
+13:55:52.789   BroadbandDetector frame width is set to 1280
+13:55:52.789   BroadbandDetector frame height is set to 1280
+13:55:52.789   BroadbandDetector frame x-offset is set to 384
+13:55:52.789   BroadbandDetector frame y-offset is set to 384
+13:55:52.789   BroadbandDetector buffer queue size set to 39 frames
+13:55:52.789   BroadbandDetector setting up trigger: 0
+13:55:53.148   BroadbandDetector started acquisition
+13:55:59.611   FilterMatrix connecting (192.168.90.101:400)...
+13:55:59.627   FilterMatrix sending controller command: version
+13:55:59.679   FilterMatrix sending controller command: 100.000000 1 snv
+13:55:59.680   FilterMatrix received controller response: 5.050000
+
+13:55:59.733   FilterMatrix sending controller command: 100.000000 2 snv
+13:55:59.784   FocusStages connecting (192.168.90.103:400)...
+13:55:59.799   FocusStages sending controller command: version
+13:55:59.851   FocusStages sending controller command: 5.000000 1 snv
+13:55:59.853   FocusStages received controller response: 5.320000
+
+13:55:59.905   FocusStages sending controller command: 5.000000 2 snv
+13:55:59.957   ET50 connecting (192.168.90.114:10001).
+13:55:59.990   ET50 controller command sent: !QT
+13:56:00.043   ET70 connecting (192.168.90.115:10001).
+13:56:00.085   ET70 controller command sent: !QT
+Selecting pre-filter: 2
+13:56:00.140   FilterMatrix sending controller command: 394.000000 1 nm
+13:56:00.141   FilterMatrix sending controller command: 278.000000 2 nm
+Selecting pre-filter: 2
+13:56:00.144   FilterMatrix sending controller command: 394.000000 1 nm
+13:56:00.144   FilterMatrix sending controller command: 278.000000 2 nm
+13:56:00.145   FocusStages sending controller command: 8.500000 1 nm
+13:56:00.147   FocusStages sending controller command: 15.800000 2 nm
+13:56:00.150   ET50 controller command sent: I405AP1P0?
+13:56:00.151   ET70 controller command sent: I4F90P1P0?
+13:56:00.189   ET50 Z-spacing counts read: 90
+13:56:00.190   ET70 Z-spacing counts read: -112
+13:56:58.111   FilterMatrix sending controller command: 1 np
+13:56:58.118   FilterMatrix received controller response: 394.000014
+
+13:56:58.120   FilterMatrix sending controller command: 2 np
+13:56:58.124   FilterMatrix received controller response: 278.000002
+
+13:56:58.126   ET50 controller command sent: ?
+13:56:58.328   ET70 controller command sent: ?
+13:56:58.531   FocusStages sending controller command: 1 np
+13:56:58.535   FocusStages received controller response: 8.500000
+
+13:56:58.536   FocusStages sending controller command: 2 np
+13:56:58.541   FocusStages received controller response: 15.800000
+
+13:56:58.544   ET50 Z-spacing counts read: 90
+13:56:58.545   ET70 Z-spacing counts read: -112
+13:57:22.281   FocusStages sending controller command: 1.000000 2 nm
+13:57:22.363   FocusStages sending controller command: 16.000000 2 nm
+13:57:26.931   FocusStages sending controller command: 16.500000 2 nm
+13:57:28.075   FocusStages sending controller command: 17.000000 2 nm
+13:57:28.901   FocusStages sending controller command: 17.500000 2 nm
+13:57:29.705   FocusStages sending controller command: 18.000000 2 nm
+13:57:31.097   FocusStages sending controller command: 17.500000 2 nm
+13:57:32.074   FocusStages sending controller command: 17.000000 2 nm
+13:57:33.854   FocusStages sending controller command: 16.500000 2 nm
+13:57:34.880   FocusStages sending controller command: 16.000000 2 nm
+13:57:38.361   FocusStages sending controller command: 15.500000 2 nm
+13:57:39.960   FocusStages sending controller command: 15.000000 2 nm
+13:57:41.450   FocusStages sending controller command: 14.500000 2 nm
+13:57:42.586   FocusStages sending controller command: 14.000000 2 nm
+13:57:43.820   FocusStages sending controller command: 13.500000 2 nm
+13:57:44.888   FocusStages sending controller command: 13.000000 2 nm
+13:57:46.118   FocusStages sending controller command: 12.500000 2 nm
+13:57:48.127   FocusStages sending controller command: 12.000000 2 nm
+13:57:49.255   FocusStages sending controller command: 11.500000 2 nm
+13:57:50.202   FocusStages sending controller command: 11.000000 2 nm
+13:57:51.551   FocusStages sending controller command: 11.500000 2 nm
+13:57:51.790   FocusStages sending controller command: 12.000000 2 nm
+13:57:52.026   FocusStages sending controller command: 12.500000 2 nm
+13:57:52.216   FocusStages sending controller command: 13.000000 2 nm
+13:57:52.421   FocusStages sending controller command: 13.500000 2 nm
+13:57:55.484   FocusStages sending controller command: 14.000000 2 nm
+13:57:55.668   FocusStages sending controller command: 14.500000 2 nm
+13:57:57.269   FocusStages sending controller command: 15.000000 2 nm
+13:57:58.535   FocusStages sending controller command: 15.500000 2 nm
+13:57:58.708   FocusStages sending controller command: 16.000000 2 nm
+13:59:19.853   FocusStages sending controller command: 16.500000 2 nm
+13:59:22.003   FocusStages sending controller command: 16.000000 2 nm
+13:59:23.523   FocusStages sending controller command: 15.500000 2 nm
+13:59:24.908   FocusStages sending controller command: 15.000000 2 nm
+13:59:26.612   FocusStages sending controller command: 15.500000 2 nm
+13:59:27.738   FocusStages sending controller command: 16.000000 2 nm
+Selecting pre-filter: 1
+14:00:27.195   FilterMatrix sending controller command: 394.000000 1 nm
+14:00:27.197   FilterMatrix sending controller command: 340.500000 2 nm
+Selecting pre-filter: 1
+14:00:27.201   FilterMatrix sending controller command: 394.000000 1 nm
+14:00:27.202   FilterMatrix sending controller command: 340.500000 2 nm
+14:00:27.204   FocusStages sending controller command: 12.200000 1 nm
+14:00:27.205   FocusStages sending controller command: 12.400000 2 nm
+14:00:27.206   ET50 controller command sent: I420FP1P0?
+14:00:27.207   ET70 controller command sent: I4266P1P0?
+14:00:27.238   ET50 Z-spacing counts read: 527
+14:00:27.240   ET70 Z-spacing counts read: 614
+Selecting pre-filter: 6
+14:00:32.810   FilterMatrix sending controller command: 331.500000 1 nm
+14:00:32.812   FilterMatrix sending controller command: 340.500000 2 nm
+Selecting pre-filter: 6
+14:00:32.813   FilterMatrix sending controller command: 331.500000 1 nm
+14:00:32.814   FilterMatrix sending controller command: 340.500000 2 nm
+14:00:32.815   FocusStages sending controller command: 12.000000 1 nm
+14:00:32.815   FocusStages sending controller command: 12.200000 2 nm
+14:00:32.816   ET50 controller command sent: I4122P1P0?
+14:00:32.817   ET70 controller command sent: I4177P1P0?
+14:00:32.849   ET50 Z-spacing counts read: 290
+14:00:32.851   ET70 Z-spacing counts read: 375
+14:00:38.668   FilterMatrix sending controller command: 1 np
+14:00:38.673   FilterMatrix received controller response: 331.499985
+
+14:00:38.675   FilterMatrix sending controller command: 2 np
+14:00:38.680   FilterMatrix received controller response: 340.499998
+
+14:00:38.682   ET50 controller command sent: ?
+14:00:38.884   ET70 controller command sent: ?
+14:00:39.089   FocusStages sending controller command: 1 np
+14:00:39.094   FocusStages received controller response: 12.000000
+
+14:00:39.097   FocusStages sending controller command: 2 np
+14:00:39.100   FocusStages received controller response: 12.200000
+
+14:00:39.104   ET50 Z-spacing counts read: 290
+14:00:39.106   ET70 Z-spacing counts read: 375
+14:00:42.062   FocusStages sending controller command: 15.500000 2 nm
+14:00:42.781   FocusStages sending controller command: 15.000000 2 nm
+14:00:44.222   FocusStages sending controller command: 14.500000 2 nm
+14:00:45.376   FocusStages sending controller command: 14.000000 2 nm
+14:00:46.760   FocusStages sending controller command: 13.500000 2 nm
+14:00:47.599   FocusStages sending controller command: 13.000000 2 nm
+14:00:48.590   FocusStages sending controller command: 12.500000 2 nm
+14:00:49.810   FocusStages sending controller command: 12.000000 2 nm
+14:00:50.913   FocusStages sending controller command: 11.500000 2 nm
+14:01:01.156   FilterMatrix sending controller command: 1 np
+14:01:01.161   FilterMatrix received controller response: 331.500021
+
+14:01:01.163   FilterMatrix sending controller command: 2 np
+14:01:01.167   FilterMatrix received controller response: 340.500002
+
+14:01:01.171   ET50 controller command sent: ?
+14:01:01.374   ET70 controller command sent: ?
+14:01:01.577   FocusStages sending controller command: 1 np
+14:01:01.582   FocusStages received controller response: 12.000000
+
+14:01:01.584   FocusStages sending controller command: 2 np
+14:01:01.589   FocusStages received controller response: 11.500000
+
+14:01:01.591   ET50 Z-spacing counts read: 290
+14:01:01.595   ET70 Z-spacing counts read: 375
+14:01:06.489   FocusStages sending controller command: 11.000000 2 nm
+14:01:06.643   FocusStages sending controller command: 10.500000 2 nm
+14:01:06.806   FocusStages sending controller command: 10.000000 2 nm
+14:01:06.962   FocusStages sending controller command: 9.500000 2 nm
+14:01:07.155   FocusStages sending controller command: 9.000000 2 nm
+14:01:07.298   FocusStages sending controller command: 8.500000 2 nm
+14:01:07.443   FocusStages sending controller command: 8.000000 2 nm
+14:01:07.567   FocusStages sending controller command: 7.500000 2 nm
+14:01:07.744   FocusStages sending controller command: 7.000000 2 nm
+14:01:07.913   FocusStages sending controller command: 6.500000 2 nm
+14:01:08.091   FocusStages sending controller command: 6.000000 2 nm
+14:01:08.250   FocusStages sending controller command: 5.500000 2 nm
+14:01:08.412   FocusStages sending controller command: 5.000000 2 nm
+14:01:08.573   FocusStages sending controller command: 4.500000 2 nm
+14:01:08.735   FocusStages sending controller command: 4.000000 2 nm
+14:01:08.911   FocusStages sending controller command: 3.500000 2 nm
+14:01:09.077   FocusStages sending controller command: 3.000000 2 nm
+14:01:09.251   FocusStages sending controller command: 2.500000 2 nm
+14:01:16.101   FilterMatrix sending controller command: 1 np
+14:01:16.106   FilterMatrix received controller response: 331.499988
+
+14:01:16.110   FilterMatrix sending controller command: 2 np
+14:01:16.116   FilterMatrix received controller response: 340.500000
+
+14:01:16.118   ET50 controller command sent: ?
+14:01:16.320   ET70 controller command sent: ?
+14:01:16.524   FocusStages sending controller command: 1 np
+14:01:16.529   FocusStages received controller response: 12.000000
+
+14:01:16.530   FocusStages sending controller command: 2 np
+14:01:16.535   FocusStages received controller response: 2.500000
+
+14:01:16.538   ET50 Z-spacing counts read: 290
+14:01:16.540   ET70 Z-spacing counts read: 375
+14:01:22.987   FocusStages sending controller command: 2.000000 2 nm
+14:01:23.041   FocusStages sending controller command: 20.000000 2 nm
+14:01:35.484   FocusStages sending controller command: 2.000000 2 nm
+14:01:35.650   FocusStages sending controller command: 25.000000 2 nm
+14:01:40.792   FocusStages sending controller command: 24.500000 2 nm
+14:01:41.293   FocusStages sending controller command: 24.000000 2 nm
+14:01:45.256   FocusStages sending controller command: 1.000000 2 nm
+14:01:45.299   FocusStages sending controller command: 12.000000 2 nm
+14:24:31.573   VTTServer connecting (hobbit.tt.iac.es:3065).
+14:24:31.613   VTTServer controller command sent: hellride01
+14:24:33.826   VTTServer controller command sent: hobbit: hellride01 ct opt sw3
+14:24:36.260   VTTServer controller command sent: hobbit: hellride01 ct opt sw1
+14:24:48.639   VTTServer closing connection.
+14:24:52.718   VTTServer connecting (hobbit.tt.iac.es:3065).
+14:24:52.731   VTTServer controller command sent: hellride01
+14:25:25.497   VTTServer received controller response: hellride01: hobbit ret ct acc
+14:40:06.550   BroadbandDetector stopped acquisition
+14:40:08.945   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+14:40:08.948   BroadbandDetector exposure time is set to 20000
+14:40:08.948   BroadbandDetector frame binning is set to 1
+14:40:08.948   BroadbandDetector frame width is set to 1280
+14:40:08.948   BroadbandDetector frame height is set to 1280
+14:40:08.948   BroadbandDetector frame x-offset is set to 384
+14:40:08.948   BroadbandDetector frame y-offset is set to 384
+14:40:08.948   BroadbandDetector buffer queue size set to 39 frames
+14:40:08.948   BroadbandDetector setting up trigger: 0
+14:40:09.301   BroadbandDetector started acquisition
+14:40:09.301   PolarimeterDetector-1 frame description: 1280x1280 - 384||384 (1x1)
+14:40:09.304   PolarimeterDetector-1 exposure time is set to 10000
+14:40:09.304   PolarimeterDetector-1 frame binning is set to 1
+14:40:09.304   PolarimeterDetector-1 frame width is set to 1280
+14:40:09.304   PolarimeterDetector-1 frame height is set to 1280
+14:40:09.304   PolarimeterDetector-1 frame x-offset is set to 384
+14:40:09.304   PolarimeterDetector-1 frame y-offset is set to 384
+14:40:09.304   PolarimeterDetector-1 buffer queue size set to 39 frames
+14:40:09.304   PolarimeterDetector-1 setting up trigger: 0
+14:40:09.796   PolarimeterDetector-1 started acquisition
+Selecting pre-filter: 1
+14:40:40.972   FilterMatrix sending controller command: 394.000000 1 nm
+14:40:40.974   FilterMatrix sending controller command: 340.500000 2 nm
+Selecting pre-filter: 1
+14:40:40.976   FilterMatrix sending controller command: 394.000000 1 nm
+14:40:40.977   FilterMatrix sending controller command: 340.500000 2 nm
+14:40:40.978   FocusStages sending controller command: 12.200000 1 nm
+14:40:40.979   FocusStages sending controller command: 12.400000 2 nm
+14:40:40.979   ET50 controller command sent: I420FP1P0?
+14:40:40.980   ET70 controller command sent: I4266P1P0?
+14:40:41.011   ET50 Z-spacing counts read: 527
+14:40:41.013   ET70 Z-spacing counts read: 614
+Selecting pre-filter: 2
+14:40:50.270   FilterMatrix sending controller command: 394.000000 1 nm
+14:40:50.272   FilterMatrix sending controller command: 278.000000 2 nm
+Selecting pre-filter: 2
+14:40:50.273   FilterMatrix sending controller command: 394.000000 1 nm
+14:40:50.274   FilterMatrix sending controller command: 278.000000 2 nm
+14:40:50.276   FocusStages sending controller command: 8.500000 1 nm
+14:40:50.277   FocusStages sending controller command: 15.800000 2 nm
+14:40:50.278   ET50 controller command sent: I405AP1P0?
+14:40:50.279   ET70 controller command sent: I4F90P1P0?
+14:40:50.310   ET50 Z-spacing counts read: 90
+14:40:50.312   ET70 Z-spacing counts read: -112
+14:41:03.013   FilterMatrix sending controller command: 1 np
+14:41:03.018   FilterMatrix received controller response: 393.999985
+
+14:41:03.020   FilterMatrix sending controller command: 2 np
+14:41:03.025   FilterMatrix received controller response: 278.000000
+
+14:41:03.027   ET50 controller command sent: ?
+14:41:03.230   ET70 controller command sent: ?
+14:41:03.433   FocusStages sending controller command: 1 np
+14:41:03.439   FocusStages received controller response: 8.500000
+
+14:41:03.441   FocusStages sending controller command: 2 np
+14:41:03.446   FocusStages received controller response: 15.800000
+
+14:41:03.448   ET50 Z-spacing counts read: 90
+14:41:03.449   ET70 Z-spacing counts read: -112
+14:41:08.067   FocusStages sending controller command: 1.000000 2 nm
+14:41:08.118   FocusStages sending controller command: 16.000000 2 nm
+14:41:10.211   FocusStages sending controller command: 16.500000 2 nm
+14:41:11.016   FocusStages sending controller command: 17.000000 2 nm
+14:41:11.678   FocusStages sending controller command: 17.500000 2 nm
+14:41:12.130   FocusStages sending controller command: 18.000000 2 nm
+14:41:12.398   FocusStages sending controller command: 18.500000 2 nm
+14:41:12.676   FocusStages sending controller command: 19.000000 2 nm
+14:41:12.908   FocusStages sending controller command: 19.500000 2 nm
+14:41:13.112   FocusStages sending controller command: 20.000000 2 nm
+14:41:13.315   FocusStages sending controller command: 20.500000 2 nm
+14:41:13.528   FocusStages sending controller command: 21.000000 2 nm
+14:41:14.008   FocusStages sending controller command: 20.500000 2 nm
+14:41:14.244   FocusStages sending controller command: 20.000000 2 nm
+14:41:14.405   FocusStages sending controller command: 19.500000 2 nm
+14:41:14.563   FocusStages sending controller command: 19.000000 2 nm
+14:41:14.724   FocusStages sending controller command: 18.500000 2 nm
+14:41:14.888   FocusStages sending controller command: 18.000000 2 nm
+14:41:15.062   FocusStages sending controller command: 17.500000 2 nm
+14:41:15.290   FocusStages sending controller command: 17.000000 2 nm
+14:41:21.347   BroadbandDetector stopped acquisition
+14:41:21.652   PolarimeterDetector-1 stopped acquisition
+14:41:26.989   BroadbandDetector frame description: 512x512 - 768||768 (1x1)
+14:41:26.994   BroadbandDetector exposure time is set to 20000
+14:41:26.994   BroadbandDetector frame binning is set to 1
+14:41:26.994   BroadbandDetector frame width is set to 512
+14:41:26.994   BroadbandDetector frame height is set to 512
+14:41:26.994   BroadbandDetector frame x-offset is set to 768
+14:41:26.994   BroadbandDetector frame y-offset is set to 768
+14:41:26.995   BroadbandDetector buffer queue size set to 251 frames
+14:41:26.995   BroadbandDetector setting up trigger: 0
+14:41:27.386   BroadbandDetector started acquisition
+14:41:27.386   PolarimeterDetector-1 frame description: 512x512 - 768||768 (1x1)
+14:41:27.388   PolarimeterDetector-1 exposure time is set to 10000
+14:41:27.388   PolarimeterDetector-1 frame binning is set to 1
+14:41:27.388   PolarimeterDetector-1 frame width is set to 512
+14:41:27.388   PolarimeterDetector-1 frame height is set to 512
+14:41:27.388   PolarimeterDetector-1 frame x-offset is set to 768
+14:41:27.388   PolarimeterDetector-1 frame y-offset is set to 768
+14:41:27.388   PolarimeterDetector-1 buffer queue size set to 251 frames
+14:41:27.388   PolarimeterDetector-1 setting up trigger: 0
+14:41:27.802   PolarimeterDetector-1 started acquisition
+14:41:31.959   BroadbandDetector stopped acquisition
+14:41:32.233   PolarimeterDetector-1 stopped acquisition
+14:41:35.186   BroadbandDetector frame description: 512x512 - 768||768 (1x1)
+14:41:35.191   BroadbandDetector exposure time is set to 20000
+14:41:35.191   BroadbandDetector frame binning is set to 1
+14:41:35.191   BroadbandDetector frame width is set to 512
+14:41:35.191   BroadbandDetector frame height is set to 512
+14:41:35.191   BroadbandDetector frame x-offset is set to 768
+14:41:35.191   BroadbandDetector frame y-offset is set to 768
+14:41:35.191   BroadbandDetector buffer queue size set to 251 frames
+14:41:35.191   BroadbandDetector setting up trigger: 0
+14:41:35.578   BroadbandDetector started acquisition
+14:41:35.578   PolarimeterDetector-1 frame description: 512x512 - 768||768 (1x1)
+14:41:35.579   PolarimeterDetector-1 exposure time is set to 50000
+14:41:35.580   PolarimeterDetector-1 frame binning is set to 1
+14:41:35.580   PolarimeterDetector-1 frame width is set to 512
+14:41:35.580   PolarimeterDetector-1 frame height is set to 512
+14:41:35.580   PolarimeterDetector-1 frame x-offset is set to 768
+14:41:35.580   PolarimeterDetector-1 frame y-offset is set to 768
+14:41:35.580   PolarimeterDetector-1 buffer queue size set to 251 frames
+14:41:35.580   PolarimeterDetector-1 setting up trigger: 0
+14:41:35.973   PolarimeterDetector-1 started acquisition
+14:41:47.142   FocusStages sending controller command: 16.500000 2 nm
+14:41:47.827   FocusStages sending controller command: 16.000000 2 nm
+14:41:49.232   FocusStages sending controller command: 15.500000 2 nm
+14:41:50.035   FocusStages sending controller command: 16.000000 2 nm
+14:41:50.987   FocusStages sending controller command: 16.500000 2 nm
+14:41:51.949   FocusStages sending controller command: 17.000000 2 nm
+14:41:52.949   FocusStages sending controller command: 17.500000 2 nm
+14:41:53.829   FocusStages sending controller command: 18.000000 2 nm
+14:41:54.502   FocusStages sending controller command: 18.500000 2 nm
+14:41:55.079   FocusStages sending controller command: 19.000000 2 nm
+14:41:55.502   FocusStages sending controller command: 19.500000 2 nm
+14:41:55.757   FocusStages sending controller command: 20.000000 2 nm
+14:41:55.945   FocusStages sending controller command: 20.500000 2 nm
+14:41:56.124   FocusStages sending controller command: 21.000000 2 nm
+14:41:56.311   FocusStages sending controller command: 21.500000 2 nm
+14:41:56.811   FocusStages sending controller command: 21.000000 2 nm
+14:41:57.036   FocusStages sending controller command: 20.500000 2 nm
+14:41:57.215   FocusStages sending controller command: 20.000000 2 nm
+14:41:57.391   FocusStages sending controller command: 19.500000 2 nm
+14:41:57.795   FocusStages sending controller command: 19.000000 2 nm
+14:41:58.668   FocusStages sending controller command: 18.500000 2 nm
+14:41:59.351   FocusStages sending controller command: 18.000000 2 nm
+14:42:01.572   FocusStages sending controller command: 17.500000 2 nm
+14:42:02.533   FocusStages sending controller command: 18.000000 2 nm
+14:42:03.120   FocusStages sending controller command: 17.500000 2 nm
+14:42:03.597   FocusStages sending controller command: 18.000000 2 nm
+14:42:04.136   FocusStages sending controller command: 18.500000 2 nm
+14:42:05.257   FocusStages sending controller command: 18.000000 2 nm
+14:42:06.312   FocusStages sending controller command: 17.500000 2 nm
+14:42:06.781   FocusStages sending controller command: 17.000000 2 nm
+14:42:07.311   FocusStages sending controller command: 16.500000 2 nm
+14:42:08.834   FocusStages sending controller command: 17.000000 2 nm
+14:42:09.706   FocusStages sending controller command: 17.500000 2 nm
+14:42:10.319   FocusStages sending controller command: 18.000000 2 nm
+14:42:11.077   FocusStages sending controller command: 17.500000 2 nm
+14:42:11.442   FocusStages sending controller command: 18.000000 2 nm
+14:42:11.693   FocusStages sending controller command: 18.500000 2 nm
+14:42:12.096   FocusStages sending controller command: 19.000000 2 nm
+14:42:12.792   FocusStages sending controller command: 18.500000 2 nm
+14:42:13.242   FocusStages sending controller command: 18.000000 2 nm
+14:42:13.756   FocusStages sending controller command: 17.500000 2 nm
+14:42:30.941   FocusStages sending controller command: 17.600000 2 nm
+14:42:31.656   FocusStages sending controller command: 17.700000 2 nm
+14:42:32.059   FocusStages sending controller command: 17.800000 2 nm
+14:42:32.396   FocusStages sending controller command: 17.900000 2 nm
+14:42:32.639   FocusStages sending controller command: 18.000000 2 nm
+14:42:33.624   FocusStages sending controller command: 17.900000 2 nm
+14:42:33.931   FocusStages sending controller command: 17.800000 2 nm
+14:42:34.323   FocusStages sending controller command: 17.700000 2 nm
+14:42:34.742   FocusStages sending controller command: 17.600000 2 nm
+14:42:35.231   FocusStages sending controller command: 17.500000 2 nm
+14:42:35.813   FocusStages sending controller command: 17.400000 2 nm
+14:42:36.293   FocusStages sending controller command: 17.300000 2 nm
+14:42:36.613   FocusStages sending controller command: 17.200000 2 nm
+14:42:36.813   FocusStages sending controller command: 17.100000 2 nm
+14:42:37.013   FocusStages sending controller command: 17.000000 2 nm
+14:42:37.195   FocusStages sending controller command: 16.900000 2 nm
+14:42:37.371   FocusStages sending controller command: 16.800000 2 nm
+14:42:37.514   FocusStages sending controller command: 16.700000 2 nm
+14:42:37.712   FocusStages sending controller command: 16.600000 2 nm
+14:42:37.876   FocusStages sending controller command: 16.500000 2 nm
+14:42:38.047   FocusStages sending controller command: 16.400000 2 nm
+14:42:38.212   FocusStages sending controller command: 16.300000 2 nm
+14:42:38.381   FocusStages sending controller command: 16.200000 2 nm
+14:42:38.557   FocusStages sending controller command: 16.100000 2 nm
+14:42:38.721   FocusStages sending controller command: 16.000000 2 nm
+14:42:38.894   FocusStages sending controller command: 15.900000 2 nm
+14:42:39.067   FocusStages sending controller command: 15.800000 2 nm
+14:42:39.450   FocusStages sending controller command: 15.900000 2 nm
+14:42:39.679   FocusStages sending controller command: 16.000000 2 nm
+14:42:39.864   FocusStages sending controller command: 16.100000 2 nm
+14:42:40.032   FocusStages sending controller command: 16.200000 2 nm
+14:42:40.195   FocusStages sending controller command: 16.300000 2 nm
+14:42:40.379   FocusStages sending controller command: 16.400000 2 nm
+14:42:40.573   FocusStages sending controller command: 16.500000 2 nm
+14:42:40.774   FocusStages sending controller command: 16.600000 2 nm
+14:42:41.000   FocusStages sending controller command: 16.700000 2 nm
+14:42:41.313   FocusStages sending controller command: 16.800000 2 nm
+14:42:41.660   FocusStages sending controller command: 16.900000 2 nm
+14:42:42.344   FocusStages sending controller command: 17.000000 2 nm
+14:42:43.620   FocusStages sending controller command: 17.100000 2 nm
+14:42:44.197   FocusStages sending controller command: 17.200000 2 nm
+14:42:44.742   FocusStages sending controller command: 17.300000 2 nm
+14:42:45.142   FocusStages sending controller command: 17.400000 2 nm
+14:42:45.460   FocusStages sending controller command: 17.500000 2 nm
+14:42:45.726   FocusStages sending controller command: 17.600000 2 nm
+14:42:45.976   FocusStages sending controller command: 17.700000 2 nm
+14:42:46.193   FocusStages sending controller command: 17.800000 2 nm
+14:42:46.422   FocusStages sending controller command: 17.900000 2 nm
+14:42:46.617   FocusStages sending controller command: 18.000000 2 nm
+14:42:46.811   FocusStages sending controller command: 18.100000 2 nm
+14:42:46.996   FocusStages sending controller command: 18.200000 2 nm
+14:42:49.573   FocusStages sending controller command: 18.300000 2 nm
+14:42:50.123   FocusStages sending controller command: 18.400000 2 nm
+14:42:50.394   FocusStages sending controller command: 18.500000 2 nm
+14:42:50.619   FocusStages sending controller command: 18.600000 2 nm
+14:42:50.838   FocusStages sending controller command: 18.700000 2 nm
+14:42:51.049   FocusStages sending controller command: 18.800000 2 nm
+14:42:51.374   FocusStages sending controller command: 18.900000 2 nm
+14:42:51.649   FocusStages sending controller command: 19.000000 2 nm
+14:42:51.885   FocusStages sending controller command: 19.100000 2 nm
+14:42:52.082   FocusStages sending controller command: 19.200000 2 nm
+14:42:52.269   FocusStages sending controller command: 19.300000 2 nm
+14:42:52.462   FocusStages sending controller command: 19.400000 2 nm
+14:42:52.655   FocusStages sending controller command: 19.500000 2 nm
+14:42:53.017   FocusStages sending controller command: 19.400000 2 nm
+14:42:53.249   FocusStages sending controller command: 19.300000 2 nm
+14:42:53.436   FocusStages sending controller command: 19.200000 2 nm
+14:42:53.638   FocusStages sending controller command: 19.100000 2 nm
+14:42:53.863   FocusStages sending controller command: 19.000000 2 nm
+14:42:54.237   FocusStages sending controller command: 18.900000 2 nm
+14:42:54.499   FocusStages sending controller command: 18.800000 2 nm
+14:42:54.812   FocusStages sending controller command: 18.700000 2 nm
+14:42:55.319   FocusStages sending controller command: 18.600000 2 nm
+14:42:56.599   FocusStages sending controller command: 18.500000 2 nm
+14:42:56.789   FocusStages sending controller command: 18.400000 2 nm
+14:42:56.962   FocusStages sending controller command: 18.300000 2 nm
+14:42:57.370   FocusStages sending controller command: 18.200000 2 nm
+14:42:57.627   FocusStages sending controller command: 18.100000 2 nm
+14:42:58.272   FocusStages sending controller command: 18.000000 2 nm
+14:43:08.781   FocusStages sending controller command: 9.000000 1 nm
+14:43:09.562   FocusStages sending controller command: 9.000000 1 nm
+14:43:10.958   FocusStages sending controller command: 8.900000 1 nm
+14:43:11.696   FocusStages sending controller command: 8.800000 1 nm
+14:43:12.002   FocusStages sending controller command: 8.700000 1 nm
+14:43:12.223   FocusStages sending controller command: 8.600000 1 nm
+14:43:12.420   FocusStages sending controller command: 8.500000 1 nm
+14:43:12.585   FocusStages sending controller command: 8.400000 1 nm
+14:43:12.761   FocusStages sending controller command: 8.300000 1 nm
+14:43:12.926   FocusStages sending controller command: 8.200000 1 nm
+14:43:13.082   FocusStages sending controller command: 8.100000 1 nm
+14:43:13.581   FocusStages sending controller command: 8.000000 1 nm
+14:43:13.584   FocusStages sending controller command: 7.900000 1 nm
+14:43:13.619   FocusStages sending controller command: 7.800000 1 nm
+14:43:13.648   FocusStages sending controller command: 7.700000 1 nm
+14:43:13.681   FocusStages sending controller command: 7.600000 1 nm
+14:43:13.718   FocusStages sending controller command: 7.500000 1 nm
+14:43:13.748   FocusStages sending controller command: 7.400000 1 nm
+14:43:13.781   FocusStages sending controller command: 7.300000 1 nm
+14:43:13.815   FocusStages sending controller command: 7.200000 1 nm
+14:43:13.846   FocusStages sending controller command: 7.100000 1 nm
+14:43:13.881   FocusStages sending controller command: 7.000000 1 nm
+14:43:13.918   FocusStages sending controller command: 6.900000 1 nm
+14:43:13.946   FocusStages sending controller command: 6.800000 1 nm
+14:43:13.979   FocusStages sending controller command: 6.700000 1 nm
+14:43:14.015   FocusStages sending controller command: 6.600000 1 nm
+14:43:14.047   FocusStages sending controller command: 6.500000 1 nm
+14:43:14.079   FocusStages sending controller command: 6.400000 1 nm
+14:43:14.093   FocusStages sending controller command: 6.300000 1 nm
+14:43:14.130   FocusStages sending controller command: 6.200000 1 nm
+14:43:14.162   FocusStages sending controller command: 6.100000 1 nm
+14:43:14.208   FocusStages sending controller command: 6.000000 1 nm
+14:43:14.255   FocusStages sending controller command: 5.900000 1 nm
+14:43:14.290   FocusStages sending controller command: 5.800000 1 nm
+14:43:14.334   FocusStages sending controller command: 5.700000 1 nm
+14:43:14.380   FocusStages sending controller command: 5.600000 1 nm
+14:43:14.797   FocusStages sending controller command: 5.500000 1 nm
+14:43:15.301   FocusStages sending controller command: 5.400000 1 nm
+14:43:15.304   FocusStages sending controller command: 5.300000 1 nm
+14:43:15.333   FocusStages sending controller command: 5.200000 1 nm
+14:43:15.370   FocusStages sending controller command: 5.100000 1 nm
+14:43:15.399   FocusStages sending controller command: 5.000000 1 nm
+14:43:15.431   FocusStages sending controller command: 4.900000 1 nm
+14:43:15.469   FocusStages sending controller command: 4.800000 1 nm
+14:43:15.497   FocusStages sending controller command: 4.700000 1 nm
+14:43:15.531   FocusStages sending controller command: 4.600000 1 nm
+14:43:15.570   FocusStages sending controller command: 4.500000 1 nm
+14:43:15.599   FocusStages sending controller command: 4.400000 1 nm
+14:43:15.632   FocusStages sending controller command: 4.300000 1 nm
+14:43:15.669   FocusStages sending controller command: 4.200000 1 nm
+14:43:15.700   FocusStages sending controller command: 4.100000 1 nm
+14:43:15.730   FocusStages sending controller command: 4.000000 1 nm
+14:43:15.981   FocusStages sending controller command: 4.100000 1 nm
+14:43:16.050   FocusStages sending controller command: 4.000000 1 nm
+14:43:16.884   FocusStages sending controller command: 4.100000 1 nm
+14:43:17.385   FocusStages sending controller command: 4.200000 1 nm
+14:43:17.388   FocusStages sending controller command: 4.300000 1 nm
+14:43:17.419   FocusStages sending controller command: 4.400000 1 nm
+14:43:17.452   FocusStages sending controller command: 4.500000 1 nm
+14:43:17.485   FocusStages sending controller command: 4.600000 1 nm
+14:43:17.519   FocusStages sending controller command: 4.700000 1 nm
+14:43:17.552   FocusStages sending controller command: 4.800000 1 nm
+14:43:17.585   FocusStages sending controller command: 4.900000 1 nm
+14:43:17.621   FocusStages sending controller command: 5.000000 1 nm
+14:43:17.652   FocusStages sending controller command: 5.100000 1 nm
+14:43:17.684   FocusStages sending controller command: 5.200000 1 nm
+14:43:17.720   FocusStages sending controller command: 5.300000 1 nm
+14:43:17.926   FocusStages sending controller command: 5.400000 1 nm
+14:43:18.425   FocusStages sending controller command: 5.500000 1 nm
+14:43:18.427   FocusStages sending controller command: 5.600000 1 nm
+14:43:18.455   FocusStages sending controller command: 5.700000 1 nm
+14:43:18.489   FocusStages sending controller command: 5.800000 1 nm
+14:43:18.525   FocusStages sending controller command: 5.900000 1 nm
+14:43:18.554   FocusStages sending controller command: 6.000000 1 nm
+14:43:18.587   FocusStages sending controller command: 6.100000 1 nm
+14:43:18.621   FocusStages sending controller command: 6.200000 1 nm
+14:43:18.654   FocusStages sending controller command: 6.300000 1 nm
+14:43:18.904   FocusStages sending controller command: 6.400000 1 nm
+14:43:19.404   FocusStages sending controller command: 6.500000 1 nm
+14:43:19.407   FocusStages sending controller command: 6.600000 1 nm
+14:43:19.780   FocusStages sending controller command: 6.700000 1 nm
+14:43:20.406   FocusStages sending controller command: 6.800000 1 nm
+14:43:20.971   FocusStages sending controller command: 6.900000 1 nm
+14:43:21.206   FocusStages sending controller command: 7.000000 1 nm
+14:43:21.408   FocusStages sending controller command: 7.100000 1 nm
+14:43:21.612   FocusStages sending controller command: 7.200000 1 nm
+14:43:21.802   FocusStages sending controller command: 7.300000 1 nm
+14:43:22.006   FocusStages sending controller command: 7.400000 1 nm
+14:43:23.060   FocusStages sending controller command: 7.500000 1 nm
+14:43:23.279   FocusStages sending controller command: 7.600000 1 nm
+14:43:23.466   FocusStages sending controller command: 7.700000 1 nm
+14:43:23.656   FocusStages sending controller command: 7.800000 1 nm
+14:43:23.840   FocusStages sending controller command: 7.900000 1 nm
+14:43:24.032   FocusStages sending controller command: 8.000000 1 nm
+14:43:24.222   FocusStages sending controller command: 8.100000 1 nm
+14:43:24.391   FocusStages sending controller command: 8.200000 1 nm
+14:43:24.572   FocusStages sending controller command: 8.300000 1 nm
+14:43:24.737   FocusStages sending controller command: 8.400000 1 nm
+14:43:24.911   FocusStages sending controller command: 8.500000 1 nm
+14:43:25.090   FocusStages sending controller command: 8.600000 1 nm
+14:43:25.256   FocusStages sending controller command: 8.700000 1 nm
+14:43:25.471   FocusStages sending controller command: 8.800000 1 nm
+14:43:25.657   FocusStages sending controller command: 8.900000 1 nm
+14:43:25.840   FocusStages sending controller command: 9.000000 1 nm
+14:43:26.053   FocusStages sending controller command: 9.100000 1 nm
+14:43:26.291   FocusStages sending controller command: 9.200000 1 nm
+14:43:26.385   FocusStages sending controller command: 9.300000 1 nm
+14:43:27.924   FocusStages sending controller command: 9.200000 1 nm
+14:43:28.156   FocusStages sending controller command: 9.100000 1 nm
+14:43:28.318   FocusStages sending controller command: 9.000000 1 nm
+14:43:28.478   FocusStages sending controller command: 8.900000 1 nm
+14:43:28.635   FocusStages sending controller command: 8.800000 1 nm
+14:43:28.796   FocusStages sending controller command: 8.700000 1 nm
+14:43:28.973   FocusStages sending controller command: 8.600000 1 nm
+14:43:29.153   FocusStages sending controller command: 8.500000 1 nm
+14:43:29.668   FocusStages sending controller command: 8.400000 1 nm
+14:43:29.859   FocusStages sending controller command: 8.300000 1 nm
+14:43:30.731   FocusStages sending controller command: 8.400000 1 nm
+14:43:30.938   FocusStages sending controller command: 8.500000 1 nm
+Selecting pre-filter: 1
+14:44:12.791   FilterMatrix sending controller command: 394.000000 1 nm
+14:44:12.793   FilterMatrix sending controller command: 340.500000 2 nm
+Selecting pre-filter: 1
+14:44:12.796   FilterMatrix sending controller command: 394.000000 1 nm
+14:44:12.798   FilterMatrix sending controller command: 340.500000 2 nm
+14:44:12.799   FocusStages sending controller command: 12.200000 1 nm
+14:44:12.802   FocusStages sending controller command: 12.400000 2 nm
+14:44:12.804   ET50 controller command sent: I420FP1P0?
+14:44:12.805   ET70 controller command sent: I4266P1P0?
+14:44:12.836   ET50 Z-spacing counts read: 527
+14:44:12.838   ET70 Z-spacing counts read: 614
+14:44:26.744   FilterMatrix sending controller command: 1 np
+14:44:26.749   FilterMatrix received controller response: 393.999999
+
+14:44:26.751   FilterMatrix sending controller command: 2 np
+14:44:26.756   FilterMatrix received controller response: 340.499994
+
+14:44:26.757   ET50 controller command sent: ?
+14:44:26.959   ET70 controller command sent: ?
+14:44:27.162   FocusStages sending controller command: 1 np
+14:44:27.169   FocusStages received controller response: 12.200000
+
+14:44:27.170   FocusStages sending controller command: 2 np
+14:44:27.174   FocusStages received controller response: 12.400000
+
+14:44:27.177   ET50 Z-spacing counts read: 527
+14:44:27.179   ET70 Z-spacing counts read: 614
+14:44:32.326   FocusStages sending controller command: 1.000000 1 nm
+14:44:32.389   FocusStages sending controller command: 12.000000 1 nm
+14:44:33.948   FocusStages sending controller command: 12.100000 1 nm
+14:44:34.212   FocusStages sending controller command: 12.200000 1 nm
+14:44:34.658   FocusStages sending controller command: 12.300000 1 nm
+14:44:35.159   FocusStages sending controller command: 12.400000 1 nm
+14:44:35.162   FocusStages sending controller command: 12.500000 1 nm
+14:44:35.194   FocusStages sending controller command: 12.600000 1 nm
+14:44:35.226   FocusStages sending controller command: 12.700000 1 nm
+14:44:35.259   FocusStages sending controller command: 12.800000 1 nm
+14:44:35.294   FocusStages sending controller command: 12.900000 1 nm
+14:44:35.326   FocusStages sending controller command: 13.000000 1 nm
+14:44:35.358   FocusStages sending controller command: 13.100000 1 nm
+14:44:35.393   FocusStages sending controller command: 13.200000 1 nm
+14:44:35.424   FocusStages sending controller command: 13.300000 1 nm
+14:44:35.457   FocusStages sending controller command: 13.400000 1 nm
+14:44:35.494   FocusStages sending controller command: 13.500000 1 nm
+14:44:35.525   FocusStages sending controller command: 13.600000 1 nm
+14:44:35.558   FocusStages sending controller command: 13.700000 1 nm
+14:44:35.594   FocusStages sending controller command: 13.800000 1 nm
+14:44:35.849   FocusStages sending controller command: 13.700000 1 nm
+14:44:36.352   FocusStages sending controller command: 13.600000 1 nm
+14:44:36.353   FocusStages sending controller command: 13.500000 1 nm
+14:44:36.382   FocusStages sending controller command: 13.400000 1 nm
+14:44:36.416   FocusStages sending controller command: 13.300000 1 nm
+14:44:36.450   FocusStages sending controller command: 13.200000 1 nm
+14:44:36.482   FocusStages sending controller command: 13.100000 1 nm
+14:44:36.515   FocusStages sending controller command: 13.000000 1 nm
+14:44:36.550   FocusStages sending controller command: 12.900000 1 nm
+14:44:36.581   FocusStages sending controller command: 12.800000 1 nm
+14:44:36.614   FocusStages sending controller command: 12.700000 1 nm
+14:44:36.648   FocusStages sending controller command: 12.600000 1 nm
+14:44:36.682   FocusStages sending controller command: 12.500000 1 nm
+14:44:36.715   FocusStages sending controller command: 12.400000 1 nm
+14:44:36.958   FocusStages sending controller command: 12.300000 1 nm
+14:44:37.460   FocusStages sending controller command: 12.200000 1 nm
+14:44:37.462   FocusStages sending controller command: 12.100000 1 nm
+14:44:37.494   FocusStages sending controller command: 12.000000 1 nm
+14:44:37.526   FocusStages sending controller command: 11.900000 1 nm
+14:44:37.559   FocusStages sending controller command: 11.800000 1 nm
+14:44:37.956   FocusStages sending controller command: 11.700000 1 nm
+14:44:38.186   FocusStages sending controller command: 11.600000 1 nm
+14:44:38.345   FocusStages sending controller command: 11.500000 1 nm
+14:44:38.846   FocusStages sending controller command: 11.400000 1 nm
+14:44:38.849   FocusStages sending controller command: 11.300000 1 nm
+14:44:38.876   FocusStages sending controller command: 11.200000 1 nm
+14:44:38.910   FocusStages sending controller command: 11.100000 1 nm
+14:44:38.944   FocusStages sending controller command: 11.000000 1 nm
+14:44:38.977   FocusStages sending controller command: 10.900000 1 nm
+14:44:39.010   FocusStages sending controller command: 10.800000 1 nm
+14:44:39.047   FocusStages sending controller command: 10.700000 1 nm
+14:44:39.076   FocusStages sending controller command: 10.600000 1 nm
+14:44:39.545   FocusStages sending controller command: 10.500000 1 nm
+14:44:39.984   FocusStages sending controller command: 10.400000 1 nm
+14:44:40.181   FocusStages sending controller command: 10.300000 1 nm
+14:44:40.366   FocusStages sending controller command: 10.200000 1 nm
+14:44:47.354   FocusStages sending controller command: 10.100000 1 nm
+14:44:47.559   FocusStages sending controller command: 10.000000 1 nm
+14:44:47.726   FocusStages sending controller command: 9.900000 1 nm
+14:44:47.874   FocusStages sending controller command: 9.800000 1 nm
+14:44:48.016   FocusStages sending controller command: 9.700000 1 nm
+14:44:48.521   FocusStages sending controller command: 9.600000 1 nm
+14:44:48.524   FocusStages sending controller command: 9.500000 1 nm
+14:44:48.554   FocusStages sending controller command: 9.400000 1 nm
+14:44:48.584   FocusStages sending controller command: 9.300000 1 nm
+14:44:48.616   FocusStages sending controller command: 9.200000 1 nm
+14:44:48.654   FocusStages sending controller command: 9.100000 1 nm
+14:44:48.684   FocusStages sending controller command: 9.000000 1 nm
+14:44:48.718   FocusStages sending controller command: 8.900000 1 nm
+14:44:48.754   FocusStages sending controller command: 8.800000 1 nm
+14:44:48.784   FocusStages sending controller command: 8.700000 1 nm
+14:44:48.817   FocusStages sending controller command: 8.600000 1 nm
+14:44:49.298   FocusStages sending controller command: 8.700000 1 nm
+14:44:49.799   FocusStages sending controller command: 8.800000 1 nm
+14:44:49.802   FocusStages sending controller command: 8.900000 1 nm
+14:44:49.827   FocusStages sending controller command: 9.000000 1 nm
+14:44:49.861   FocusStages sending controller command: 9.100000 1 nm
+14:44:49.898   FocusStages sending controller command: 9.200000 1 nm
+14:44:49.927   FocusStages sending controller command: 9.300000 1 nm
+14:44:49.960   FocusStages sending controller command: 9.400000 1 nm
+14:44:50.265   FocusStages sending controller command: 9.500000 1 nm
+14:44:50.455   FocusStages sending controller command: 9.600000 1 nm
+14:44:50.638   FocusStages sending controller command: 9.700000 1 nm
+14:44:50.798   FocusStages sending controller command: 9.800000 1 nm
+14:44:50.953   FocusStages sending controller command: 9.900000 1 nm
+14:44:51.099   FocusStages sending controller command: 10.000000 1 nm
+14:44:51.241   FocusStages sending controller command: 10.100000 1 nm
+14:44:51.379   FocusStages sending controller command: 10.200000 1 nm
+14:44:51.500   FocusStages sending controller command: 10.300000 1 nm
+14:44:51.677   FocusStages sending controller command: 10.400000 1 nm
+14:44:51.842   FocusStages sending controller command: 10.500000 1 nm
+14:44:52.005   FocusStages sending controller command: 10.600000 1 nm
+14:44:52.254   FocusStages sending controller command: 10.700000 1 nm
+14:44:52.591   FocusStages sending controller command: 10.800000 1 nm
+14:44:52.987   FocusStages sending controller command: 10.900000 1 nm
+14:44:53.472   FocusStages sending controller command: 11.000000 1 nm
+14:44:53.660   FocusStages sending controller command: 11.100000 1 nm
+14:44:53.842   FocusStages sending controller command: 11.200000 1 nm
+14:44:54.032   FocusStages sending controller command: 11.300000 1 nm
+14:44:54.519   FocusStages sending controller command: 11.400000 1 nm
+14:44:56.308   FocusStages sending controller command: 11.500000 1 nm
+14:44:56.805   FocusStages sending controller command: 11.600000 1 nm
+14:44:56.808   FocusStages sending controller command: 11.700000 1 nm
+14:44:56.839   FocusStages sending controller command: 11.800000 1 nm
+14:44:56.872   FocusStages sending controller command: 11.900000 1 nm
+14:44:56.906   FocusStages sending controller command: 12.000000 1 nm
+14:44:56.938   FocusStages sending controller command: 12.100000 1 nm
+14:44:56.972   FocusStages sending controller command: 12.200000 1 nm
+14:44:57.008   FocusStages sending controller command: 12.300000 1 nm
+14:44:58.259   FocusStages sending controller command: 12.200000 1 nm
+14:44:58.939   FocusStages sending controller command: 12.100000 1 nm
+14:44:59.136   FocusStages sending controller command: 12.000000 1 nm
+14:44:59.311   FocusStages sending controller command: 11.900000 1 nm
+14:44:59.482   FocusStages sending controller command: 11.800000 1 nm
+14:44:59.653   FocusStages sending controller command: 11.700000 1 nm
+14:44:59.821   FocusStages sending controller command: 11.600000 1 nm
+14:44:59.995   FocusStages sending controller command: 11.500000 1 nm
+14:45:00.359   FocusStages sending controller command: 11.400000 1 nm
+14:45:00.557   FocusStages sending controller command: 11.300000 1 nm
+14:45:00.767   FocusStages sending controller command: 11.200000 1 nm
+14:45:00.964   FocusStages sending controller command: 11.100000 1 nm
+14:45:01.355   FocusStages sending controller command: 11.000000 1 nm
+14:45:01.610   FocusStages sending controller command: 10.900000 1 nm
+14:45:02.532   FocusStages sending controller command: 10.800000 1 nm
+14:45:02.708   FocusStages sending controller command: 10.700000 1 nm
+14:45:03.352   FocusStages sending controller command: 10.800000 1 nm
+14:45:03.573   FocusStages sending controller command: 10.900000 1 nm
+14:45:03.758   FocusStages sending controller command: 11.000000 1 nm
+14:45:03.936   FocusStages sending controller command: 11.100000 1 nm
+14:45:04.109   FocusStages sending controller command: 11.200000 1 nm
+14:45:04.284   FocusStages sending controller command: 11.300000 1 nm
+14:45:04.457   FocusStages sending controller command: 11.400000 1 nm
+14:45:04.614   FocusStages sending controller command: 11.500000 1 nm
+14:45:04.764   FocusStages sending controller command: 11.600000 1 nm
+14:45:04.984   FocusStages sending controller command: 11.700000 1 nm
+14:45:05.160   FocusStages sending controller command: 11.800000 1 nm
+14:45:05.322   FocusStages sending controller command: 11.900000 1 nm
+14:45:05.470   FocusStages sending controller command: 12.000000 1 nm
+14:45:05.612   FocusStages sending controller command: 12.100000 1 nm
+14:45:05.757   FocusStages sending controller command: 12.200000 1 nm
+14:45:05.897   FocusStages sending controller command: 12.300000 1 nm
+14:45:06.041   FocusStages sending controller command: 12.400000 1 nm
+14:45:06.308   FocusStages sending controller command: 12.500000 1 nm
+14:45:06.727   FocusStages sending controller command: 12.400000 1 nm
+14:45:06.912   FocusStages sending controller command: 12.300000 1 nm
+14:45:12.491   FocusStages sending controller command: 11.800000 1 nm
+14:45:13.212   FocusStages sending controller command: 11.300000 1 nm
+14:45:14.066   FocusStages sending controller command: 10.800000 1 nm
+14:45:14.770   FocusStages sending controller command: 10.300000 1 nm
+14:45:15.597   FocusStages sending controller command: 9.800000 1 nm
+14:45:16.256   FocusStages sending controller command: 9.300000 1 nm
+14:45:16.787   FocusStages sending controller command: 9.800000 1 nm
+14:45:17.253   FocusStages sending controller command: 10.300000 1 nm
+14:45:17.803   FocusStages sending controller command: 10.800000 1 nm
+14:45:18.721   FocusStages sending controller command: 11.300000 1 nm
+14:45:19.848   FocusStages sending controller command: 11.800000 1 nm
+14:45:20.840   FocusStages sending controller command: 11.300000 1 nm
+14:45:22.046   FocusStages sending controller command: 11.800000 1 nm
+14:45:22.524   FocusStages sending controller command: 12.300000 1 nm
+14:45:23.147   FocusStages sending controller command: 11.800000 1 nm
+14:45:23.770   FocusStages sending controller command: 11.300000 1 nm
+14:45:25.569   FocusStages sending controller command: 10.800000 1 nm
+14:45:28.495   FocusStages sending controller command: 1.000000 1 nm
+14:45:30.768   FocusStages sending controller command: 11.000000 1 nm
+14:45:35.206   FocusStages sending controller command: 11.500000 1 nm
+14:45:36.669   FocusStages sending controller command: 11.000000 1 nm
+14:45:37.113   FocusStages sending controller command: 10.500000 1 nm
+14:45:38.044   FocusStages sending controller command: 11.000000 1 nm
+14:45:38.459   FocusStages sending controller command: 11.500000 1 nm
+14:45:38.888   FocusStages sending controller command: 12.000000 1 nm
+14:45:40.364   FocusStages sending controller command: 11.500000 1 nm
+14:45:41.199   FocusStages sending controller command: 11.000000 1 nm
+14:45:41.871   FocusStages sending controller command: 10.500000 1 nm
+14:45:42.870   FocusStages sending controller command: 11.000000 1 nm
+14:45:49.212   FocusStages sending controller command: 1.000000 2 nm
+14:45:50.267   FocusStages sending controller command: 12.000000 2 nm
+14:45:51.176   FocusStages sending controller command: 12.000000 2 nm
+14:46:05.880   FocusStages sending controller command: 12.500000 2 nm
+14:46:06.830   FocusStages sending controller command: 13.000000 2 nm
+14:46:07.231   FocusStages sending controller command: 13.500000 2 nm
+14:46:07.479   FocusStages sending controller command: 14.000000 2 nm
+14:46:07.727   FocusStages sending controller command: 14.500000 2 nm
+14:46:07.969   FocusStages sending controller command: 15.000000 2 nm
+14:46:08.546   FocusStages sending controller command: 14.500000 2 nm
+14:46:08.756   FocusStages sending controller command: 14.000000 2 nm
+14:46:08.958   FocusStages sending controller command: 13.500000 2 nm
+14:46:09.148   FocusStages sending controller command: 13.000000 2 nm
+14:46:09.768   FocusStages sending controller command: 12.500000 2 nm
+14:46:10.335   FocusStages sending controller command: 12.000000 2 nm
+14:46:12.065   FocusStages sending controller command: 12.500000 2 nm
+14:46:12.941   FocusStages sending controller command: 13.000000 2 nm
+14:46:13.812   FocusStages sending controller command: 13.500000 2 nm
+14:46:14.588   FocusStages sending controller command: 14.000000 2 nm
+14:46:15.481   FocusStages sending controller command: 13.500000 2 nm
+14:46:16.229   FocusStages sending controller command: 13.000000 2 nm
+14:46:17.047   FocusStages sending controller command: 12.500000 2 nm
+14:46:19.483   FocusStages sending controller command: 12.000000 2 nm
+14:46:20.535   FocusStages sending controller command: 12.500000 2 nm
+14:46:21.763   FocusStages sending controller command: 13.000000 2 nm
+14:46:22.427   FocusStages sending controller command: 13.500000 2 nm
+14:46:23.234   FocusStages sending controller command: 13.000000 2 nm
+Selecting pre-filter: 2
+14:46:47.248   FilterMatrix sending controller command: 394.000000 1 nm
+14:46:47.250   FilterMatrix sending controller command: 278.000000 2 nm
+Selecting pre-filter: 2
+14:46:47.253   FilterMatrix sending controller command: 394.000000 1 nm
+14:46:47.254   FilterMatrix sending controller command: 278.000000 2 nm
+14:46:47.256   FocusStages sending controller command: 8.500000 1 nm
+14:46:47.259   FocusStages sending controller command: 15.800000 2 nm
+14:46:47.261   ET50 controller command sent: I405AP1P0?
+14:46:47.263   ET70 controller command sent: I4F90P1P0?
+14:46:47.292   ET50 Z-spacing counts read: 90
+14:46:47.297   ET70 Z-spacing counts read: -112
+14:46:53.341   FilterMatrix sending controller command: 1 np
+14:46:53.346   FilterMatrix received controller response: 394.000009
+
+14:46:53.347   FilterMatrix sending controller command: 2 np
+14:46:53.351   FilterMatrix received controller response: 277.999981
+
+14:46:53.353   ET50 controller command sent: ?
+14:46:53.555   ET70 controller command sent: ?
+14:46:53.758   FocusStages sending controller command: 1 np
+14:46:53.764   FocusStages received controller response: 8.500000
+
+14:46:53.766   FocusStages sending controller command: 2 np
+14:46:53.770   FocusStages received controller response: 15.800000
+
+14:46:53.774   ET50 Z-spacing counts read: 90
+14:46:53.776   ET70 Z-spacing counts read: -112
+14:46:58.189   FocusStages sending controller command: 1.000000 2 nm
+14:46:58.291   FocusStages sending controller command: 18.000000 2 nm
+14:46:58.670   FocusStages sending controller command: 18.000000 2 nm
+14:47:03.498   FocusStages sending controller command: 1.000000 2 nm
+14:47:03.707   FocusStages sending controller command: 17.000000 2 nm
+14:47:06.843   FocusStages sending controller command: 17.500000 2 nm
+14:47:07.391   FocusStages sending controller command: 18.000000 2 nm
+14:47:07.880   FocusStages sending controller command: 18.500000 2 nm
+14:47:08.314   FocusStages sending controller command: 19.000000 2 nm
+14:47:08.799   FocusStages sending controller command: 18.500000 2 nm
+14:47:09.049   FocusStages sending controller command: 18.000000 2 nm
+14:47:09.276   FocusStages sending controller command: 17.500000 2 nm
+14:47:10.478   FocusStages sending controller command: 17.000000 2 nm
+14:47:10.995   FocusStages sending controller command: 16.500000 2 nm
+14:47:11.357   FocusStages sending controller command: 16.000000 2 nm
+14:47:12.113   FocusStages sending controller command: 16.500000 2 nm
+14:47:12.442   FocusStages sending controller command: 17.000000 2 nm
+14:47:13.748   FocusStages sending controller command: 17.500000 2 nm
+14:47:14.492   FocusStages sending controller command: 18.000000 2 nm
+14:47:15.433   FocusStages sending controller command: 17.500000 2 nm
+14:47:16.251   FocusStages sending controller command: 18.000000 2 nm
+14:47:16.593   FocusStages sending controller command: 18.500000 2 nm
+14:47:17.324   FocusStages sending controller command: 18.000000 2 nm
+14:47:18.585   FocusStages sending controller command: 17.500000 2 nm
+14:47:19.246   FocusStages sending controller command: 17.000000 2 nm
+14:47:20.210   FocusStages sending controller command: 17.500000 2 nm
+14:47:30.948   FocusStages sending controller command: 8.000000 1 nm
+14:47:31.504   FocusStages sending controller command: 85.000000 1 nm
+14:47:31.876   FocusStages sending controller command: 85.000000 1 nm
+14:47:33.839   FocusStages sending controller command: 8.000000 1 nm
+14:47:34.279   FocusStages sending controller command: 8.000000 1 nm
+14:47:37.359   FocusStages sending controller command: 8.500000 1 nm
+14:47:38.208   FocusStages sending controller command: 9.000000 1 nm
+14:47:38.914   FocusStages sending controller command: 9.500000 1 nm
+14:47:39.577   FocusStages sending controller command: 9.000000 1 nm
+14:47:40.151   FocusStages sending controller command: 8.500000 1 nm
+14:47:40.801   FocusStages sending controller command: 8.000000 1 nm
+14:47:41.365   FocusStages sending controller command: 7.500000 1 nm
+14:47:41.932   FocusStages sending controller command: 7.000000 1 nm
+14:47:43.529   FocusStages sending controller command: 7.500000 1 nm
+14:47:44.102   FocusStages sending controller command: 8.000000 1 nm
+14:47:44.667   FocusStages sending controller command: 8.500000 1 nm
+14:47:45.954   FocusStages sending controller command: 9.000000 1 nm
+14:47:46.781   FocusStages sending controller command: 8.500000 1 nm
+14:47:47.446   FocusStages sending controller command: 8.000000 1 nm
+14:47:48.110   FocusStages sending controller command: 8.500000 1 nm
+Selecting pre-filter: 6
+14:48:08.388   FilterMatrix sending controller command: 331.500000 1 nm
+14:48:08.390   FilterMatrix sending controller command: 340.500000 2 nm
+Selecting pre-filter: 6
+14:48:08.394   FilterMatrix sending controller command: 331.500000 1 nm
+14:48:08.395   FilterMatrix sending controller command: 340.500000 2 nm
+14:48:08.399   FocusStages sending controller command: 12.000000 1 nm
+14:48:08.400   FocusStages sending controller command: 12.200000 2 nm
+14:48:08.402   ET50 controller command sent: I4122P1P0?
+14:48:08.403   ET70 controller command sent: I4177P1P0?
+14:48:08.443   ET50 Z-spacing counts read: 290
+14:48:08.446   ET70 Z-spacing counts read: 375
+14:48:14.895   FilterMatrix sending controller command: 1 np
+14:48:14.899   FilterMatrix received controller response: 331.499988
+
+14:48:14.901   FilterMatrix sending controller command: 2 np
+14:48:14.905   FilterMatrix received controller response: 340.500006
+
+14:48:14.907   ET50 controller command sent: ?
+14:48:15.109   ET70 controller command sent: ?
+14:48:15.312   FocusStages sending controller command: 1 np
+14:48:15.318   FocusStages received controller response: 12.000000
+
+14:48:15.320   FocusStages sending controller command: 2 np
+14:48:15.325   FocusStages received controller response: 12.200000
+
+14:48:15.328   ET50 Z-spacing counts read: 290
+14:48:15.330   ET70 Z-spacing counts read: 375
+14:48:24.133   FocusStages sending controller command: 1.000000 1 nm
+14:48:24.170   FocusStages sending controller command: 12.000000 1 nm
+14:48:25.943   FocusStages sending controller command: 12.500000 1 nm
+14:48:26.947   FocusStages sending controller command: 13.000000 1 nm
+14:48:27.686   FocusStages sending controller command: 12.500000 1 nm
+14:48:28.173   FocusStages sending controller command: 12.000000 1 nm
+14:48:28.917   FocusStages sending controller command: 11.500000 1 nm
+14:48:29.535   FocusStages sending controller command: 11.000000 1 nm
+14:48:30.147   FocusStages sending controller command: 10.500000 1 nm
+14:48:31.094   FocusStages sending controller command: 10.000000 1 nm
+14:48:32.052   FocusStages sending controller command: 10.500000 1 nm
+14:48:32.638   FocusStages sending controller command: 11.000000 1 nm
+14:48:34.002   FocusStages sending controller command: 11.500000 1 nm
+14:48:34.646   FocusStages sending controller command: 12.000000 1 nm
+14:48:38.370   FocusStages sending controller command: 11.500000 1 nm
+14:48:39.109   FocusStages sending controller command: 12.000000 1 nm
+14:48:39.475   FocusStages sending controller command: 12.500000 1 nm
+14:48:39.999   FocusStages sending controller command: 13.000000 1 nm
+14:48:41.606   FocusStages sending controller command: 12.500000 1 nm
+14:48:42.071   FocusStages sending controller command: 12.000000 1 nm
+14:48:42.921   FocusStages sending controller command: 11.500000 1 nm
+14:48:43.329   FocusStages sending controller command: 11.000000 1 nm
+14:48:44.639   FocusStages sending controller command: 11.500000 1 nm
+14:48:45.254   FocusStages sending controller command: 12.000000 1 nm
+14:48:45.968   FocusStages sending controller command: 12.500000 1 nm
+14:48:47.251   FocusStages sending controller command: 12.000000 1 nm
+14:48:56.535   FocusStages sending controller command: 1.000000 2 nm
+14:48:56.574   FocusStages sending controller command: 12.000000 2 nm
+14:48:56.815   FocusStages sending controller command: 12.000000 2 nm
+14:49:00.910   FocusStages sending controller command: 12.500000 2 nm
+14:49:01.645   FocusStages sending controller command: 13.000000 2 nm
+14:49:02.383   FocusStages sending controller command: 13.500000 2 nm
+14:49:03.736   FocusStages sending controller command: 13.000000 2 nm
+14:49:04.413   FocusStages sending controller command: 12.500000 2 nm
+14:49:05.159   FocusStages sending controller command: 12.000000 2 nm
+14:49:06.587   FocusStages sending controller command: 11.500000 2 nm
+14:49:07.247   FocusStages sending controller command: 11.000000 2 nm
+14:49:09.767   FocusStages sending controller command: 11.500000 2 nm
+14:49:10.255   FocusStages sending controller command: 12.000000 2 nm
+14:49:11.260   FocusStages sending controller command: 12.500000 2 nm
+14:49:13.322   FocusStages sending controller command: 13.000000 2 nm
+14:49:14.101   FocusStages sending controller command: 13.500000 2 nm
+14:49:15.083   FocusStages sending controller command: 14.000000 2 nm
+14:49:16.282   FocusStages sending controller command: 13.500000 2 nm
+14:49:16.663   FocusStages sending controller command: 13.000000 2 nm
+14:49:17.265   FocusStages sending controller command: 12.500000 2 nm
+14:49:19.101   FocusStages sending controller command: 12.000000 2 nm
+14:49:19.401   FocusStages sending controller command: 11.500000 2 nm
+14:49:20.175   FocusStages sending controller command: 12.000000 2 nm
+14:49:20.448   FocusStages sending controller command: 12.500000 2 nm
+14:49:21.174   FocusStages sending controller command: 13.000000 2 nm
+14:49:21.533   FocusStages sending controller command: 13.500000 2 nm
+14:49:22.611   FocusStages sending controller command: 13.000000 2 nm
+14:49:22.790   FocusStages sending controller command: 12.500000 2 nm
+Selecting pre-filter: 5
+14:49:36.495   FilterMatrix sending controller command: 331.500000 1 nm
+14:49:36.497   FilterMatrix sending controller command: 278.000000 2 nm
+Selecting pre-filter: 5
+14:49:36.500   FilterMatrix sending controller command: 331.500000 1 nm
+14:49:36.502   FilterMatrix sending controller command: 278.000000 2 nm
+14:49:36.503   FocusStages sending controller command: 11.200000 1 nm
+14:49:36.506   FocusStages sending controller command: 12.800000 2 nm
+14:49:36.508   ET50 controller command sent: I4041P1P0?
+14:49:36.509   ET70 controller command sent: I4026P1P0?
+14:49:36.542   ET50 Z-spacing counts read: 65
+14:49:36.544   ET70 Z-spacing counts read: 38
+14:49:46.937   FilterMatrix sending controller command: 1 np
+14:49:46.942   FilterMatrix received controller response: 331.499998
+
+14:49:46.944   FilterMatrix sending controller command: 2 np
+14:49:46.949   FilterMatrix received controller response: 278.000002
+
+14:49:46.951   ET50 controller command sent: ?
+14:49:47.153   ET70 controller command sent: ?
+14:49:47.356   FocusStages sending controller command: 1 np
+14:49:47.361   FocusStages received controller response: 11.200000
+
+14:49:47.363   FocusStages sending controller command: 2 np
+14:49:47.368   FocusStages received controller response: 12.800000
+
+14:49:47.371   ET50 Z-spacing counts read: 65
+14:49:47.372   ET70 Z-spacing counts read: 38
+14:49:50.131   FocusStages sending controller command: 1.000000 1 nm
+14:49:50.292   FocusStages sending controller command: 11.000000 1 nm
+14:49:51.749   FocusStages sending controller command: 11.000000 1 nm
+14:49:56.306   BroadbandDetector stopped acquisition
+14:49:56.595   PolarimeterDetector-1 stopped acquisition
+14:49:59.784   BroadbandDetector frame description: 512x512 - 768||768 (1x1)
+14:49:59.789   BroadbandDetector exposure time is set to 20000
+14:49:59.789   BroadbandDetector frame binning is set to 1
+14:49:59.789   BroadbandDetector frame width is set to 512
+14:49:59.789   BroadbandDetector frame height is set to 512
+14:49:59.789   BroadbandDetector frame x-offset is set to 768
+14:49:59.789   BroadbandDetector frame y-offset is set to 768
+14:49:59.789   BroadbandDetector buffer queue size set to 251 frames
+14:49:59.789   BroadbandDetector setting up trigger: 0
+14:50:00.182   BroadbandDetector started acquisition
+14:50:00.182   PolarimeterDetector-1 frame description: 512x512 - 768||768 (1x1)
+14:50:00.184   PolarimeterDetector-1 exposure time is set to 100000
+14:50:00.184   PolarimeterDetector-1 frame binning is set to 1
+14:50:00.184   PolarimeterDetector-1 frame width is set to 512
+14:50:00.184   PolarimeterDetector-1 frame height is set to 512
+14:50:00.184   PolarimeterDetector-1 frame x-offset is set to 768
+14:50:00.184   PolarimeterDetector-1 frame y-offset is set to 768
+14:50:00.184   PolarimeterDetector-1 buffer queue size set to 251 frames
+14:50:00.184   PolarimeterDetector-1 setting up trigger: 0
+14:50:00.589   PolarimeterDetector-1 started acquisition
+14:50:10.413   FocusStages sending controller command: 11.500000 1 nm
+14:50:11.139   FocusStages sending controller command: 12.000000 1 nm
+14:50:11.835   FocusStages sending controller command: 12.500000 1 nm
+14:50:13.155   FocusStages sending controller command: 12.000000 1 nm
+14:50:13.807   FocusStages sending controller command: 11.500000 1 nm
+14:50:15.517   FocusStages sending controller command: 11.000000 1 nm
+14:50:17.121   FocusStages sending controller command: 10.500000 1 nm
+14:50:17.910   FocusStages sending controller command: 10.000000 1 nm
+14:50:18.652   FocusStages sending controller command: 9.500000 1 nm
+14:50:19.716   FocusStages sending controller command: 9.000000 1 nm
+14:50:20.999   FocusStages sending controller command: 9.500000 1 nm
+14:50:21.718   FocusStages sending controller command: 10.000000 1 nm
+14:50:22.734   FocusStages sending controller command: 10.500000 1 nm
+14:50:23.504   FocusStages sending controller command: 11.000000 1 nm
+14:50:25.599   FocusStages sending controller command: 11.500000 1 nm
+14:50:26.715   FocusStages sending controller command: 11.000000 1 nm
+14:50:27.085   FocusStages sending controller command: 10.500000 1 nm
+14:50:28.583   FocusStages sending controller command: 11.000000 1 nm
+14:50:29.665   FocusStages sending controller command: 10.500000 1 nm
+14:50:29.955   FocusStages sending controller command: 10.000000 1 nm
+14:50:31.623   FocusStages sending controller command: 10.500000 1 nm
+14:50:33.423   FocusStages sending controller command: 11.000000 1 nm
+14:50:38.611   FocusStages sending controller command: 1.000000 2 nm
+14:50:38.663   FocusStages sending controller command: 12.000000 2 nm
+14:50:39.020   FocusStages sending controller command: 12.000000 2 nm
+14:50:44.790   FocusStages sending controller command: 12.500000 2 nm
+14:50:45.459   FocusStages sending controller command: 13.000000 2 nm
+14:50:46.143   FocusStages sending controller command: 13.500000 2 nm
+14:50:46.781   FocusStages sending controller command: 14.000000 2 nm
+14:50:47.401   FocusStages sending controller command: 14.500000 2 nm
+14:50:48.290   FocusStages sending controller command: 15.000000 2 nm
+14:50:49.536   FocusStages sending controller command: 14.500000 2 nm
+14:50:50.296   FocusStages sending controller command: 14.000000 2 nm
+14:50:51.797   FocusStages sending controller command: 13.500000 2 nm
+14:50:53.149   FocusStages sending controller command: 13.000000 2 nm
+14:50:53.955   FocusStages sending controller command: 12.500000 2 nm
+14:50:55.061   FocusStages sending controller command: 13.000000 2 nm
+14:50:55.619   FocusStages sending controller command: 13.500000 2 nm
+14:50:56.368   FocusStages sending controller command: 14.000000 2 nm
+14:50:58.573   FocusStages sending controller command: 14.500000 2 nm
+14:50:59.244   FocusStages sending controller command: 15.000000 2 nm
+14:51:00.078   FocusStages sending controller command: 14.500000 2 nm
+14:51:00.651   FocusStages sending controller command: 14.000000 2 nm
+14:51:02.267   FocusStages sending controller command: 13.500000 2 nm
+14:51:02.979   FocusStages sending controller command: 13.000000 2 nm
+14:51:03.815   FocusStages sending controller command: 12.500000 2 nm
+14:51:04.906   FocusStages sending controller command: 13.000000 2 nm
+14:51:05.900   FocusStages sending controller command: 13.500000 2 nm
+14:51:07.419   FocusStages sending controller command: 14.000000 2 nm
+14:51:08.338   FocusStages sending controller command: 14.500000 2 nm
+14:51:09.222   FocusStages sending controller command: 15.000000 2 nm
+14:51:11.802   FocusStages sending controller command: 14.500000 2 nm
+14:51:12.340   FocusStages sending controller command: 14.000000 2 nm
+14:51:13.992   FocusStages sending controller command: 13.500000 2 nm
+14:51:18.236   FocusStages sending controller command: 13.000000 2 nm
+14:51:19.383   FocusStages sending controller command: 12.500000 2 nm
+14:51:20.393   FocusStages sending controller command: 13.000000 2 nm
+14:51:20.676   FocusStages sending controller command: 13.500000 2 nm
+14:51:21.844   FocusStages sending controller command: 14.000000 2 nm
+14:51:22.306   FocusStages sending controller command: 14.500000 2 nm
+14:51:23.837   FocusStages sending controller command: 14.000000 2 nm
+14:51:25.028   FocusStages sending controller command: 14.500000 2 nm
+14:51:25.435   FocusStages sending controller command: 15.000000 2 nm
+14:51:26.462   FocusStages sending controller command: 14.500000 2 nm
+14:51:26.836   FocusStages sending controller command: 14.000000 2 nm
+14:51:29.394   FocusStages sending controller command: 13.500000 2 nm
+14:51:30.119   FocusStages sending controller command: 13.000000 2 nm
+14:51:31.665   FocusStages sending controller command: 13.500000 2 nm
+14:51:32.060   FocusStages sending controller command: 14.000000 2 nm
+Core settings reloaded from ./coreSettings.ini
+Core settings reloaded from ./coreSettings.ini
+14:52:09.486   VTTServer closing connection.
+14:52:10.109   ET70 controller command sent: I0
+14:52:10.161   ET70 controller command sent: O/2
+14:52:10.214   ET70 closing connection.
+14:52:10.641   ET50 controller command sent: I0
+14:52:10.694   ET50 controller command sent: O/2
+14:52:10.747   ET50 closing connection.
+14:52:11.734   FocusStages closing connection.
+14:52:13.406   FilterMatrix closing connection.
+14:52:28.805   FilterMatrix connecting (192.168.90.101:400)...
+14:52:28.821   FilterMatrix sending controller command: version
+14:52:28.875   FilterMatrix sending controller command: 100.000000 1 snv
+14:52:28.877   FilterMatrix received controller response: 5.050000
+
+14:52:28.929   FilterMatrix sending controller command: 100.000000 2 snv
+14:52:28.982   FocusStages connecting (192.168.90.103:400)...
+14:52:28.997   FocusStages sending controller command: version
+14:52:29.050   FocusStages sending controller command: 5.000000 1 snv
+14:52:29.052   FocusStages received controller response: 5.320000
+
+14:52:29.104   FocusStages sending controller command: 5.000000 2 snv
+14:52:29.157   ET50 connecting (192.168.90.114:10001).
+14:52:29.172   ET50 controller command sent: !QT
+14:52:29.225   ET70 connecting (192.168.90.115:10001).
+14:52:29.238   ET70 controller command sent: !QT
+Selecting pre-filter: 2
+14:52:29.292   FilterMatrix sending controller command: 394.000000 1 nm
+14:52:29.294   FilterMatrix sending controller command: 278.000000 2 nm
+Selecting pre-filter: 2
+14:52:29.297   FilterMatrix sending controller command: 394.000000 1 nm
+14:52:29.299   FilterMatrix sending controller command: 278.000000 2 nm
+14:52:29.301   FocusStages sending controller command: 8.500000 1 nm
+14:52:29.303   FocusStages sending controller command: 17.500000 2 nm
+14:52:29.305   ET50 controller command sent: I405AP1P0?
+14:52:29.307   ET70 controller command sent: I4F90P1P0?
+14:52:29.344   ET50 Z-spacing counts read: 90
+14:52:29.346   ET70 Z-spacing counts read: -112
+Selecting pre-filter: 5
+14:52:34.644   FilterMatrix sending controller command: 331.500000 1 nm
+14:52:34.646   FilterMatrix sending controller command: 278.000000 2 nm
+Selecting pre-filter: 5
+14:52:34.650   FilterMatrix sending controller command: 331.500000 1 nm
+14:52:34.652   FilterMatrix sending controller command: 278.000000 2 nm
+14:52:34.655   FocusStages sending controller command: 11.000000 1 nm
+14:52:34.657   FocusStages sending controller command: 14.000000 2 nm
+14:52:34.658   ET50 controller command sent: I4041P1P0?
+14:52:34.660   ET70 controller command sent: I4026P1P0?
+14:52:34.691   ET50 Z-spacing counts read: 65
+14:52:34.693   ET70 Z-spacing counts read: 38
+Selecting pre-filter: 6
+14:52:50.717   FilterMatrix sending controller command: 331.500000 1 nm
+14:52:50.719   FilterMatrix sending controller command: 340.500000 2 nm
+Selecting pre-filter: 6
+14:52:50.722   FilterMatrix sending controller command: 331.500000 1 nm
+14:52:50.724   FilterMatrix sending controller command: 340.500000 2 nm
+14:52:50.727   FocusStages sending controller command: 12.000000 1 nm
+14:52:50.729   FocusStages sending controller command: 12.500000 2 nm
+14:52:50.730   ET50 controller command sent: I4122P1P0?
+14:52:50.732   ET70 controller command sent: I4177P1P0?
+14:52:50.763   ET50 Z-spacing counts read: 290
+14:52:50.765   ET70 Z-spacing counts read: 375
+14:52:54.636   BroadbandDetector stopped acquisition
+14:52:54.976   PolarimeterDetector-1 stopped acquisition
+14:52:59.010   BroadbandDetector frame description: 512x512 - 768||768 (1x1)
+14:52:59.013   BroadbandDetector exposure time is set to 20000
+14:52:59.013   BroadbandDetector frame binning is set to 1
+14:52:59.013   BroadbandDetector frame width is set to 512
+14:52:59.013   BroadbandDetector frame height is set to 512
+14:52:59.013   BroadbandDetector frame x-offset is set to 768
+14:52:59.013   BroadbandDetector frame y-offset is set to 768
+14:52:59.013   BroadbandDetector buffer queue size set to 251 frames
+14:52:59.013   BroadbandDetector setting up trigger: 0
+14:52:59.402   BroadbandDetector started acquisition
+14:52:59.402   PolarimeterDetector-1 frame description: 512x512 - 768||768 (1x1)
+14:52:59.407   PolarimeterDetector-1 exposure time is set to 50000
+14:52:59.407   PolarimeterDetector-1 frame binning is set to 1
+14:52:59.407   PolarimeterDetector-1 frame width is set to 512
+14:52:59.407   PolarimeterDetector-1 frame height is set to 512
+14:52:59.407   PolarimeterDetector-1 frame x-offset is set to 768
+14:52:59.407   PolarimeterDetector-1 frame y-offset is set to 768
+14:52:59.407   PolarimeterDetector-1 buffer queue size set to 251 frames
+14:52:59.407   PolarimeterDetector-1 setting up trigger: 0
+14:52:59.820   PolarimeterDetector-1 started acquisition
+14:53:07.191   BroadbandDetector stopped acquisition
+14:53:07.483   PolarimeterDetector-1 stopped acquisition
+14:53:08.437   BroadbandDetector frame description: 512x512 - 768||768 (1x1)
+14:53:08.443   BroadbandDetector exposure time is set to 20000
+14:53:08.443   BroadbandDetector frame binning is set to 1
+14:53:08.443   BroadbandDetector frame width is set to 512
+14:53:08.443   BroadbandDetector frame height is set to 512
+14:53:08.443   BroadbandDetector frame x-offset is set to 768
+14:53:08.443   BroadbandDetector frame y-offset is set to 768
+14:53:08.443   BroadbandDetector buffer queue size set to 251 frames
+14:53:08.443   BroadbandDetector setting up trigger: 0
+14:53:08.832   BroadbandDetector started acquisition
+14:53:08.832   PolarimeterDetector-1 frame description: 512x512 - 768||768 (1x1)
+14:53:08.834   PolarimeterDetector-1 exposure time is set to 50000
+14:53:08.834   PolarimeterDetector-1 frame binning is set to 1
+14:53:08.834   PolarimeterDetector-1 frame width is set to 512
+14:53:08.834   PolarimeterDetector-1 frame height is set to 512
+14:53:08.834   PolarimeterDetector-1 frame x-offset is set to 768
+14:53:08.834   PolarimeterDetector-1 frame y-offset is set to 768
+14:53:08.834   PolarimeterDetector-1 buffer queue size set to 251 frames
+14:53:08.834   PolarimeterDetector-1 setting up trigger: 0
+14:53:09.230   PolarimeterDetector-1 started acquisition
+14:53:09.230   PolarimeterDetector-2 frame description: 512x512 - 768||768 (1x1)
+14:53:09.233   PolarimeterDetector-2 exposure time is set to 10000
+14:53:09.233   PolarimeterDetector-2 frame binning is set to 1
+14:53:09.233   PolarimeterDetector-2 frame width is set to 512
+14:53:09.233   PolarimeterDetector-2 frame height is set to 512
+14:53:09.233   PolarimeterDetector-2 frame x-offset is set to 768
+14:53:09.233   PolarimeterDetector-2 frame y-offset is set to 768
+14:53:09.233   PolarimeterDetector-2 buffer queue size set to 251 frames
+14:53:09.233   PolarimeterDetector-2 setting up trigger: 0
+14:53:09.753   PolarimeterDetector-2 started acquisition
+14:53:24.268   BroadbandDetector stopped acquisition
+14:53:24.558   PolarimeterDetector-1 stopped acquisition
+14:53:24.862   PolarimeterDetector-2 stopped acquisition
+14:53:33.225   VTTControls connecting (192.168.90.116:10001).
+14:53:33.269   VTTControls controller command sent: X9nG
+14:53:33.321   VTTControls received controller response: X09C0
+X09C0
+X09X
+X09X
+X09X
+X09X
+X09X
+X09X
+X09X
+X09X
+X09X
+X09X
+X09X
+
+14:53:33.325   VTTControls controller command sent: X10nG
+14:53:33.377   VTTControls received controller response: X10X
+
+14:53:33.379   VTTControls controller command sent: X11nG
+14:53:33.433   VTTControls received controller response: X11X
+
+14:53:44.236   VTTControls controller command sent: X9pG
+14:53:44.290   VTTControls received controller response: X09p0
+X09X
+
+14:53:45.065   VTTControls controller command sent: X9pG
+14:53:45.117   VTTControls received controller response: X09p0
+X09X
+
+14:53:55.840   BroadbandDetector frame description: 512x512 - 768||768 (1x1)
+14:53:55.845   BroadbandDetector exposure time is set to 20000
+14:53:55.845   BroadbandDetector frame binning is set to 1
+14:53:55.845   BroadbandDetector frame width is set to 512
+14:53:55.845   BroadbandDetector frame height is set to 512
+14:53:55.845   BroadbandDetector frame x-offset is set to 768
+14:53:55.845   BroadbandDetector frame y-offset is set to 768
+14:53:55.845   BroadbandDetector buffer queue size set to 251 frames
+14:53:55.845   BroadbandDetector setting up trigger: 0
+14:53:56.231   BroadbandDetector started acquisition
+14:53:56.231   PolarimeterDetector-1 frame description: 512x512 - 768||768 (1x1)
+14:53:56.233   PolarimeterDetector-1 exposure time is set to 50000
+14:53:56.233   PolarimeterDetector-1 frame binning is set to 1
+14:53:56.233   PolarimeterDetector-1 frame width is set to 512
+14:53:56.233   PolarimeterDetector-1 frame height is set to 512
+14:53:56.233   PolarimeterDetector-1 frame x-offset is set to 768
+14:53:56.233   PolarimeterDetector-1 frame y-offset is set to 768
+14:53:56.233   PolarimeterDetector-1 buffer queue size set to 251 frames
+14:53:56.233   PolarimeterDetector-1 setting up trigger: 0
+14:53:56.624   PolarimeterDetector-1 started acquisition
+14:54:10.822   VTTServer connecting (hobbit.tt.iac.es:3065).
+14:54:10.839   VTTServer controller command sent: hellride01
+14:54:12.658   VTTServer controller command sent: hobbit: hellride01 ct opt sw4
+14:55:01.622   BroadbandDetector stopped acquisition
+14:55:01.978   PolarimeterDetector-1 stopped acquisition
+14:55:05.543   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+14:55:05.545   BroadbandDetector exposure time is set to 20000
+14:55:05.545   BroadbandDetector frame binning is set to 1
+14:55:05.545   BroadbandDetector frame width is set to 1280
+14:55:05.545   BroadbandDetector frame height is set to 1280
+14:55:05.545   BroadbandDetector frame x-offset is set to 384
+14:55:05.545   BroadbandDetector frame y-offset is set to 384
+14:55:05.545   BroadbandDetector buffer queue size set to 39 frames
+14:55:05.545   BroadbandDetector setting up trigger: 0
+14:55:05.907   BroadbandDetector started acquisition
+14:55:05.907   PolarimeterDetector-1 frame description: 1280x1280 - 384||384 (1x1)
+14:55:05.908   PolarimeterDetector-1 exposure time is set to 50000
+14:55:05.908   PolarimeterDetector-1 frame binning is set to 1
+14:55:05.908   PolarimeterDetector-1 frame width is set to 1280
+14:55:05.909   PolarimeterDetector-1 frame height is set to 1280
+14:55:05.909   PolarimeterDetector-1 frame x-offset is set to 384
+14:55:05.909   PolarimeterDetector-1 frame y-offset is set to 384
+14:55:05.909   PolarimeterDetector-1 buffer queue size set to 39 frames
+14:55:05.909   PolarimeterDetector-1 setting up trigger: 0
+14:55:06.270   PolarimeterDetector-1 started acquisition
+15:00:41.272   FilterMatrix sending controller command: 1 np
+15:00:41.282   FilterMatrix received controller response: 331.499994
+
+15:00:41.283   FilterMatrix sending controller command: 2 np
+15:00:41.289   FilterMatrix received controller response: 340.499999
+
+15:00:41.291   ET50 controller command sent: ?
+15:00:41.493   ET70 controller command sent: ?
+15:00:41.696   FocusStages sending controller command: 1 np
+15:00:41.702   FocusStages received controller response: 12.000000
+
+15:00:41.704   FocusStages sending controller command: 2 np
+15:00:41.709   FocusStages received controller response: 12.500000
+
+15:00:41.711   ET50 Z-spacing counts read: 290
+15:00:41.712   ET70 Z-spacing counts read: 375
+15:00:45.064   FocusStages sending controller command: 1.000000 2 nm
+15:00:45.098   FocusStages sending controller command: 12.000000 2 nm
+15:00:45.536   FocusStages sending controller command: 12.000000 2 nm
+15:00:47.734   FocusStages sending controller command: 12.500000 2 nm
+15:00:48.962   FocusStages sending controller command: 13.000000 2 nm
+15:00:51.016   FocusStages sending controller command: 13.500000 2 nm
+15:00:52.292   FocusStages sending controller command: 13.000000 2 nm
+15:00:52.889   FocusStages sending controller command: 12.500000 2 nm
+15:01:06.834   FocusStages sending controller command: 13.000000 2 nm
+15:01:07.670   FocusStages sending controller command: 13.500000 2 nm
+15:01:08.432   FocusStages sending controller command: 14.000000 2 nm
+15:01:09.088   FocusStages sending controller command: 14.500000 2 nm
+15:01:09.709   FocusStages sending controller command: 15.000000 2 nm
+15:01:10.225   FocusStages sending controller command: 15.500000 2 nm
+15:01:10.457   FocusStages sending controller command: 16.000000 2 nm
+15:01:10.648   FocusStages sending controller command: 16.500000 2 nm
+15:01:10.850   FocusStages sending controller command: 17.000000 2 nm
+15:01:14.854   FocusStages sending controller command: 1.000000 2 nm
+15:01:14.909   FocusStages sending controller command: 12.000000 2 nm
+15:01:15.153   FocusStages sending controller command: 12.000000 2 nm
+15:01:17.459   FocusStages sending controller command: 12.500000 2 nm
+15:02:12.998   VTTServer controller command sent: hobbit: hellride01 ct opt sw1
+Selecting pre-filter: 1
+15:02:21.382   FilterMatrix sending controller command: 394.000000 1 nm
+15:02:21.384   FilterMatrix sending controller command: 340.500000 2 nm
+Selecting pre-filter: 1
+15:02:21.386   FilterMatrix sending controller command: 394.000000 1 nm
+15:02:21.387   FilterMatrix sending controller command: 340.500000 2 nm
+15:02:21.388   FocusStages sending controller command: 11.000000 1 nm
+15:02:21.389   FocusStages sending controller command: 13.000000 2 nm
+15:02:21.391   ET50 controller command sent: I420FP1P0?
+15:02:21.395   ET70 controller command sent: I4266P1P0?
+15:02:21.423   ET50 Z-spacing counts read: 527
+15:02:21.428   ET70 Z-spacing counts read: 614
+15:04:02.987   VTTServer controller command sent: hobbit: hellride01 ct opt sw4
+08:35:48.538   BroadbandDetector stopped acquisition
+08:35:48.815   PolarimeterDetector-1 stopped acquisition
+08:35:50.574   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+08:35:50.578   BroadbandDetector exposure time is set to 20000
+08:35:50.578   BroadbandDetector frame binning is set to 1
+08:35:50.578   BroadbandDetector frame width is set to 1280
+08:35:50.578   BroadbandDetector frame height is set to 1280
+08:35:50.578   BroadbandDetector frame x-offset is set to 384
+08:35:50.578   BroadbandDetector frame y-offset is set to 384
+08:35:50.579   BroadbandDetector buffer queue size set to 39 frames
+08:35:50.579   BroadbandDetector setting up trigger: 0
+08:35:50.928   BroadbandDetector started acquisition
+08:41:20.511   BroadbandDetector stopped acquisition
+Creating directory : D:/20230503
+Creating directory : D:/20230503/Science_0841

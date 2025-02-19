@@ -1,0 +1,89 @@
+12:18:09.854   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+12:18:09.860   BroadbandDetector exposure time is set to 10000
+12:18:09.860   BroadbandDetector frame binning is set to 1
+12:18:09.860   BroadbandDetector frame width is set to 1280
+12:18:09.860   BroadbandDetector frame height is set to 1280
+12:18:09.860   BroadbandDetector frame x-offset is set to 384
+12:18:09.860   BroadbandDetector frame y-offset is set to 384
+12:18:09.860   BroadbandDetector buffer queue size set to 39 frames
+12:18:09.860   BroadbandDetector setting up trigger: 0
+12:18:10.246   BroadbandDetector started acquisition
+12:18:13.794   BroadbandDetector stopped acquisition
+12:19:18.142   FilterMatrix connecting (192.168.90.101:400)...
+12:19:18.158   FilterMatrix sending controller command: version
+12:19:18.211   FilterMatrix sending controller command: 100.000000 1 snv
+12:19:18.213   FilterMatrix received controller response: 5.050000
+
+12:19:18.265   FilterMatrix sending controller command: 100.000000 2 snv
+12:19:18.318   FocusStages connecting (192.168.90.103:400)...
+12:19:18.332   FocusStages sending controller command: version
+12:19:18.385   FocusStages sending controller command: 5.000000 1 snv
+12:19:18.386   FocusStages received controller response: 5.320000
+
+12:19:18.439   FocusStages sending controller command: 5.000000 2 snv
+12:19:18.491   ET50 connecting (192.168.90.114:10001).
+12:19:18.505   ET50 controller command sent: !QT
+12:19:18.558   ET70 connecting (192.168.90.115:10001).
+12:19:18.572   ET70 controller command sent: !QT
+Selecting pre-filter: 1
+12:19:18.627   FilterMatrix sending controller command: 394.000000 1 nm
+12:19:18.628   FilterMatrix sending controller command: 340.500000 2 nm
+Selecting pre-filter: 1
+12:19:18.631   FilterMatrix sending controller command: 394.000000 1 nm
+12:19:18.632   FilterMatrix sending controller command: 340.500000 2 nm
+12:19:18.634   FocusStages sending controller command: 12.200000 1 nm
+12:19:18.637   FocusStages sending controller command: 12.400000 2 nm
+12:19:18.639   ET50 controller command sent: I420FP1P0?
+12:19:18.640   ET70 controller command sent: I4266P1P0?
+12:19:18.671   ET50 Z-spacing counts read: 527
+12:19:18.673   ET70 Z-spacing counts read: 614
+12:19:19.535   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+12:19:19.540   BroadbandDetector exposure time is set to 10000
+12:19:19.540   BroadbandDetector frame binning is set to 1
+12:19:19.540   BroadbandDetector frame width is set to 1280
+12:19:19.540   BroadbandDetector frame height is set to 1280
+12:19:19.540   BroadbandDetector frame x-offset is set to 384
+12:19:19.540   BroadbandDetector frame y-offset is set to 384
+12:19:19.541   BroadbandDetector buffer queue size set to 39 frames
+12:19:19.541   BroadbandDetector setting up trigger: 0
+12:19:20.036   BroadbandDetector started acquisition
+12:19:27.881   FilterMatrix sending controller command: 1 np
+12:19:27.886   FilterMatrix received controller response: 393.999993
+
+12:19:27.890   FilterMatrix sending controller command: 2 np
+12:19:27.897   FilterMatrix received controller response: 340.500004
+
+12:19:27.899   ET50 controller command sent: ?
+12:19:28.101   ET70 controller command sent: ?
+12:19:28.305   FocusStages sending controller command: 1 np
+12:19:28.312   FocusStages received controller response: 12.200000
+
+12:19:28.315   FocusStages sending controller command: 2 np
+12:19:28.319   FocusStages received controller response: 12.400000
+
+12:19:28.322   ET70 Z-spacing counts read: 614
+12:19:28.323   ET50 Z-spacing counts read: 527
+12:19:32.545   FocusStages sending controller command: 0.000000 1 nm
+12:19:34.362   FocusStages sending controller command: 1.000000 1 nm
+12:19:34.427   FocusStages sending controller command: 12.000000 1 nm
+12:19:34.542   FocusStages sending controller command: 12.000000 1 nm
+12:19:38.448   FocusStages sending controller command: 12.500000 1 nm
+12:19:50.964   FocusStages sending controller command: 13.000000 1 nm
+12:19:51.558   FocusStages sending controller command: 13.500000 1 nm
+12:19:52.017   FocusStages sending controller command: 14.000000 1 nm
+12:19:54.400   FocusStages sending controller command: 13.500000 1 nm
+12:19:54.858   FocusStages sending controller command: 13.000000 1 nm
+12:19:55.513   FocusStages sending controller command: 12.500000 1 nm
+12:19:56.580   FocusStages sending controller command: 12.000000 1 nm
+12:19:57.862   FocusStages sending controller command: 11.500000 1 nm
+12:19:58.046   FocusStages sending controller command: 11.000000 1 nm
+12:19:58.248   FocusStages sending controller command: 10.500000 1 nm
+12:19:58.431   FocusStages sending controller command: 10.000000 1 nm
+12:20:00.411   FocusStages sending controller command: 9.500000 1 nm
+12:20:04.066   FocusStages sending controller command: 10.000000 1 nm
+12:20:07.843   FocusStages sending controller command: 10.500000 1 nm
+12:20:08.675   FocusStages sending controller command: 11.000000 1 nm
+12:20:09.763   FocusStages sending controller command: 11.500000 1 nm
+12:20:10.918   FocusStages sending controller command: 12.000000 1 nm
+12:21:30.950   BroadbandDetector stopped acquisition
+Creating directory : D:/20230501/PCpmlibrpmCoordinated Universal Timeion_20230501_1222

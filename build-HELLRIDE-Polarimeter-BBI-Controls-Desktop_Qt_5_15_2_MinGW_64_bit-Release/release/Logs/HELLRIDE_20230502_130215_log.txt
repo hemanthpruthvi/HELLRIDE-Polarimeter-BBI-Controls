@@ -1,0 +1,54 @@
+13:10:23.059   VTTControls connecting (192.168.90.116:10001).
+13:10:23.063   VTTControls controller command sent: X9nG
+13:10:23.115   VTTControls received controller response: X09X
+
+13:10:23.117   VTTControls controller command sent: X10nG
+13:10:23.169   VTTControls received controller response: X10X
+
+13:10:23.171   VTTControls controller command sent: X11nG
+13:10:23.224   VTTControls received controller response: X11X
+
+13:10:27.826   VTTControls controller command sent: X09pG
+13:10:27.880   VTTControls received controller response: X09p-18
+X09X
+
+13:10:56.952   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+13:10:56.957   BroadbandDetector exposure time is set to 20000
+13:10:56.957   BroadbandDetector frame binning is set to 1
+13:10:56.957   BroadbandDetector frame width is set to 1280
+13:10:56.957   BroadbandDetector frame height is set to 1280
+13:10:56.957   BroadbandDetector frame x-offset is set to 384
+13:10:56.957   BroadbandDetector frame y-offset is set to 384
+13:10:56.957   BroadbandDetector buffer queue size set to 39 frames
+13:10:56.958   BroadbandDetector setting up trigger: 0
+13:10:57.507   BroadbandDetector started acquisition
+13:11:00.418   BroadbandDetector stopped acquisition
+13:11:06.858   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+13:11:06.861   BroadbandDetector exposure time is set to 20000
+13:11:06.861   BroadbandDetector frame binning is set to 1
+13:11:06.861   BroadbandDetector frame width is set to 1280
+13:11:06.861   BroadbandDetector frame height is set to 1280
+13:11:06.861   BroadbandDetector frame x-offset is set to 384
+13:11:06.861   BroadbandDetector frame y-offset is set to 384
+13:11:06.861   BroadbandDetector buffer queue size set to 39 frames
+13:11:06.861   BroadbandDetector setting up trigger: 0
+13:11:07.427   BroadbandDetector started acquisition
+13:11:14.992   VTTServer connecting (hobbit.tt.iac.es:3065).
+13:11:14.999   VTTServer controller command sent: hellride01
+13:11:17.573   VTTServer controller command sent: hobbit: hellride01 ct opt sw1
+13:11:19.652   VTTServer received controller response: hellride01: hobbit ret ct acc
+13:11:24.066   VTTServer controller command sent: hobbit: hellride01 ct opt sw4
+13:11:26.142   VTTServer received controller response: hellride01: hobbit ret ct acc
+14:34:41.769   BroadbandDetector stopped acquisition
+10:09:33.680   VTTServer closing connection.
+10:09:33.690   VTTControls controller command sent: X9fG
+10:09:33.750   VTTControls received controller response: X09X
+
+10:09:33.750   VTTControls controller command sent: X10fG
+10:09:33.810   VTTControls received controller response: X10X
+
+10:09:33.810   VTTControls controller command sent: X11fG
+10:09:33.870   VTTControls closing connection.
+10:09:34.160   BroadbandDetector closed successfully
+10:09:34.420   PolarimeterDetector-1 closed successfully
+10:09:34.960   PolarimeterDetector-2 closed successfully

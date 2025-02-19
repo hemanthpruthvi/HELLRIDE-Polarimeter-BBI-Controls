@@ -24,12 +24,9 @@ public:
     void prepareImageDisplay();                         // Prepare image for display
     //
     int Mode;                                           // Index of the mode of operation
-    int Error;                                          //
+    int Error;                                          // Error (duh?)
     int Index;                                          // Index of camera (usually 1,2: polarimeter, 0: BBI)
-    int NPixel;                                         // Total number of pixels per frame = ROIHeight x ROIWidth
     int Trigger;                                        // Select trigger type from xiApi
-    int NFrames;                                        // Number of frames
-    int iFrames;                                        // Index of current frame
     int ROI;                                            // Region of interest
     int Binning;                                        // X and Y Binning
     int ROITop;                                         // ROI top pad
@@ -41,10 +38,13 @@ public:
     int TriggerDelay;                                   // Extra delay to be introduced after trigger
     int MaxCountValue;                                  // Minimum value in the counts
     int MinCountValue;                                  // Maximum value in the counts
-    int MeanCountValue;                                 // Mean value of the counts
     long ImageShape[3];                                 // 3D data cube dimensions = (ImageWidth, ImageHeight, NFrames)
-    bool SAVE_IMAGE_FLAG;
+    bool SAVE_IMAGE_FLAG;                               // Save the image frame or not?
     unsigned int iPreFilters;                           // Index of pre-filter that is being used
+    long long int MeanCountValue;                       // Mean value of the counts
+    long long int NFrames;                              // Number of frames
+    long long int iFrames;                              // Index of current frame
+    long long int NPixel;                               // Total number of pixels per frame = ROIHeight x ROIWidth
     XI_IMG Image;                                       // Image object from detector; oldest unread frame in the buffer queue will be read into this object.
     fitsfile *FITSFile;                                 // FITS file handle
     QThread *MainThread;                                // Record of maiin thread
@@ -66,21 +66,21 @@ public slots:
     void saveImages();                                  // Save binary images, for multi-threaded live
 
 private:
-    bool ACQ_RUN_FLAG;                                  //
-    void addLog(std::string Log);                       //
-    void addLog(const char* Log);                       //
-    void initData();
-    void closeData();
+    bool ACQ_RUN_FLAG;                                  // Acquisition running?
+    void addLog(std::string Log);                       // Add string to log
+    void addLog(const char* Log);                       // Add array of chars to log
+    void initData();                                    // Initialize data writing by creating the handle
+    void closeData();                                   // Finish data writing by closing the handle
     void handleError(int Error,
                      std::string Message);              // Handle the status and send error message
 
 signals:
-    void Finished();                                    //
-    void addLog(QString Log);                           //
+    void Finished();                                    // Acquisition is finished
+    void addLog(QString Log);                           // Add string to log
     void displayImage(QPixmap Pixmap,
                       int Min,
                       int Mean,
-                      int Max);                         //
+                      int Max);                         // Display the pixmap image
 };
 
 /***

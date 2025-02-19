@@ -1,0 +1,133 @@
+12:06:23.150   VTTControls connecting (192.168.90.116:10001).
+12:06:23.160   VTTControls controller command sent: X9nG
+12:06:23.213   VTTControls received controller response: X09X
+
+12:06:23.215   VTTControls controller command sent: X10nG
+12:06:23.267   VTTControls received controller response: X10X
+
+12:06:23.269   VTTControls controller command sent: X11nG
+12:06:23.321   VTTControls received controller response: X11X
+
+Resetting VTTControls
+12:06:24.310   VTTControls controller command sent: X9E
+12:06:24.564   VTTControls received controller response: X09C0
+
+12:06:24.566   VTTControls controller command sent: X9E
+12:06:24.820   VTTControls received controller response: X09C0
+
+12:06:24.821   VTTControls controller command sent: X9E
+12:06:25.073   VTTControls received controller response: X09C0
+
+12:06:25.075   VTTControls controller command sent: X10E
+12:06:25.328   VTTControls received controller response: X10C0
+
+12:06:25.330   VTTControls controller command sent: X10E
+12:06:25.583   VTTControls received controller response: X10C0
+
+12:06:25.585   VTTControls controller command sent: X10E
+12:06:25.837   VTTControls received controller response: X10C0
+
+12:06:25.839   VTTControls controller command sent: X11E
+12:06:26.091   VTTControls received controller response: X11C0
+
+12:06:26.093   VTTControls controller command sent: X11E
+12:06:26.345   VTTControls received controller response: X11C0
+
+12:06:26.347   VTTControls controller command sent: X11E
+12:06:26.600   VTTControls received controller response: X11C0
+
+12:06:26.602   VTTControls controller command sent: X9fG
+12:06:26.654   VTTControls received controller response: X09X
+
+12:06:26.656   VTTControls controller command sent: X10fG
+12:06:26.707   VTTControls received controller response: X10X
+
+12:06:26.709   VTTControls controller command sent: X11fG
+12:06:27.761   VTTControls received controller response: X11X
+
+12:06:27.763   VTTControls controller command sent: X9nG
+12:06:27.816   VTTControls received controller response: X09X
+
+12:06:27.818   VTTControls controller command sent: X10nG
+12:06:27.870   VTTControls received controller response: X10X
+
+12:06:27.872   VTTControls controller command sent: X11nG
+12:06:27.924   VTTControls received controller response: X11X
+
+Resetting VTTControls
+12:06:31.844   VTTControls controller command sent: X9E
+12:06:32.096   VTTControls received controller response: X09C0
+
+12:06:32.098   VTTControls controller command sent: X9E
+12:06:32.351   VTTControls received controller response: X09C0
+
+12:06:32.353   VTTControls controller command sent: X9E
+12:06:32.605   VTTControls received controller response: X09C0
+
+12:06:32.607   VTTControls controller command sent: X10E
+12:06:32.860   VTTControls received controller response: X10C0
+
+12:06:32.862   VTTControls controller command sent: X10E
+12:06:33.115   VTTControls received controller response: X10C0
+
+12:06:33.116   VTTControls controller command sent: X10E
+12:06:33.369   VTTControls received controller response: X10C0
+
+12:06:33.370   VTTControls controller command sent: X11E
+12:06:33.623   VTTControls received controller response: X11C0
+
+12:06:33.624   VTTControls controller command sent: X11E
+12:06:33.877   VTTControls received controller response: X11C0
+
+12:06:33.879   VTTControls controller command sent: X11E
+12:06:34.131   VTTControls received controller response: X11C0
+
+12:06:34.133   VTTControls controller command sent: X9fG
+12:06:34.185   VTTControls received controller response: X09X
+
+12:06:34.187   VTTControls controller command sent: X10fG
+12:06:34.238   VTTControls received controller response: X10X
+
+12:06:34.240   VTTControls controller command sent: X11fG
+12:06:35.293   VTTControls received controller response: X11X
+
+12:06:35.295   VTTControls controller command sent: X9nG
+12:06:35.347   VTTControls received controller response: X09X
+
+12:06:35.349   VTTControls controller command sent: X10nG
+12:06:35.401   VTTControls received controller response: X10X
+
+12:06:35.402   VTTControls controller command sent: X11nG
+12:06:35.455   VTTControls received controller response: X11X
+
+12:06:44.752   VTTControls controller command sent: X9pG
+12:06:44.805   VTTControls received controller response: X09p27
+X09X
+
+Going home VTTControls
+12:07:04.268   VTTControls controller command sent: X9HG
+12:07:04.537   VTTControls received controller response: X
+12:07:04.558   VTTControls received controller response: 09X
+
+12:07:04.560   VTTControls controller command sent: X10HG
+12:07:14.043   VTTControls received controller response: X
+12:07:14.063   VTTControls received controller response: 10X
+
+12:07:14.065   VTTControls controller command sent: X11HG
+12:07:16.904   VTTControls received controller response: X
+12:07:16.924   VTTControls received controller response: 11X
+
+Going home VTTControls
+12:07:25.818   VTTControls controller command sent: X9HG
+12:07:26.078   VTTControls received controller response: X
+12:07:26.099   VTTControls received controller response: 09X
+
+12:07:26.100   VTTControls controller command sent: X10HG
+12:07:27.122   VTTControls received controller response: X
+12:07:27.142   VTTControls received controller response: 10X
+
+12:07:27.144   VTTControls controller command sent: X11HG
+12:07:27.879   VTTControls received controller response: X
+12:07:27.900   VTTControls received controller response: 11X
+
+Creating directory : D:/20230502/PCalibration_1208

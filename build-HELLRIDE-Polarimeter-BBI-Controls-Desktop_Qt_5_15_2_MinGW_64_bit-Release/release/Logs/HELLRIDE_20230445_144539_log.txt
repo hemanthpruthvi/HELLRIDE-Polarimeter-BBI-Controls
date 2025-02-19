@@ -1,0 +1,3 @@
+14:46:48.683   BroadbandDetector closed successfully
+14:46:49.097   PolarimeterDetector-1 closed successfully
+14:46:49.477   PolarimeterDetector-2 closed successfully

@@ -21,7 +21,7 @@ void Acquisition::addLog(const char* Log)
 void Acquisition::initAcquisition()
 {
     FilterMatrix = new TwoStages();
-    PolarimeterStages = new TwoStages();
+    FocusStages = new TwoStages();
     VTTControls = new VTT();
     VTTServer = new VTTNet();
     CWPMount = new RotMount();
@@ -32,7 +32,7 @@ void Acquisition::initAcquisition()
     connect(FilterMatrix, SIGNAL(addLog(QString)), this, SIGNAL(addLog(QString)));
     connect(ET50, SIGNAL(addLog(QString)), this, SIGNAL(addLog(QString)));
     connect(ET70, SIGNAL(addLog(QString)), this, SIGNAL(addLog(QString)));
-    connect(PolarimeterStages, SIGNAL(addLog(QString)), this, SIGNAL(addLog(QString)));
+    connect(FocusStages, SIGNAL(addLog(QString)), this, SIGNAL(addLog(QString)));
     connect(LCVRPolarimeter, SIGNAL(addLog(QString)), this, SIGNAL(addLog(QString)));
     connect(VTTControls, SIGNAL(addLog(QString)), this, SIGNAL(addLog(QString)));
     connect(VTTServer, SIGNAL(addLog(QString)), this, SIGNAL(addLog(QString)));
@@ -41,7 +41,7 @@ void Acquisition::initAcquisition()
     switch(Mode) {
     case OBS_MODE_SCIE:
         FilterMatrix->initTwoStages("FilterMatrix");
-        PolarimeterStages->initTwoStages("PolarimeterStages");
+        FocusStages->initTwoStages("FocusStages");
         LCVRPolarimeter->initPolarimeter("Polarimeter");
         ET50->initEtalon("Etalon_1");
         ET70->initEtalon("Etalon_2");
@@ -50,7 +50,7 @@ void Acquisition::initAcquisition()
         break;
     case OBS_MODE_FLAT:
         FilterMatrix->initTwoStages("FilterMatrix");
-        PolarimeterStages->initTwoStages("PolarimeterStages");
+        FocusStages->initTwoStages("FocusStages");
         LCVRPolarimeter->initPolarimeter("Polarimeter");
         ET50->initEtalon("Etalon_1");
         ET70->initEtalon("Etalon_2");
@@ -59,7 +59,7 @@ void Acquisition::initAcquisition()
         break;
     case OBS_MODE_PCAL:
         FilterMatrix->initTwoStages("FilterMatrix");
-        PolarimeterStages->initTwoStages("PolarimeterStages");
+        FocusStages->initTwoStages("FocusStages");
         LCVRPolarimeter->initPolarimeter("Polarimeter");
         ET50->initEtalon("Etalon_1");
         ET70->initEtalon("Etalon_2");
@@ -71,7 +71,7 @@ void Acquisition::initAcquisition()
         break;
     case OBS_MODE_TARG:
         FilterMatrix->initTwoStages("FilterMatrix");
-        PolarimeterStages->initTwoStages("PolarimeterStages");
+        FocusStages->initTwoStages("FocusStages");
         LCVRPolarimeter->initPolarimeter("Polarimeter");
         ET50->initEtalon("Etalon_1");
         ET70->initEtalon("Etalon_2");
@@ -79,7 +79,7 @@ void Acquisition::initAcquisition()
         break;
     case OBS_MODE_PINH:
         FilterMatrix->initTwoStages("FilterMatrix");
-        PolarimeterStages->initTwoStages("PolarimeterStages");
+        FocusStages->initTwoStages("FocusStages");
         LCVRPolarimeter->initPolarimeter("Polarimeter");
         ET50->initEtalon("Etalon_1");
         ET70->initEtalon("Etalon_2");
@@ -101,7 +101,7 @@ void Acquisition::initAcquisition()
         break;
     case CHR_MODE_CAM_FOCUS:
         FilterMatrix->initTwoStages("FilterMatrix");
-        PolarimeterStages->initTwoStages("PolarimeterStages");
+        FocusStages->initTwoStages("FocusStages");
         ET50->initEtalon("Etalon_1");
         ET70->initEtalon("Etalon_2");
         break;
@@ -141,7 +141,7 @@ void Acquisition::finishAcquisition()
     switch(Mode) {
     case OBS_MODE_SCIE:
         delete FilterMatrix;
-        delete PolarimeterStages;
+        delete FocusStages;
         delete LCVRPolarimeter;
         delete ET50;
         delete ET70;
@@ -149,7 +149,7 @@ void Acquisition::finishAcquisition()
         break;
     case OBS_MODE_FLAT:
         delete FilterMatrix;
-        delete PolarimeterStages;
+        delete FocusStages;
         delete LCVRPolarimeter;
         delete ET50;
         delete ET70;
@@ -157,7 +157,7 @@ void Acquisition::finishAcquisition()
         break;
     case OBS_MODE_PCAL:
         delete FilterMatrix;
-        delete PolarimeterStages;
+        delete FocusStages;
         delete LCVRPolarimeter;
         delete ET50;
         delete ET70;
@@ -169,7 +169,7 @@ void Acquisition::finishAcquisition()
         break;
     case OBS_MODE_TARG:
         delete FilterMatrix;
-        delete PolarimeterStages;
+        delete FocusStages;
         delete LCVRPolarimeter;
         delete ET50;
         delete ET70;
@@ -177,7 +177,7 @@ void Acquisition::finishAcquisition()
         break;
     case OBS_MODE_PINH:
         delete FilterMatrix;
-        delete PolarimeterStages;
+        delete FocusStages;
         delete LCVRPolarimeter;
         delete ET50;
         delete ET70;
@@ -199,7 +199,7 @@ void Acquisition::finishAcquisition()
         break;
     case CHR_MODE_CAM_FOCUS:
         delete FilterMatrix;
-        delete PolarimeterStages;
+        delete FocusStages;
         delete ET50;
         delete ET70;
         break;
@@ -300,8 +300,8 @@ void Acquisition::getScienceData()
                 //
                 addLog("Filter matrix moving to: " + std::to_string(FilterMatrix->iPreFilter));
                 FilterMatrix->selectPreFilter();
-                addLog("Focus stage moving to: " + std::to_string(PolarimeterStages->Position1));
-                PolarimeterStages->moveStage1();
+                addLog("Focus stages moving to: " + std::to_string(FocusStages->Position1) + ", " + std::to_string(FocusStages->Position2));
+                FocusStages->moveTwoStages();
                 addLog("Etalons tuning to line start: " + std::to_string(ET50->ZZero) + ", " + std::to_string(ET70->ZZero));
                 ET50->gotoScanStartPosition();
                 ET70->gotoScanStartPosition();
@@ -398,10 +398,10 @@ void Acquisition::getFlatsData()
         //
         addLog("Filter matrix moving to: " + std::to_string(FilterMatrix->iPreFilter));
         FilterMatrix->selectPreFilter();
-        addLog("Focus stage moving to: " + std::to_string(PolarimeterStages->Position1));
-        PolarimeterStages->moveStage1();
+        addLog("Focus stages moving to: " + std::to_string(FocusStages->Position1)  + ", " + std::to_string(FocusStages->Position2));
+        FocusStages->moveTwoStages();
         addLog("Applying LCVR settings...");
-        LCVRPolarimeter->setModulation(POLARIMETRY=false);
+        LCVRPolarimeter->setModulation(POLARIMETRY);
         for (int c=0; c<NCycles; c++) {
             emit(updateOProgress(100*(c+1+i*NCycles)/(NCycles*NLines)));
             if (ACQ_RUN_FLAG) {
@@ -488,7 +488,7 @@ void Acquisition::getCalibrationData()
     VTTControls->ICURetarder->NPositions = NICURetCalib;
     for (int i=0; i<NLines; i++) {
         loadLineSettings(QString::fromStdString("Line_"+std::to_string(i+1)));
-        if (POLARIMETRY) {
+        if (ACQ_RUN_FLAG) {
             addLog("Number of accumulations per modulation state: " + std::to_string(NAccumulations));
             addLog("Number of modulations per wave point: " + std::to_string(NModulations));
             addLog("Number of wave points per spectral line: " + std::to_string(NWavePoints));
@@ -502,9 +502,9 @@ void Acquisition::getCalibrationData()
             addLog("Moving the pre-filter: " + std::to_string(FilterMatrix->iPreFilter));
             FilterMatrix->selectPreFilter();
             addLog("Adjusting the detector focus...");
-            PolarimeterStages->moveStage1();
+            FocusStages->moveTwoStages();
             addLog("Applying LCVR settings...");
-            LCVRPolarimeter->setModulation(POLARIMETRY);
+            LCVRPolarimeter->setModulation();
             for (int c=0; c<NCycles; c++) {
                 emit(updateOProgress(100*(c+1+i*NCycles)/(NCycles*NLines)));
                 if (ACQ_RUN_FLAG) {
@@ -583,7 +583,7 @@ void Acquisition::getCalibrationData()
         }
     }
     addLog("removing the calibration unit (ICU)...");
-    VTTControls->insertICU();
+    VTTControls->removeICU();
     finishAcquisition();
 }
 
@@ -644,8 +644,8 @@ void Acquisition::getPinholeData()
         loadLineSettings(QString::fromStdString("Line_"+std::to_string(i+1)));
         addLog("Filter matrix moving to: " + std::to_string(FilterMatrix->iPreFilter));
         FilterMatrix->selectPreFilter();
-        addLog("Focus stage moving to: " + std::to_string(PolarimeterStages->Position1));
-        PolarimeterStages->moveStage1();
+        addLog("Focus stages moving to: " + std::to_string(FocusStages->Position1) + ", " + std::to_string(FocusStages->Position2));
+        FocusStages->moveTwoStages();
         addLog("Etalons tuning to line start: " + std::to_string(ET50->ZZero) + ", " + std::to_string(ET70->ZZero));
         ET50->gotoScanStartPosition();
         ET70->gotoScanStartPosition();
@@ -697,8 +697,8 @@ void Acquisition::getTargetplateData()
         loadLineSettings(QString::fromStdString("Line_"+std::to_string(i+1)));
         addLog("Filter matrix moving to: " + std::to_string(FilterMatrix->iPreFilter));
         FilterMatrix->selectPreFilter();
-        addLog("Focus stage moving to: " + std::to_string(PolarimeterStages->Position1));
-        PolarimeterStages->moveStage1();
+        addLog("Focus stages moving to: " + std::to_string(FocusStages->Position1) + ", " + std::to_string(FocusStages->Position2));
+        FocusStages->moveTwoStages();
         addLog("Etalons tuning to line start: " + std::to_string(ET50->ZZero) + ", " + std::to_string(ET70->ZZero));
         ET50->gotoScanStartPosition();
         ET70->gotoScanStartPosition();
@@ -755,9 +755,10 @@ void Acquisition::loadLineSettings(QString Name)
     // Filter matrix
     FilterMatrix->iPreFilter = Settings->value(FilterName + "/FilterMatrix/iPreFilter").toUInt();
     // Focus stage
-    PolarimeterStages->Position1 = Settings->value(FilterName + "/FocusStage/Position").toDouble();
+    FocusStages->Position1 = Settings->value(FilterName + "/FocusStages/Position1").toDouble();
+    FocusStages->Position2 = Settings->value(FilterName + "/FocusStages/Position2").toDouble();
     //
-    int TriggerDelay = Settings->value(FilterName + "/Polarimeter/" + ModulationName + "/TriggerDelay").toInt();
+//    int TriggerDelay = Settings->value(FilterName + "/Polarimeter/" + ModulationName + "/TriggerDelay").toInt();
     LCVRPolarimeter->NModulations = Settings->value(FilterName + "/Polarimeter/" + ModulationName + "/NModulations").toInt();
     if (LCVRPolarimeter->NModulations > 1) {
         POLARIMETRY = true;
@@ -784,21 +785,22 @@ void Acquisition::loadLineSettings(QString Name)
     NModulations = LCVRPolarimeter->NModulations;
     NWavePoints = ET50->NWavePoints;
     // Cameras
-    DetectorBBCh->ExposureTime = obsSettings->value(Name + "/Camera_0/ExposureTime").toInt();
-    DetectorPCh1->ExposureTime = obsSettings->value(Name + "/Camera_1/ExposureTime").toInt();
-    DetectorPCh2->ExposureTime = obsSettings->value(Name + "/Camera_2/ExposureTime").toInt();
-    //
-    DetectorBBCh->Binning = obsSettings->value(Name + "/Camera_0/Binning").toInt();
-    DetectorPCh1->Binning = obsSettings->value(Name + "/Camera_1/Binning").toInt();
-    DetectorPCh2->Binning = obsSettings->value(Name + "/Camera_2/Binning").toInt();
-    //
-    DetectorBBCh->ROI = obsSettings->value(Name + "/Camera_0/ROI").toInt();
-    DetectorPCh1->ROI = obsSettings->value(Name + "/Camera_1/ROI").toInt();
-    DetectorPCh2->ROI = obsSettings->value(Name + "/Camera_2/ROI").toInt();
-    //
-    DetectorBBCh->TriggerDelay = TriggerDelay;
-    DetectorPCh1->TriggerDelay = TriggerDelay;
-    DetectorPCh2->TriggerDelay = TriggerDelay;
+//    DetectorBBCh->ExposureTime = obsSettings->value(Name + "/Camera_0/ExposureTime").toInt();
+//    DetectorPCh1->ExposureTime = obsSettings->value(Name + "/Camera_1/ExposureTime").toInt();
+//    DetectorPCh2->ExposureTime = obsSettings->value(Name + "/Camera_2/ExposureTime").toInt();
+//    //
+//    DetectorBBCh->Binning = obsSettings->value(Name + "/Camera_0/Binning").toInt();
+//    DetectorPCh1->Binning = obsSettings->value(Name + "/Camera_1/Binning").toInt();
+//    DetectorPCh2->Binning = obsSettings->value(Name + "/Camera_2/Binning").toInt();
+//    //
+//    DetectorBBCh->ROI = obsSettings->value(Name + "/Camera_0/ROI").toInt();
+//    DetectorPCh1->ROI = obsSettings->value(Name + "/Camera_1/ROI").toInt();
+//    DetectorPCh2->ROI = obsSettings->value(Name + "/Camera_2/ROI").toInt();
+//    //
+//    DetectorBBCh->TriggerDelay = TriggerDelay;
+//    DetectorPCh1->TriggerDelay = TriggerDelay;
+//    DetectorPCh2->TriggerDelay = TriggerDelay;
+//    addLog("trigger delay is: " + std::to_string(TriggerDelay));
     //
     DetectorBBCh->AutoSaveDir = AutoSaveSubDir + "/" + LineLabel;
     DetectorPCh1->AutoSaveDir = AutoSaveSubDir + "/" + LineLabel;
@@ -909,16 +911,18 @@ void Acquisition::matchETPassbandsLine()
     FilterMatrix->iPreFilter = iPreFilter;
     FilterMatrix->selectPreFilter();
     Sleep(XLDELAY);
-    addLog("Tuning ET50 and ET70 to zero positions...");
     // ET1 and ET2 starting positions
     ET50->Wavelength = ET70->Wavelength = Wavelength;
-    ET50->WaveScan = ET70->WaveScan = -WaveRange/2.0;
-    ET50->ZCounts = ET1Zero;
-    ET70->ZCounts = ET2Zero;
-    ET50->scanWavelength();
-    ET70->scanWavelength();
+    ET50->NWavePoints = ET70->NWavePoints = static_cast<int>(WaveRange/WaveStep+1);
+    addLog("Number of wavelength points: " + std::to_string(ET50->NWavePoints));
+    ET50->WaveScanRange = ET70->WaveScanRange = WaveRange;
+    addLog("Wavelength scan range: " + std::to_string(ET50->WaveScanRange));
+    ET50->ZZero = ET1Zero;
+    ET70->ZZero = ET2Zero;
+    addLog("Tuning ET50 and ET70 to zero positions...");
+    ET50->gotoScanStartPosition();
+    ET70->gotoScanStartPosition();
     Sleep(MDELAY);
-    ET50->WaveScan = ET70->WaveScan = WaveStep;
     DetectorPCh1->Mode = Mode;
     DetectorPCh1->AutoSaveDir = AutoSaveSubDir;
     DetectorPCh1->prepareAcquisition();
@@ -955,13 +959,14 @@ void Acquisition::matchETPassbandsLine()
 void Acquisition::examineBestFocus()
 {
     // Mode specific things
-    addLog(std::string("Characterization mode: ET50 passband matching with pre-filter"));
+    addLog(std::string("Characterization mode: Examinimg best focus for POL and BBI"));
     QPainter *ImageText;
     QFile *ImageFile;
     initAcquisition();
     addLog("FilterMatrix moving to: " + std::to_string(iPreFilter));
     FilterMatrix->iPreFilter = iPreFilter;
     FilterMatrix->selectPreFilter();
+    AutoSaveSubDir = AutoSaveSubDir + "/iPreFilter_" + std::to_string(iPreFilter);
     Sleep(XLDELAY);
     addLog("Tuning ET50 and ET70 to zero positions...");
     // ET1 and ET2 starting positions
@@ -988,14 +993,28 @@ void Acquisition::examineBestFocus()
     DetectorPCh1->initAcquisition();
     DetectorPCh2->initAcquisition();
     //
-    DetectorBBCh->recordImage();
+//    DetectorBBCh->recordImage();
     for (double i=FocusStart; i<FocusStop+FocusStep; i+=FocusStep) {
         if (ACQ_RUN_FLAG) {
-            PolarimeterStages->Position1 = i;
-            PolarimeterStages->moveStage1();
+            FocusStages->Position1 = FocusStages->Position2 = i;
+            FocusStages->moveTwoStages();
             Sleep(LDELAY);
+            DetectorBBCh->saveImage();
             DetectorPCh1->saveImage();
             DetectorPCh2->saveImage();
+            // View and save CAM0 image
+            DetectorBBCh->prepareImageDisplay();
+            ImageText = new QPainter(&DetectorBBCh->DisplayPixmap);
+            ImageText->setFont(QFont("Arial", 24));
+            ImageText->setPen(Qt::green);
+            ImageText->drawText(QPoint(32, 32), "Focus at: " + QString::number(i));
+            DetectorBBCh->displayPixmap();
+            ImageFile = new QFile(QString::fromStdString(AutoSaveSubDir + "/HELLRIDE_" + DetectorBBCh->FileNameCameraSuffix +
+                                                         "_" + std::to_string(i) + "mm.png"));
+            ImageFile->open(QIODevice::WriteOnly);
+            DetectorBBCh->DisplayPixmap.save(ImageFile, "PNG");
+            ImageFile->close();
+            delete ImageText;
             // View and save CAM1 image
             DetectorPCh1->prepareImageDisplay();
             ImageText = new QPainter(&DetectorPCh1->DisplayPixmap);
@@ -1374,7 +1393,7 @@ void AcqObservation::acqScience()
                 FilterMatrix->selectPreFilter();
                 // Setup focus
                 addLog(std::string("Adjusting the detector focus..."));
-                PolarimeterStages->moveStage1();
+                FocusStages->moveStage1();
                 // Setup etalons
                 addLog(std::string("Tuning the etalons..."));
                 ET50->gotoScanStartPosition();
@@ -1467,7 +1486,7 @@ void AcqObservation::getScienceData()
                 addLog("Moving the pre-filter: " + std::to_string(FilterMatrix->iPreFilter));
 //                FilterMatrix->selectPreFilter();
                 addLog("Adjusting the detector focus...");
-//                PolarimeterStages->moveStage1();
+//                FocusStages->moveStage1();
                 addLog("Tuning the etalons...");
 //                ET50->gotoScanStartPosition();
 //                ET70->gotoScanStartPosition();

@@ -1119,7 +1119,7 @@
         </rect>
        </property>
        <property name="currentText">
-        <string>1280</string>
+        <string>2048</string>
        </property>
        <property name="maxVisibleItems">
         <number>15</number>
@@ -1244,7 +1244,7 @@
       <property name="title">
        <string>Components (Use only for Troubleshooting)</string>
       </property>
-      <widget class="QPushButton" name="pushButtonOpenPLS">
+      <widget class="QPushButton" name="pushButtonOpenFS">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -1259,7 +1259,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Open Polarimeter Stages Controls</string>
+        <string>Open Focus Stages Controls</string>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -1445,7 +1445,7 @@
         </font>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditCommandPLS">
+      <widget class="QLineEdit" name="lineEditCommandFS">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -1461,30 +1461,6 @@
         <font>
          <pointsize>10</pointsize>
         </font>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButtonRemoveAnalyzer">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>370</x>
-         <y>240</y>
-         <width>140</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Remove Analyzer</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButtonResetFMS">
@@ -1715,7 +1691,7 @@
         <string>mm</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditFSmm">
+      <widget class="QLineEdit" name="lineEditFSPmm">
        <property name="geometry">
         <rect>
          <x>650</x>
@@ -1823,7 +1799,7 @@
         <string>counts</string>
        </property>
       </widget>
-      <widget class="QDoubleSpinBox" name="doubleSpinBoxFSmm">
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxFSPmm">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -2282,9 +2258,9 @@
       <widget class="QLabel" name="labelFilterPosition">
        <property name="geometry">
         <rect>
-         <x>310</x>
+         <x>389</x>
          <y>100</y>
-         <width>140</width>
+         <width>61</width>
          <height>30</height>
         </rect>
        </property>
@@ -2294,13 +2270,13 @@
         </font>
        </property>
        <property name="text">
-        <string>Move to the filter</string>
+        <string>iPreFilter</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButtonResetPLS">
+      <widget class="QPushButton" name="pushButtonResetFS">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -2324,7 +2300,7 @@
         <bool>false</bool>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditANSmm">
+      <widget class="QLineEdit" name="lineEditFSBmm">
        <property name="geometry">
         <rect>
          <x>650</x>
@@ -2357,7 +2333,7 @@
         <string>mm</string>
        </property>
       </widget>
-      <widget class="QDoubleSpinBox" name="doubleSpinBoxANSmm">
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxFSBmm">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -2402,7 +2378,7 @@
         </font>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;FMS -- X&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;FMS - X&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -2423,7 +2399,7 @@
         </font>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;FMS -- Y&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;FMS - Y&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -2444,7 +2420,7 @@
         </font>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ETS -- 1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ETS - 1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -2465,13 +2441,13 @@
         </font>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ETS -- 2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ETS - 2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QLabel" name="labelANS">
+      <widget class="QLabel" name="labelFSB">
        <property name="geometry">
         <rect>
          <x>510</x>
@@ -2486,13 +2462,13 @@
         </font>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ANS&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;FS - BBI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QLabel" name="labelFS">
+      <widget class="QLabel" name="labelFSP">
        <property name="geometry">
         <rect>
          <x>510</x>
@@ -2507,7 +2483,7 @@
         </font>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;FS&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;FS - POL&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -2570,7 +2546,7 @@
         </font>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ICU -- P&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ICU - P&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -2591,7 +2567,7 @@
         </font>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ICU -- R&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ICU - R&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -2910,6 +2886,21 @@
        <property name="checkable">
         <bool>true</bool>
        </property>
+      </widget>
+      <widget class="QComboBox" name="comboBoxFilters">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>100</y>
+         <width>160</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Dark</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBoxBrowse">
@@ -3343,7 +3334,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>13</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="pageCharET2Prof">
        <property name="geometry">
@@ -4254,8 +4245,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>500</width>
+         <height>100</height>
         </rect>
        </property>
        <attribute name="label">
@@ -5579,19 +5570,22 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>500</width>
+         <height>100</height>
         </rect>
        </property>
        <attribute name="label">
         <string>Observations -- Polarimetric Calibration</string>
        </attribute>
        <widget class="QLabel" name="labelObsPCal1">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>220</x>
           <y>40</y>
-          <width>400</width>
+          <width>190</width>
           <height>30</height>
          </rect>
         </property>
@@ -5601,13 +5595,16 @@
          </font>
         </property>
         <property name="text">
-         <string>Number of wave plate positions (range 0-180 degrees)</string>
+         <string>Number of wave plate positions</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBoxObsPCalRet">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>420</x>
@@ -5632,6 +5629,9 @@
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBoxObsPCalPol">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>420</x>
@@ -5651,13 +5651,19 @@
         <property name="maximum">
          <number>360</number>
         </property>
+        <property name="value">
+         <number>2</number>
+        </property>
        </widget>
        <widget class="QLabel" name="labelObsPCal2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>220</x>
           <y>10</y>
-          <width>400</width>
+          <width>190</width>
           <height>30</height>
          </rect>
         </property>
@@ -5667,7 +5673,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Number of polarizer positions (range 0-180 degrees)</string>
+         <string>Number of polarizer positions</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -5679,8 +5685,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>500</width>
-         <height>100</height>
+         <width>100</width>
+         <height>30</height>
         </rect>
        </property>
        <attribute name="label">

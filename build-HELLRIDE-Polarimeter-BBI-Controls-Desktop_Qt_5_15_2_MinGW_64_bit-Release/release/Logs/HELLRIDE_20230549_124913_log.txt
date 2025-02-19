@@ -1,0 +1,12 @@
+13:09:08.278   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+13:09:08.283   BroadbandDetector exposure time is set to 10000
+13:09:08.283   BroadbandDetector frame binning is set to 1
+13:09:08.283   BroadbandDetector frame width is set to 1280
+13:09:08.283   BroadbandDetector frame height is set to 1280
+13:09:08.283   BroadbandDetector frame x-offset is set to 384
+13:09:08.283   BroadbandDetector frame y-offset is set to 384
+13:09:08.283   BroadbandDetector buffer queue size set to 39 frames
+13:09:08.283   BroadbandDetector setting up trigger: 0
+13:09:08.637   BroadbandDetector started acquisition
+13:09:12.055   BroadbandDetector stopped acquisition
+Creating directory : D:/20230502/Flats_1309

@@ -7,7 +7,7 @@ Camera::Camera(QObject *parent) : QObject(parent)
     ROIHeight = ROIWidth = 1024;
     ROILeft = ROITop = 0;
     Trigger = XI_TRG_OFF;
-    TriggerDelay = 0;
+    TriggerDelay = 10000;
     BufferSize = 512;
 }
 
@@ -26,7 +26,7 @@ void Camera::initDetector(QString Name)
     FileNameCameraSuffix = Settings->value(Name + "/FileNameCameraSuffix").toString().toStdString();
     ExposureTime = Settings->value(Name + "/ExposureTime").toInt();
     BufferSize = Settings->value(Name + "/BufferSize").toInt();
-//    TriggerDelay = Settings->value(Name + "/TriggerDelay").toInt();
+    TriggerDelay = Settings->value(Name + "/TriggerDelay").toInt();
     Binning = Settings->value(Name + "/Binning").toInt();
     ROI = Settings->value(Name = "/ROI").toInt();
     // Initialize camera and general settings
@@ -261,13 +261,16 @@ void Camera::setupTrigger()
         handleError(xiSetParamInt(Detector, XI_PRM_TRG_SELECTOR, XI_TRG_SEL_FRAME_START), "setting trigger function");
         handleError(xiSetParamInt(Detector, XI_PRM_TRG_DELAY, TriggerDelay), "setting trigger delay");
         handleError(xiSetParamInt(Detector, XI_PRM_RECENT_FRAME, XI_ON), "setting recent frame");
+        int TriggerDelayTemp;
+        handleError(xiGetParamInt(Detector, XI_PRM_TRG_DELAY, &TriggerDelayTemp), "getting trigger delay");
+        addLog("trigger delay set to: " + std::to_string(TriggerDelayTemp));
     }
     else {
         handleError(xiSetParamInt(Detector, XI_PRM_TRG_SOURCE, Trigger), "setting trigger source");
         handleError(xiSetParamInt(Detector, XI_PRM_RECENT_FRAME, XI_ON), "setting recent frame");
 
     }
-    emit(addLog("setting up trigger: " + std::to_string(Trigger)));
+    addLog("setting up trigger: " + std::to_string(Trigger));
 }
 
 void Camera::prepareImageDisplay()

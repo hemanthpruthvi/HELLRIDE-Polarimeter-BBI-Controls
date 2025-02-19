@@ -190,6 +190,7 @@ void plotview::plotData(int Index)
         ui->customPlot->graph(Index)->setPen(QPen(Qt::green));
         Min = *std::min_element(std::begin(XData2),std::end(XData2));
         Max = *std::max_element(std::begin(XData2),std::end(XData2));
+        std::cout << "Min and Max for axis2: " << Min <<  ", " << Max << std::endl;
         ui->customPlot->xAxis2->setRange(Min, Max);
 //        ui->customPlot->xAxis2->setRange(Min-0.2*std::abs(Max), Max+0.2*std::abs(Max));
         Min = *std::min_element(std::begin(YData),std::end(YData));
@@ -241,7 +242,7 @@ void plotview::plotData()
         break;
     case CHR_MODE_ET2_MATCH:
         this->setWindowTitle("Match ET70 transmission with ET50 transmission profile");
-        ui->customPlot->xAxis->setLabel("ET50 spacing counts");
+        ui->customPlot->xAxis->setLabel("ET70 spacing counts");
         ui->customPlot->yAxis->setLabel("Intensity counts");
         plotData(BOT_LEF);
         break;
@@ -255,13 +256,13 @@ void plotview::plotData()
         break;
     case CHR_MODE_LCVR1_PROF:
         this->setWindowTitle("LCVR1 Retardance vs. Voltage");
-        ui->customPlot->xAxis->setLabel("Voltage in mV");
+        ui->customPlot->xAxis->setLabel("LCVR1 Voltage in mV");
         ui->customPlot->yAxis->setLabel("Retardance in degrees");
         plotData(BOT_LEF);
         break;
     case CHR_MODE_LCVR2_PROF:
         this->setWindowTitle("LCVR2 Retardance vs. Voltage");
-        ui->customPlot->xAxis->setLabel("Voltage in mV");
+        ui->customPlot->xAxis->setLabel("LCVR2 voltage in mV");
         ui->customPlot->yAxis->setLabel("Retardance in degrees");
         plotData(BOT_LEF);
         break;

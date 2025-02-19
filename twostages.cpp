@@ -44,7 +44,9 @@ void TwoStages::readyRead()
 {
     QByteArray ByteDataReceived = TCPSocket->readAll();
     Response = std::string(ByteDataReceived.data());
-    addLog("received controller response: " + std::string(ByteDataReceived.data()));
+    addLog("received controller response: " + Response);
+    if (Command == "1 np") CurrentPosition1 = std::stod(Response);
+    else if (Command == "2 np") CurrentPosition2 = std::stod(Response);
 }
 
 void TwoStages::selectPreFilter()
@@ -81,6 +83,16 @@ void TwoStages::moveStage2()
     sendCommand();
 }
 
+void TwoStages::getCurrentPositions()
+{
+    Command = "1 np";
+    sendCommand();
+    TCPSocket->waitForReadyRead();
+    Command = "2 np";
+    sendCommand();
+    TCPSocket->waitForReadyRead();
+}
+
 void TwoStages::setSpeeds()
 {
     Command = std::to_string(Speed1) + " 1 snv";
@@ -114,6 +126,7 @@ void TwoStages::calibrateTwoStages()
 
 void TwoStages::sendCommand()
 {
+    QByteArray ByteDataReceived = TCPSocket->readAll();
     addLog("sending controller command: " + Command);
     TCPSocket->write((Command+"\r\n").c_str());
     TCPSocket->waitForBytesWritten();

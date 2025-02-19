@@ -50,7 +50,7 @@ public:
 
     // Component controls
 
-    TwoStages *PolarimeterStages;
+    TwoStages *FocusStages;
 
     TwoStages *FilterMatrix;
 
@@ -100,6 +100,8 @@ private slots:
 
     void saveSettings();
 
+    void loadFilterList();
+
     //
 
     void on_pushButtonSettings_clicked();
@@ -130,6 +132,8 @@ private slots:
 
     void on_doubleSpinBoxFMSYmm_valueChanged(double arg1);
 
+    void on_comboBoxFilters_currentIndexChanged(int index);
+
     // Etalon stages functions
 
     void on_pushButtonOpenETS_clicked(bool checked);
@@ -146,19 +150,17 @@ private slots:
 
     void on_doubleSpinBoxETS2mm_valueChanged(double arg1);
 
-    // Polarimeter stages functions
+    // Focus stages functions
 
-    void on_pushButtonOpenPLS_clicked(bool checked);
+    void on_pushButtonOpenFS_clicked(bool checked);
 
-    void on_pushButtonResetPLS_clicked();
+    void on_pushButtonResetFS_clicked();
 
-    void on_lineEditCommandPLS_returnPressed();
+    void on_lineEditCommandFS_returnPressed();
 
-    void on_pushButtonRemoveAnalyzer_clicked(bool checked);
+    void on_doubleSpinBoxFSPmm_valueChanged(double arg1);
 
-    void on_doubleSpinBoxFSmm_valueChanged(double arg1);
-
-    void on_doubleSpinBoxANSmm_valueChanged(double arg1);
+    void on_doubleSpinBoxFSBmm_valueChanged(double arg1);
 
     // Etalon-1 (50) controls
 
@@ -244,6 +246,9 @@ private slots:
     void on_pushButtonReloadObsSettings_clicked();
 
     void on_pushButtonReloadCoreSettings_clicked();
+
+
+    void on_pushButtonResetICU_clicked();
 
 private:
     Ui::MainWindow *ui;

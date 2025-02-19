@@ -55,6 +55,41 @@ void VTT::powerICUMotors(bool Power)
     }
 }
 
+void VTT::resetICUMotors()
+{
+    Command = ICUStage->clearErrorCommand();
+    sendCommand();
+    Sleep(MDELAY);
+    sendCommand();
+    Sleep(MDELAY);
+    sendCommand();
+    Sleep(MDELAY);
+    //
+    Command = ICUPolarizer->clearErrorCommand();
+    sendCommand();
+    Sleep(MDELAY);
+    sendCommand();
+    Sleep(MDELAY);
+    sendCommand();
+    Sleep(MDELAY);
+    //
+    Command = ICURetarder->clearErrorCommand();
+    sendCommand();
+    Sleep(MDELAY);
+    sendCommand();
+    Sleep(MDELAY);
+    sendCommand();
+    Sleep(MDELAY);
+    //
+    powerICUMotors(false);
+    Sleep(LDELAY);
+    powerICUMotors(true);
+    //
+    ICUStage->ERR = ICUStage->RUNNING = false;
+    ICUPolarizer->ERR = ICUPolarizer->RUNNING = false;
+    ICURetarder->ERR = ICURetarder->RUNNING = false;
+}
+
 void VTT::homeICU()
 {
     Command = ICUStage->homeCommand();
@@ -119,6 +154,21 @@ void VTT::rotateICURetarder()
     waitForIt();
 }
 
+void VTT::rotateRelICUPolarizer(double aPol)
+{
+    ICUPolarizer->RelPos = aPol;
+    Command = ICUPolarizer->moveRelCommand();
+    sendCommand();
+    waitForIt();
+}
+
+void VTT::rotateRelICURetarder(double aRet)
+{
+    ICURetarder->RelPos = aRet;
+    Command = ICURetarder->moveRelCommand();
+    sendCommand();
+    waitForIt();
+}
 
 void VTT::gotoICUPolarizer(int iPol)
 {
@@ -142,6 +192,12 @@ void VTT::gotoICUPosition(int iPol, int iRet)
     gotoICURetarder(iRet);
 }
 
+void VTT::moveRelICU(double aPol, double aRet)
+{
+    rotateRelICUPolarizer(aPol);
+    rotateRelICURetarder(aRet);
+}
+
 void VTT::waitForIt()
 {
     QEventLoop WaitLoop;
@@ -157,7 +213,16 @@ void VTT::readyRead()
     if (Response.find(ICUPolarizer->Acknowledge) != std::string::npos) ICUPolarizer->RUNNING = false;
     if (Response.find(ICURetarder->Acknowledge) != std::string::npos) ICURetarder->RUNNING = false;
     if (Response.find(ICUStage->Acknowledge) != std::string::npos) ICUStage->RUNNING = false;
-    if (!ICUPolarizer->RUNNING && !ICUPolarizer->RUNNING && !ICUPolarizer->RUNNING) emit(stopWaiting());
+    if (Response.find(ICUPolarizer->ErrorResp) != std::string::npos) ICUPolarizer->ERR = true;
+    if (Response.find(ICURetarder->ErrorResp) != std::string::npos) ICURetarder->ERR = true;
+    if (Response.find(ICUStage->ErrorResp) != std::string::npos) ICUStage->ERR = true;
+    if (ICUStage->ERR || ICUPolarizer->ERR || ICURetarder->ERR) {
+        std::string LastCommand = Command;
+        resetICUMotors();
+        Command = LastCommand;
+        sendCommand();
+    }
+    if (!ICUPolarizer->RUNNING && !ICURetarder->RUNNING && !ICUStage->RUNNING) emit(stopWaiting());
 }
 
 void VTT::sendCommand()
@@ -203,7 +268,9 @@ CANDevice::CANDevice(QString Name){
     Offset = Settings->value(Name + "/Offset").toDouble();
     iDevice = Settings->value(Name + "/iDevice").toInt();
     NPositions = Settings->value(Name + "/NPositions").toInt();
+    Step = (Stop-Start)/(NPositions-1);
     Acknowledge = std::to_string(iDevice) + "X";
+    ErrorResp = std::to_string(iDevice) + "E";
 }
 
 CANDevice::~CANDevice()
@@ -223,17 +290,31 @@ std::string CANDevice::moveCommand()
     return "X" + std::to_string(iDevice) + "A" + std::to_string(Counts) + "G";
 }
 
+std::string CANDevice::moveRelCommand() {
+    int Counts = RelPos*Factor;
+    RUNNING = true;
+    return "X" + std::to_string(iDevice) + "R" + std::to_string(Counts) + "G";
+}
+
 std::string CANDevice::onCommand() {
     RUNNING = true;
-    return "X" + std::to_string(iDevice) + "nG";}
+    return "X" + std::to_string(iDevice) + "nG";
+}
 
 std::string CANDevice::offCommand() {
     RUNNING = true;
-    return "X" + std::to_string(iDevice) + "fG";}
+    return "X" + std::to_string(iDevice) + "fG";
+}
 
 std::string CANDevice::positionCommand() {
     RUNNING = true;
-    return "X" + std::to_string(iDevice) + "pG";}
+    return "X" + std::to_string(iDevice) + "pG";
+}
+
+std::string CANDevice::clearErrorCommand() {
+    RUNNING = true;
+    return "X" + std::to_string(iDevice) + "E";
+}
 
 
 

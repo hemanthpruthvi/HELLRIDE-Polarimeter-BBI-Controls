@@ -1,0 +1,24 @@
+No detector is open/selected!
+12:02:33.220   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+12:02:33.225   BroadbandDetector exposure time is set to 10000
+12:02:33.225   BroadbandDetector frame binning is set to 1
+12:02:33.225   BroadbandDetector frame width is set to 1280
+12:02:33.225   BroadbandDetector frame height is set to 1280
+12:02:33.225   BroadbandDetector frame x-offset is set to 384
+12:02:33.225   BroadbandDetector frame y-offset is set to 384
+12:02:33.225   BroadbandDetector buffer queue size set to 19 frames
+12:02:33.225   BroadbandDetector setting up trigger: 0
+12:02:33.485   BroadbandDetector started acquisition
+12:02:34.579   BroadbandDetector stopped acquisition
+12:02:35.125   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+12:02:35.130   BroadbandDetector exposure time is set to 10000
+12:02:35.130   BroadbandDetector frame binning is set to 1
+12:02:35.130   BroadbandDetector frame width is set to 1280
+12:02:35.130   BroadbandDetector frame height is set to 1280
+12:02:35.130   BroadbandDetector frame x-offset is set to 384
+12:02:35.130   BroadbandDetector frame y-offset is set to 384
+12:02:35.131   BroadbandDetector buffer queue size set to 19 frames
+12:02:35.131   BroadbandDetector setting up trigger: 0
+12:02:35.348   BroadbandDetector started acquisition
+12:02:39.029   BroadbandDetector stopped acquisition
+Creating directory : D:/20230504/Targetplate_1202

@@ -61,6 +61,11 @@ void Polarimeter::setModulation()
     std::vector<std::string> V2;
     std::vector<std::string> T;
 
+    if (NModulations>8) {
+        addLog("invalid number of states of modulation: " + std::to_string(NModulations));
+        return;
+    }
+
     for (unsigned int i=0; i<NModulations; i++) {
         if (i == 0) {
             if (LCVR1Voltages[i] < LCVR1Voltages[NModulations-1])
@@ -104,6 +109,34 @@ void Polarimeter::setModulation()
         Command = "stt:" + std::to_string(i+1) + "," + T[i];
         sendCommand();
     }
+    for (int i=2*NModulations; i<16; i++)
+    {
+        Command = "stt:" + std::to_string(i+1) + ",0";
+        sendCommand();
+    }
+
+//    if (NModulations>16) {
+//        addLog("invalid number of states of modulation: " + std::to_string(NModulations));
+//        return;
+//    }
+//    for (int i=0; i<NModulations; i++) {
+//        V1.push_back(std::to_string(LCVR1Voltages[i]));
+//        V2.push_back(std::to_string(LCVR2Voltages[i]));
+//        T.push_back(std::to_string(StateTime));
+//    }
+//    for (int i=0; i<NModulations; i++) {
+//        addLog("State " + std::to_string(i+1) + " : " +
+//               V1[i] + " V, " + V2[i] + " mV, " + T[i] + " ms.");
+//        Command = "stv:" + std::to_string(i+1) + "," + V1[i] + "," + V2[i];
+//        sendCommand();
+//        Command = "stt:" + std::to_string(i+1) + "," + T[i];
+//        sendCommand();
+//    }
+//    for (int i=NModulations; i<16; i++)
+//    {
+//        Command = "stt:" + std::to_string(i+1) + ",0";
+//        sendCommand();
+//    }
     Command = "syncd:" + std::to_string(SyncDuration);
     sendCommand();
 }

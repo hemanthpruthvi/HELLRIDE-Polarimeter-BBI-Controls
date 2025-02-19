@@ -11,18 +11,21 @@ public:
     ~CANDevice();
     std::string Label;
     double Start, Stop, Step;
-    double Zero, Default, Position;
+    double Zero, Default, Position, RelPos;
     double InPosition, OutPosition;
-    double Factor, Offset;
+    int Factor, Offset;
     int iDevice, NPositions;
     bool RUNNING = false;
+    bool ERR = false;
+    std::string ErrorResp;
     std::string Acknowledge;
     std::string homeCommand();
     std::string moveCommand();
     std::string onCommand();
     std::string offCommand();
     std::string positionCommand();
-
+    std::string moveRelCommand();
+    std::string clearErrorCommand();
 };
 
 class VTT : public QObject
@@ -33,6 +36,7 @@ public:
     ~VTT();
     void initVTT(QString Name);                 //
     void powerICUMotors(bool Power);            //
+    void resetICUMotors();                      //
     void homeICU();                             // Go to ICU home positions
     void insertICU();                           // Set LCVR1, LCVR2 modulation
     void removeICU();                           // Setup acquisition with given parameters
@@ -45,6 +49,9 @@ public:
     void getICUPolarizerPosition();
     void getICURetarderPosition();
     void sendCommand();                         //
+    void rotateRelICURetarder(double aRet);     //
+    void rotateRelICUPolarizer(double aPol);    //
+    void moveRelICU(double aPol, double aRet);  //
     //
     int Error = 0;
     int NModulations = 4;                       // Number of modulation states

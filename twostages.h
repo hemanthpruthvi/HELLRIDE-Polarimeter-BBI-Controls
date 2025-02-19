@@ -13,6 +13,7 @@ public:
     void moveTwoStages();                           // Move both stages at a time
     void moveStage1();                              // Move only stage-1 to "Position1"
     void moveStage2();                              // Move only stage-2 to "Position2"
+    void getCurrentPositions();                     //
     void setSpeeds();                               // Set moving speeds of two stages to "Speed1" and "Speed2"
     void calibrateTwoStages();                      // Run Home run and zero run
     void sendCommand();                             //
@@ -26,6 +27,8 @@ public:
     double DefaultPosition2 = 0.0;                  // Stage-2 default position w.r.t. ZeroPosition2
     double Speed1;                                  // Stage-1 moving speed
     double Speed2;                                  // Stage-2 moving speed
+    double CurrentPosition1;                        // Stage-1 position read
+    double CurrentPosition2;                        // Stage-2 position read
     int ResetDelay;                                 // Wait time in seconds for reset
     //
     int Error = 0;                                  //
@@ -55,6 +58,7 @@ public slots:
 
 signals:
     void addLog(QString Log);                       //
+
 };
 
 #endif // TWOSTAGES_H

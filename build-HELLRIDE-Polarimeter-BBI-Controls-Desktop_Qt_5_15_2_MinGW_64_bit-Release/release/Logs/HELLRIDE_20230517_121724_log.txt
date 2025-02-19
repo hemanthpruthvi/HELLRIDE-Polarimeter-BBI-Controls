@@ -1,0 +1,16 @@
+12:20:18.308   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+12:20:18.313   BroadbandDetector exposure time is set to 20000
+12:20:18.313   BroadbandDetector frame binning is set to 1
+12:20:18.313   BroadbandDetector frame width is set to 1280
+12:20:18.313   BroadbandDetector frame height is set to 1280
+12:20:18.313   BroadbandDetector frame x-offset is set to 384
+12:20:18.313   BroadbandDetector frame y-offset is set to 384
+12:20:18.313   BroadbandDetector buffer queue size set to 19 frames
+12:20:18.313   BroadbandDetector setting up trigger: 0
+12:20:18.558   BroadbandDetector started acquisition
+12:20:19.684   BroadbandDetector stopped acquisition
+12:20:36.403   VTTServer connecting (hobbit.tt.iac.es:3065).
+12:20:36.420   VTTServer controller command sent: hellride01
+12:20:38.931   VTTServer controller command sent: hobbit: hellride01 ct opt sw4
+12:20:42.452   VTTServer received controller response: hellride01: hobbit ret ct acc
+Creating directory : D:/20230504/PCalibration_1220

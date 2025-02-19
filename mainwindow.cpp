@@ -36,9 +36,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEditSettings->setText("./obsSettings.ini");
     ui->lineEditAutoSave->setText(Settings->value("Common/AutoSaveDir").toString());
     //
+    loadFilterList();
+    //
+    ui->spinBoxObsPCalPol->setValue(Settings->value("VTTControls/ICUPolarizer/NPositions").toInt());
+    ui->spinBoxObsPCalRet->setValue(Settings->value("VTTControls/ICURetarder/NPositions").toInt());
+    //
     FilterMatrix = new TwoStages();
     ETStages = new TwoStages();
-    PolarimeterStages = new TwoStages();
+    FocusStages = new TwoStages();
     ET50 = new Etalon();
     ET70 = new Etalon();
     LCVRPolarimeter = new Polarimeter();
@@ -55,6 +60,8 @@ MainWindow::MainWindow(QWidget *parent) :
     DisplayPlot = new plotview();
     //
     ui->toolBoxAcquisition->setCurrentIndex(OBS_MODE_SCIE);
+    //
+
 }
 
 MainWindow::~MainWindow()
@@ -66,7 +73,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 {
     if (ui->pushButtonOpenFMS->isChecked()) delete FilterMatrix;
     if (ui->pushButtonOpenETS->isChecked()) delete ETStages;
-    if (ui->pushButtonOpenPLS->isChecked()) delete PolarimeterStages;
+    if (ui->pushButtonOpenFS->isChecked()) delete FocusStages;
     if (ui->pushButtonOpenVTTServer->isChecked()) delete VTTServer;
     if (ui->pushButtonOpenVTT->isChecked()) delete VTTControls;
     if (ui->pushButtonOpenCWP->isChecked()) delete CWPMount;
@@ -140,7 +147,17 @@ void MainWindow::showSettings()
     }
     //
 }
-//
+
+void MainWindow::loadFilterList()
+{
+    int NFilters = Settings->value("Common/NFilters").toInt();
+    QString Label;
+    for(int i=1; i<NFilters+1; i++) {
+        Label = Settings->value("Filter_" + QString::number(i) + "/Label").toString();
+        ui->comboBoxFilters->addItem(Label);
+    }
+}
+
 
 void MainWindow::on_pushButtonSettings_clicked()
 {
@@ -226,6 +243,38 @@ void MainWindow::on_lineEditCommandFMS_returnPressed()
 {
     FilterMatrix->Command = ui->lineEditCommandFMS->text().toStdString();
     FilterMatrix->sendCommand();
+}
+
+void MainWindow::on_comboBoxFilters_currentIndexChanged(int index)
+{
+    if (!ui->pushButtonOpenFMS->isChecked()) {
+        ui->pushButtonOpenFMS->setChecked(true);
+        on_pushButtonOpenFMS_clicked(true);
+    }
+    if (!ui->pushButtonOpenFS->isChecked()) {
+        ui->pushButtonOpenFS->setChecked(true);
+        on_pushButtonOpenFS_clicked(true);
+    }
+    if (!ui->pushButtonOpenET1->isChecked()) {
+        ui->pushButtonOpenET1->setChecked(true);
+        on_pushButtonOpenET1_clicked(true);
+    }
+    if (!ui->pushButtonOpenET2->isChecked()) {
+        ui->pushButtonOpenET2->setChecked(true);
+        on_pushButtonOpenET2_clicked(true);
+    }
+    //
+    QString Label = "Filter_" + QString::number(index);
+    int iPreFilter = Settings->value(Label+"/FilterMatrix/iPreFilter").toInt();
+    ui->spinBoxFilterPosition->setValue(iPreFilter);
+    on_spinBoxFilterPosition_valueChanged(iPreFilter);
+    FocusStages->Position1 = Settings->value(Label+"/FocusStages/Position1").toDouble();
+    FocusStages->Position2 = Settings->value(Label+"/FocusStages/Position2").toDouble();
+    FocusStages->moveTwoStages();
+    ET50->ZCounts = Settings->value(Label+"/Etalon_1/ZZero").toInt();
+    ET50->tuneWavelength();
+    ET70->ZCounts = Settings->value(Label+"/Etalon_2/ZZero").toInt();
+    ET70->tuneWavelength();
 }
 
 void MainWindow::on_spinBoxFilterPosition_valueChanged(int arg1)
@@ -338,77 +387,60 @@ void MainWindow::on_doubleSpinBoxETS2mm_valueChanged(double arg1)
     ETStages->moveStage2();
 }
 
-// PolarimeterStages
+// FocusStages
 
-void MainWindow::on_pushButtonOpenPLS_clicked(bool checked)
+void MainWindow::on_pushButtonOpenFS_clicked(bool checked)
 {
     if(checked) {
-        PolarimeterStages = new TwoStages();
-        connect(PolarimeterStages, SIGNAL(addLog(QString)),
+        FocusStages = new TwoStages();
+        connect(FocusStages, SIGNAL(addLog(QString)),
                 this, SLOT(addLog(QString)));
-        PolarimeterStages->initTwoStages("PolarimeterStages");
-        if (PolarimeterStages->Error) {
-            ui->pushButtonOpenPLS->setChecked(false);
+        FocusStages->initTwoStages("FocusStages");
+        if (FocusStages->Error) {
+            ui->pushButtonOpenFS->setChecked(false);
         }
         else{
-            ui->pushButtonOpenPLS->setText("Close Polarimeter Stages Controls");
-            ui->pushButtonResetPLS->setEnabled(true);
-            ui->lineEditCommandPLS->setEnabled(true);
-            ui->pushButtonRemoveAnalyzer->setEnabled(true);
-            ui->doubleSpinBoxFSmm->setEnabled(true);
-            ui->doubleSpinBoxANSmm->setEnabled(true);
+            ui->pushButtonOpenFS->setText("Close Focus Stages Controls");
+            ui->pushButtonResetFS->setEnabled(true);
+            ui->lineEditCommandFS->setEnabled(true);
+            ui->doubleSpinBoxFSPmm->setEnabled(true);
+            ui->doubleSpinBoxFSBmm->setEnabled(true);
         }
     }
     else {
-        delete PolarimeterStages;
-        ui->pushButtonOpenPLS->setText("Open Polarimeter Stages Controls");
-        ui->pushButtonResetPLS->setEnabled(false);
-        ui->lineEditCommandPLS->setEnabled(false);
-        ui->pushButtonRemoveAnalyzer->setEnabled(false);
-        ui->doubleSpinBoxFSmm->setEnabled(false);
-        ui->doubleSpinBoxANSmm->setEnabled(false);
+        delete FocusStages;
+        ui->pushButtonOpenFS->setText("Open Focus Stages Controls");
+        ui->pushButtonResetFS->setEnabled(false);
+        ui->lineEditCommandFS->setEnabled(false);
+        ui->doubleSpinBoxFSPmm->setEnabled(false);
+        ui->doubleSpinBoxFSBmm->setEnabled(false);
     }
 }
 
-void MainWindow::on_pushButtonResetPLS_clicked()
+void MainWindow::on_pushButtonResetFS_clicked()
 {
-    addLog("Doing calibration/home run for the focus and analyzer stages, please wait...");
-    PolarimeterStages->calibrateTwoStages();
-    addLog("Polarimeter stages calibration finished.");
+    addLog("Doing calibration/home run for the focus stages, please wait...");
+    FocusStages->calibrateTwoStages();
+    addLog("Focus stages calibration finished.");
 }
 
-void MainWindow::on_lineEditCommandPLS_returnPressed()
+void MainWindow::on_lineEditCommandFS_returnPressed()
 {
-    PolarimeterStages->Command = ui->lineEditCommandPLS->text().toStdString();
-    PolarimeterStages->sendCommand();
+    FocusStages->Command = ui->lineEditCommandFS->text().toStdString();
+    FocusStages->sendCommand();
 }
 
-void MainWindow::on_pushButtonRemoveAnalyzer_clicked(bool checked)
+
+void MainWindow::on_doubleSpinBoxFSPmm_valueChanged(double arg1)
 {
-    if (checked) {
-        addLog("Removing analyzer from the optical path...");
-        PolarimeterStages->Position2 = 0.0;
-        PolarimeterStages->moveStage2();
-        ui->pushButtonRemoveAnalyzer->setText("Insert Analyzer");
-    }
-    else {
-        addLog("Inserting analyzer into the optical path...");
-        PolarimeterStages->Position2 = PolarimeterStages->DefaultPosition2;
-        PolarimeterStages->moveStage2();
-        ui->pushButtonRemoveAnalyzer->setText("Remove Analyzer");
-    }
+    FocusStages->Position1 = arg1 - FocusStages->ZeroPosition1;
+    FocusStages->moveStage1();
 }
 
-void MainWindow::on_doubleSpinBoxFSmm_valueChanged(double arg1)
+void MainWindow::on_doubleSpinBoxFSBmm_valueChanged(double arg1)
 {
-    PolarimeterStages->Position1 = arg1 - PolarimeterStages->ZeroPosition1;
-    PolarimeterStages->moveStage1();
-}
-
-void MainWindow::on_doubleSpinBoxANSmm_valueChanged(double arg1)
-{
-    PolarimeterStages->Position2 = arg1 - PolarimeterStages->ZeroPosition2;
-    PolarimeterStages->moveStage2();
+    FocusStages->Position2 = arg1 - FocusStages->ZeroPosition2;
+    FocusStages->moveStage2();
 }
 
 // ET1
@@ -628,6 +660,8 @@ void MainWindow::on_pushButtonOpenVTT_clicked(bool checked)
         }
         else {
             ui->pushButtonOpenVTT->setText("Close VTT Controls");
+            ui->pushButtonResetICU->setEnabled(true);
+            ui->pushButtonHomeICU->setEnabled(true);
             ui->lineEditCommandVTT->setEnabled(true);
             ui->pushButtonInsertICU->setEnabled(true);
             ui->doubleSpinBoxICUPdeg->setEnabled(true);
@@ -636,6 +670,8 @@ void MainWindow::on_pushButtonOpenVTT_clicked(bool checked)
     }
     else {
         delete VTTControls;
+        ui->pushButtonResetICU->setEnabled(false);
+        ui->pushButtonHomeICU->setEnabled(false);
         ui->lineEditCommandVTT->setEnabled(false);
         ui->pushButtonInsertICU->setEnabled(false);
         ui->doubleSpinBoxICUPdeg->setEnabled(false);
@@ -679,8 +715,17 @@ void MainWindow::on_doubleSpinBoxICURdeg_editingFinished()
     VTTControls->rotateICURetarder();
 }
 
+void MainWindow::on_pushButtonResetICU_clicked()
+{
+    addLog("Resetting " + QString::fromStdString(VTTControls->Label));
+    VTTControls->resetICUMotors();
+}
+
+
 void MainWindow::on_pushButtonHomeICU_clicked()
 {
+    addLog("Going home " + QString::fromStdString(VTTControls->Label));
+    VTTControls->homeICU();
 }
 
 
@@ -705,7 +750,7 @@ void MainWindow::on_pushButtonOpenVTTServer_clicked(bool checked)
         delete VTTServer;
         ui->lineEditCommandVTTServer->setEnabled(false);
         ui->comboBoxVTTStopWheel->setEnabled(false);
-        ui->pushButtonOpenVTT->setText("Open VTTServer Controls");
+        ui->pushButtonOpenVTTServer->setText("Open VTTServer Controls");
     }
 }
 
@@ -731,8 +776,8 @@ void MainWindow::on_comboBoxStepResolution_currentIndexChanged(int index)
         ui->doubleSpinBoxFMSYmm->setSingleStep(1);
         ui->doubleSpinBoxETS1mm->setSingleStep(0.5);
         ui->doubleSpinBoxETS2mm->setSingleStep(0.5);
-        ui->doubleSpinBoxFSmm->setSingleStep(0.1);
-        ui->doubleSpinBoxANSmm->setSingleStep(0.1);
+        ui->doubleSpinBoxFSPmm->setSingleStep(0.1);
+        ui->doubleSpinBoxFSBmm->setSingleStep(0.1);
         ui->doubleSpinBoxICUPdeg->setSingleStep(0.1);
         ui->doubleSpinBoxICURdeg->setSingleStep(0.1);
         ui->doubleSpinBoxCWPdeg->setSingleStep(0.1);
@@ -746,8 +791,8 @@ void MainWindow::on_comboBoxStepResolution_currentIndexChanged(int index)
         ui->doubleSpinBoxFMSYmm->setSingleStep(5);
         ui->doubleSpinBoxETS1mm->setSingleStep(2);
         ui->doubleSpinBoxETS2mm->setSingleStep(2);
-        ui->doubleSpinBoxFSmm->setSingleStep(0.5);
-        ui->doubleSpinBoxANSmm->setSingleStep(0.5);
+        ui->doubleSpinBoxFSPmm->setSingleStep(0.5);
+        ui->doubleSpinBoxFSBmm->setSingleStep(0.5);
         ui->doubleSpinBoxICUPdeg->setSingleStep(0.5);
         ui->doubleSpinBoxICURdeg->setSingleStep(0.5);
         ui->doubleSpinBoxCWPdeg->setSingleStep(0.5);
@@ -761,8 +806,8 @@ void MainWindow::on_comboBoxStepResolution_currentIndexChanged(int index)
         ui->doubleSpinBoxFMSYmm->setSingleStep(20);
         ui->doubleSpinBoxETS1mm->setSingleStep(10);
         ui->doubleSpinBoxETS2mm->setSingleStep(10);
-        ui->doubleSpinBoxFSmm->setSingleStep(2);
-        ui->doubleSpinBoxANSmm->setSingleStep(2);
+        ui->doubleSpinBoxFSPmm->setSingleStep(2);
+        ui->doubleSpinBoxFSBmm->setSingleStep(2);
         ui->doubleSpinBoxICUPdeg->setSingleStep(2);
         ui->doubleSpinBoxICURdeg->setSingleStep(2);
         ui->doubleSpinBoxCWPdeg->setSingleStep(2);
@@ -778,53 +823,35 @@ void MainWindow::on_comboBoxStepResolution_currentIndexChanged(int index)
 
 void MainWindow::on_pushButtonGetValues_clicked()
 {
+    // Filter matrix
     if (ui->pushButtonOpenFMS->isChecked()) {
-        // X, axis - 2
-        FilterMatrix->Command = "2 np";
-        FilterMatrix->sendCommand();
-        Sleep(SDELAY);
-        ui->lineEditFMSX->setText(QString::fromStdString(FilterMatrix->Response));
-        // Y, axis - 1
-        FilterMatrix->Command = "1 np";
-        FilterMatrix->sendCommand();
-        Sleep(SDELAY);
-        ui->lineEditFMSY->setText(QString::fromStdString(FilterMatrix->Response));
+        FilterMatrix->getCurrentPositions();
+        ui->lineEditFMSX->setText(QString::number(FilterMatrix->CurrentPosition2));
+        ui->lineEditFMSY->setText(QString::number(FilterMatrix->CurrentPosition1));
     }
+    // Etalon stages
     if (ui->pushButtonOpenETS->isChecked()) {
-        // ET1 stage, axis - 1
-        ETStages->Command = "1 np";
-        ETStages->sendCommand();
-        Sleep(SDELAY);
-        ui->lineEditETS1mm->setText(QString::fromStdString(ETStages->Response));
-        // ET2 stage, axis - 2
-        ETStages->Command = "2 np";
-        ETStages->sendCommand();
-        Sleep(SDELAY);
-        ui->lineEditETS2mm->setText(QString::fromStdString(ETStages->Response));
+        ETStages->getCurrentPositions();
+        ui->lineEditETS1mm->setText(QString::number(ETStages->Position1));
+        ui->lineEditETS2mm->setText(QString::number(ETStages->Position2));
     }
+    // Etalon-1
     if (ui->pushButtonOpenET1->isChecked()) {
-        // ET1
         ET50->getCurrentStatus();
         Sleep(MDELAY);
         ui->lineEditET1Counts->setText(QString::fromStdString(ET50->Response));
     }
+    // Etalon-2
     if (ui->pushButtonOpenET2->isChecked()) {
-        // ET2
         ET70->getCurrentStatus();
         Sleep(MDELAY);
         ui->lineEditET2Counts->setText(QString::fromStdString(ET70->Response));
     }
-    if (ui->pushButtonOpenPLS->isChecked()) {
-        // Focus stage, axis - 1
-        PolarimeterStages->Command = "1 np";
-        PolarimeterStages->sendCommand();
-        Sleep(SDELAY);
-        ui->lineEditFSmm->setText(QString::fromStdString(PolarimeterStages->Response));
-        // Analyzer stage, axis - 2
-        PolarimeterStages->Command = "2 np";
-        PolarimeterStages->sendCommand();
-        Sleep(SDELAY);
-        ui->lineEditFSmm->setText(QString::fromStdString(PolarimeterStages->Response));
+    // Focus stages
+    if (ui->pushButtonOpenFS->isChecked()) {
+        FocusStages->getCurrentPositions();
+        ui->lineEditFSPmm->setText(QString::number(FocusStages->CurrentPosition1));
+        ui->lineEditFSBmm->setText(QString::number(FocusStages->CurrentPosition2));
     }
     if (ui->pushButtonOpenCWP->isChecked()) {
         ui->lineEditCWPdeg->setText(QString::number(CWPMount->Position));
@@ -847,7 +874,12 @@ void MainWindow::on_toolBoxAcquisition_currentChanged(int index)
 
 void MainWindow::saveSettings()
 {
-    QString TempSettingsName = QString::fromStdString(Observation->AutoSaveSubDir) + "/HELLRIDE_" +
+    int Mode = ui->toolBoxAcquisition->currentIndex();
+    std::string AutoSaveSubDir;
+    if (Mode >= OBS_MODE_TARG) AutoSaveSubDir = Observation->AutoSaveSubDir;
+    else AutoSaveSubDir = Characterization->AutoSaveSubDir;
+
+    QString TempSettingsName = QString::fromStdString(AutoSaveSubDir) + "/HELLRIDE_" +
                             QDateTime::currentDateTime().toString("yyyyMMmm_hhmmsszzz") + "_settings.ini";
     QSettings *TempSettings = new QSettings(TempSettingsName, QSettings::IniFormat);
     //
@@ -861,7 +893,7 @@ void MainWindow::saveSettings()
     }
     TempSettings->sync();
     //
-    TempSettings->setValue("Common/AutoSaveDir", QString::fromStdString(Observation->AutoSaveDir));
+    TempSettings->setValue("Common/AutoSaveDir", QString::fromStdString(AutoSaveSubDir));
     TempSettings->setValue("Common/ArcsecX0", ui->doubleSpinBoxXArcsec->value());
     TempSettings->setValue("Common/ArcsecY0", ui->doubleSpinBoxYArcsec->value());
     TempSettings->setValue("Common/AtmR0", ui->doubleSpinBoxR0->value());
@@ -869,6 +901,16 @@ void MainWindow::saveSettings()
     TempSettings->setValue("Common/Observers", ui->lineEditObservers->text());
     TempSettings->setValue("Common/Investigators", ui->lineEditPlanners->text());
     TempSettings->setValue("Common/DataTags", ui->lineEditDataTags->text());
+    TempSettings->sync();
+    //
+    if (Mode >= OBS_MODE_TARG){
+        TempSettings->setValue("Common/Mode", Observation->Mode);
+        TempSettings->setValue("Common/ModeString", QString::fromStdString(Observation->ModeString));
+    }
+    else{
+        TempSettings->setValue("Common/Mode", Characterization->Mode);
+        TempSettings->setValue("Common/ModeString", QString::fromStdString(Characterization->ModeString));
+    }
     TempSettings->sync();
     //
     if (ui->lineEditOtherSettings->text().toStdString() != "") {
@@ -918,28 +960,25 @@ void MainWindow::doObservation()
     ThreadAcquisition = new QThread();
     Observation->moveToThread(ThreadAcquisition);
     Observation->AutoSaveDir = ui->lineEditAutoSave->text().toStdString();
+    Observation->AutoSaveSubDir = Observation->AutoSaveDir + QDateTime::currentDateTime().toString("/yyyyMMdd").toStdString();
+    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()) {
+        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
+        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
+    }
     switch (Observation->Mode) {
     case OBS_MODE_SCIE:
         Observation->NCycles = ui->spinBoxObsScienceCyc->value();
+        Observation->ModeString = OBS_MODE_SCIE_STR;
         // Sub-dir for science data
-        Observation->AutoSaveSubDir = Observation->AutoSaveDir + "/Science";
-        if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-        }
-        //
+        Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("/Science").toStdString();
         connect(ThreadAcquisition, SIGNAL(started()),
                 Observation, SLOT(getScienceData()));
         break;
     case OBS_MODE_FLAT:
         Observation->NCycles = ui->spinBoxObsFlatsCyc->value();
+        Observation->ModeString = OBS_MODE_FLAT_STR;
         // Sub-dir for flats data
-        Observation->AutoSaveSubDir = Observation->AutoSaveDir + "/Flats";
-        if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-        }
-        //
+        Observation->AutoSaveSubDir += "/Flats";
         connect(ThreadAcquisition, SIGNAL(started()),
                 Observation, SLOT(getFlatsData()));
         break;
@@ -947,50 +986,33 @@ void MainWindow::doObservation()
         Observation->NICUPolCalib = ui->spinBoxObsPCalPol->value();
         Observation->NICURetCalib = ui->spinBoxObsPCalRet->value();
         Observation->NCycles = Observation->NICUPolCalib*Observation->NICURetCalib;
-        Observation->AutoSaveDir = ui->lineEditAutoSave->text().toStdString();
+        Observation->ModeString = OBS_MODE_PCAL_STR;
         // Sub-dir for science data
-        Observation->AutoSaveSubDir = Observation->AutoSaveDir + "/PCalibration";
-        if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-        }
-        //
+        Observation->AutoSaveSubDir += "/PCalibration";
         connect(ThreadAcquisition, SIGNAL(started()),
                 Observation, SLOT(getCalibrationData()));
         break;
     case OBS_MODE_DARK:
         Observation->NCycles = ui->spinBoxObsDarksFrames->value();
+        Observation->ModeString = OBS_MODE_DARK_STR;
         // Sub-dir for darks data
-        Observation->AutoSaveSubDir = Observation->AutoSaveDir + "/Darks";
-        if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-        }
-        //
+        Observation->AutoSaveSubDir += "/Darks";
         connect(ThreadAcquisition, SIGNAL(started()),
                 Observation, SLOT(getDarksData()));
         break;
     case OBS_MODE_TARG:
         Observation->NCycles = ui->spinBoxObsTargetFrames->value();
+        Observation->ModeString = OBS_MODE_TARG_STR;
         // Sub-dir for darks data
-        Observation->AutoSaveSubDir = Observation->AutoSaveDir + "/Targetplate";
-        if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-        }
-        //
+        Observation->AutoSaveSubDir += "/Targetplate";
         connect(ThreadAcquisition, SIGNAL(started()),
                 Observation, SLOT(getTargetplateData()));
         break;
     case OBS_MODE_PINH:
         Observation->NCycles = ui->spinBoxObsPinholeFrames->value();
+        Observation->ModeString = OBS_MODE_PINH_STR;
         // Sub-dir for darks data
-        Observation->AutoSaveSubDir = Observation->AutoSaveDir + "/Pinhole";
-        if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-        }
-        //
+        Observation->AutoSaveSubDir += "/Pinhole";
         connect(ThreadAcquisition, SIGNAL(started()),
                 Observation, SLOT(getPinholeData()));
         break;
@@ -999,17 +1021,17 @@ void MainWindow::doObservation()
         break;
     }
     // Sub-dir for the day
-    Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("/yyyyMMdd").toStdString();
+    Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("_hhmm").toStdString();
     if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()) {
         QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
         addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
     }
     // Sub-dir for the time
-    Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("/hhmm").toStdString();
-    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()) {
-        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-    }
+//    Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("/hhmm").toStdString();
+//    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()) {
+//        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
+//        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
+//    }
     // Log file name
     std::string TempName = Observation->AutoSaveSubDir + "/HELLRIDE_" +
                             QDateTime::currentDateTime().toString("yyyyMMmm_hhmmsszzz").toStdString() + "_log.txt";
@@ -1043,7 +1065,7 @@ void MainWindow::doCharacterization()
     ThreadAcquisition = new QThread();
     Characterization->moveToThread(ThreadAcquisition);
     Characterization->AutoSaveDir = ui->lineEditAutoSave->text().toStdString();
-    Characterization->AutoSaveSubDir = Characterization->AutoSaveDir + "/Characterization";
+    Characterization->AutoSaveSubDir = Characterization->AutoSaveDir + QDateTime::currentDateTime().toString("/yyyyMMdd").toStdString();
     if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
         QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
         addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
@@ -1055,13 +1077,9 @@ void MainWindow::doCharacterization()
         Characterization->ET1Step = ui->spinBoxCharET1MatchStep->value();
         Characterization->ET1Stop = ui->spinBoxCharET1MatchStop->value();
         Characterization->iPreFilter = ui->spinBoxCharET1MatchPF->value();
+        Characterization->ModeString = CHR_MODE_ET1_MATCH_STR;
         //
         Characterization->AutoSaveSubDir += "/ET50Match";
-        if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
-        }
-        //
         prepareDisplay(0, 1, 0);
         connect(ThreadAcquisition, SIGNAL(started()),
                 Characterization, SLOT(matchET1Passband()));
@@ -1072,13 +1090,9 @@ void MainWindow::doCharacterization()
         Characterization->ET2Step = ui->spinBoxCharET2MatchStep->value();
         Characterization->ET2Stop = ui->spinBoxCharET2MatchStop->value();
         Characterization->iPreFilter = ui->spinBoxCharET1MatchPF->value();
+        Characterization->ModeString = CHR_MODE_ET2_MATCH_STR;
         //
         Characterization->AutoSaveSubDir += "/ET70Match";
-        if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
-        }
-        //
         prepareDisplay(0, 1, 0);
         connect(ThreadAcquisition, SIGNAL(started()),
                 Characterization, SLOT(matchET2Passband()));
@@ -1090,13 +1104,9 @@ void MainWindow::doCharacterization()
         Characterization->WaveRange = ui->doubleSpinBoxCharETLineRange->value();
         Characterization->WaveStep = ui->doubleSpinBoxCharETLineStep->value();
         Characterization->iPreFilter = ui->spinBoxCharETLinePF->value();
+        Characterization->ModeString = CHR_MODE_LINE_PROF_STR;
         //
         Characterization->AutoSaveSubDir += "/ETLineMatch";
-        if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
-        }
-        //
         prepareDisplay(0, 1, 0);
         connect(ThreadAcquisition, SIGNAL(started()),
                 Characterization, SLOT(matchETPassbandsLine()));
@@ -1108,13 +1118,9 @@ void MainWindow::doCharacterization()
         Characterization->iPreFilter = ui->spinBoxCharFocusPF->value();
         Characterization->ET1Zero = ui->spinBoxCharFocusET1->value();
         Characterization->ET2Zero = ui->spinBoxCharFocusET2->value();
+        Characterization->ModeString = CHR_MODE_CAM_FOCUS_STR;
         //
         Characterization->AutoSaveSubDir += "/FocusTest";
-        if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
-        }
-        //
         prepareDisplay(1, 1, 1);
         connect(ThreadAcquisition, SIGNAL(started()),
                 Characterization, SLOT(examineBestFocus()));
@@ -1126,13 +1132,9 @@ void MainWindow::doCharacterization()
         Characterization->iPreFilter = ui->spinBoxCharLCVR1PF->value();
         Characterization->BiasCounts = ui->spinBoxCharLCVR1Bias->value();
         Characterization->NPolarizer = ui->comboBoxCharLCVR1PolPos->currentText().toInt();
+        Characterization->ModeString = CHR_MODE_LCVR1_PROF_STR;
         //
         Characterization->AutoSaveSubDir += "/LCVR1";
-        if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
-        }
-        //
         prepareDisplay(0, 1, 1);
         connect(ThreadAcquisition, SIGNAL(started()),
                 Characterization, SLOT(doLCVR1Characterization()));
@@ -1144,13 +1146,9 @@ void MainWindow::doCharacterization()
         Characterization->iPreFilter = ui->spinBoxCharLCVR2PF->value();
         Characterization->BiasCounts = ui->spinBoxCharLCVR2Bias->value();
         Characterization->NPolarizer = ui->comboBoxCharLCVR2PolPos->currentText().toInt();
+        Characterization->ModeString = CHR_MODE_LCVR2_PROF_STR;
         //
         Characterization->AutoSaveSubDir += "/LCVR2";
-        if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
-        }
-        //
         prepareDisplay(0, 1, 1);
         connect(ThreadAcquisition, SIGNAL(started()),
                 Characterization, SLOT(doLCVR2Characterization()));
@@ -1159,13 +1157,9 @@ void MainWindow::doCharacterization()
         Characterization->ET1Start = ui->spinBoxCharET1ProfStart->value();
         Characterization->ET1Step = ui->spinBoxCharET1ProfStep->value();
         Characterization->ET1Stop = ui->spinBoxCharET1ProfStop->value();
+        Characterization->ModeString = CHR_MODE_ET1_PROF_STR;
         //
         Characterization->AutoSaveSubDir += "/ET50Prof";
-        if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
-        }
-        //
         prepareDisplay(0, 1, 0);
         connect(ThreadAcquisition, SIGNAL(started()),
                 Characterization, SLOT(doET1Profiling()));
@@ -1174,13 +1168,9 @@ void MainWindow::doCharacterization()
         Characterization->ET2Start = ui->spinBoxCharET2ProfStart->value();
         Characterization->ET2Step = ui->spinBoxCharET2ProfStep->value();
         Characterization->ET2Stop = ui->spinBoxCharET2ProfStop->value();
+        Characterization->ModeString = CHR_MODE_ET2_PROF_STR;
         //
         Characterization->AutoSaveSubDir += "/ET70Prof";
-        if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
-            QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
-            addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
-        }
-        //
         prepareDisplay(0, 1, 0);
         connect(ThreadAcquisition, SIGNAL(started()),
                 Characterization, SLOT(doET2Profiling()));
@@ -1190,17 +1180,17 @@ void MainWindow::doCharacterization()
         break;
     }
     // Sub-dir for the day
-    Characterization->AutoSaveSubDir += QDateTime::currentDateTime().toString("/yyyyMMdd").toStdString();
+    Characterization->AutoSaveSubDir += QDateTime::currentDateTime().toString("_hhmm").toStdString();
     if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
         QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
         addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
     }
-    // Sub-dir for the time
-    Characterization->AutoSaveSubDir += QDateTime::currentDateTime().toString("/hhmm").toStdString();
-    if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
-        QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
-    }
+//    // Sub-dir for the time
+//    Characterization->AutoSaveSubDir += QDateTime::currentDateTime().toString("/hhmm").toStdString();
+//    if (!QDir(QString::fromStdString(Characterization->AutoSaveSubDir)).exists()) {
+//        QDir().mkdir(QString::fromStdString(Characterization->AutoSaveSubDir));
+//        addLog("Creating directory : " + QString::fromStdString(Characterization->AutoSaveSubDir));
+//    }
     // Log file name
     std::string TempName = Characterization->AutoSaveSubDir + "/HELLRIDE_" +
                             QDateTime::currentDateTime().toString("yyyyMMmm_hhmmsszzz").toStdString() + "_log.txt";
@@ -1246,9 +1236,9 @@ void MainWindow::prepareAcquisition()
         ui->pushButtonOpenETS->setChecked(false);
         on_pushButtonOpenETS_clicked(false);
     }
-    if (ui->pushButtonOpenPLS->isChecked()) {
-        ui->pushButtonOpenPLS->setChecked(false);
-        on_pushButtonOpenPLS_clicked(false);
+    if (ui->pushButtonOpenFS->isChecked()) {
+        ui->pushButtonOpenFS->setChecked(false);
+        on_pushButtonOpenFS_clicked(false);
     }
     if (ui->pushButtonOpenET1->isChecked()) {
         ui->pushButtonOpenET1->setChecked(false);
@@ -1331,27 +1321,21 @@ void MainWindow::applyDetectorSettings()
     DetectorBBCh->ExposureTime = ui->spinBoxExposureCAM0->value();
     DetectorBBCh->ROI = ui->comboBoxROI->currentText().toInt();
     DetectorBBCh->Binning = ui->comboBoxBinning->currentText().toInt();
+    DetectorBBCh->Trigger = ui->comboBoxTrigger->currentIndex();
     //
     DetectorPCh1->ExposureTime = ui->spinBoxExposureCAM1->value();
     DetectorPCh1->ROI = ui->comboBoxROI->currentText().toInt();
     DetectorPCh1->Binning = ui->comboBoxBinning->currentText().toInt();
+    DetectorPCh1->Trigger = ui->comboBoxTrigger->currentIndex();
     //
     DetectorPCh2->ExposureTime = ui->spinBoxExposureCAM2->value();
     DetectorPCh2->ROI = ui->comboBoxROI->currentText().toInt();
     DetectorPCh2->Binning = ui->comboBoxBinning->currentText().toInt();
+    DetectorPCh2->Trigger = ui->comboBoxTrigger->currentIndex();
 }
 
 void MainWindow::on_pushButtonLive_clicked(bool checked)
 {
-    DetectorBBCh->ROI = ui->comboBoxROI->currentText().toInt();
-    DetectorPCh1->ROI = ui->comboBoxROI->currentText().toInt();
-    DetectorPCh2->ROI = ui->comboBoxROI->currentText().toInt();
-    DetectorBBCh->Binning = ui->comboBoxBinning->currentText().toInt();
-    DetectorPCh1->Binning = ui->comboBoxBinning->currentText().toInt();
-    DetectorPCh2->Binning = ui->comboBoxBinning->currentText().toInt();
-    DetectorBBCh->Trigger = ui->comboBoxTrigger->currentIndex();
-    DetectorPCh1->Trigger = ui->comboBoxTrigger->currentIndex();
-    DetectorPCh2->Trigger = ui->comboBoxTrigger->currentIndex();
     if(checked){
         //
         applyDetectorSettings();
@@ -1394,92 +1378,6 @@ void MainWindow::on_pushButtonLive_clicked(bool checked)
         ui->pushButtonOpenCAM2->setEnabled(true);
         ui->pushButtonLive->setText("Start Live Preview");
     }
-
-//    if(checked) {
-//        applyDetectorSettings();
-//        if (ui->pushButtonOpenCAM0->isChecked() && ui->checkBoxLiveCAM0->isChecked()) {
-//            DetectorBBCh->SAVE_IMAGE_FLAG = ui->checkBoxSaveframes->isChecked();
-//            //
-//            QThread *LiveThreadCAM0 = new QThread;
-//            DetectorBBCh->moveToThread(LiveThreadCAM0);
-//            connect(LiveThreadCAM0, SIGNAL(started()),
-//                    DetectorBBCh, SLOT(startLive()));
-//            connect(DetectorBBCh, SIGNAL(Finished()),
-//                    LiveThreadCAM0, SLOT(quit()));
-//            connect(DetectorBBCh, SIGNAL(Finished()),
-//                    LiveThreadCAM0, SLOT(deleteLater()));
-//            //
-//            imageview *DisplayCAM0 = new imageview();
-//            DisplayCAM0->setWindowTitle("Broadband Channel Detector");
-//            connect(DetectorBBCh, SIGNAL(displayImage(QPixmap,int,int,int)),
-//                 DisplayCAM0, SLOT(displayImage(QPixmap,int,int,int)));
-//            connect(DetectorBBCh, SIGNAL(Finished()),
-//                    DisplayCAM0, SLOT(deleteLater()));
-//            DisplayCAM0->show();
-//            //
-//            LiveThreadCAM0->start();
-//        }
-//        //
-//        if (ui->pushButtonOpenCAM1->isChecked() && ui->checkBoxLiveCAM1->isChecked()) {
-//            DetectorPCh1->SAVE_IMAGE_FLAG = ui->checkBoxSaveframes->isChecked();
-//            //
-//            QThread *LiveThreadCAM1 = new QThread;
-//            DetectorPCh1->moveToThread(LiveThreadCAM1);
-//            connect(LiveThreadCAM1, SIGNAL(started()),
-//                    DetectorPCh1, SLOT(startLive()));
-//            connect(DetectorPCh1, SIGNAL(Finished()),
-//                    LiveThreadCAM1, SLOT(quit()));
-//            connect(DetectorPCh1, SIGNAL(Finished()),
-//                    LiveThreadCAM1, SLOT(deleteLater()));
-//            //
-//            imageview *DisplayCAM1 = new imageview();
-//            DisplayCAM1->setWindowTitle("Polarimeter Channel-1 Detector");
-//            connect(DetectorPCh1, SIGNAL(displayImage(QPixmap,int,int,int)),
-//                 DisplayCAM1, SLOT(displayImage(QPixmap,int,int,int)));
-//            connect(DetectorPCh1, SIGNAL(Finished()),
-//                    DisplayCAM1, SLOT(deleteLater()));
-//            DisplayCAM1->show();
-//            //
-//            LiveThreadCAM1->start();
-//        }
-//        //
-//        if (ui->pushButtonOpenCAM2->isChecked() && ui->checkBoxLiveCAM2->isChecked()) {
-//            DetectorPCh2->SAVE_IMAGE_FLAG = ui->checkBoxSaveframes->isChecked();
-//            //
-//            QThread *LiveThreadCAM2 = new QThread;
-//            DetectorPCh2->moveToThread(LiveThreadCAM2);
-//            connect(LiveThreadCAM2, SIGNAL(started()),
-//                    DetectorPCh2, SLOT(startLive()));
-//            connect(DetectorPCh2, SIGNAL(Finished()),
-//                    LiveThreadCAM2, SLOT(quit()));
-//            connect(DetectorPCh2, SIGNAL(Finished()),
-//                    LiveThreadCAM2, SLOT(deleteLater()));
-//            //
-//            imageview *DisplayCAM2 = new imageview();
-//            DisplayCAM2->setWindowTitle("Broadband Channel Detector");
-//            connect(DetectorPCh2, SIGNAL(displayImage(QPixmap,int,int,int)),
-//                 DisplayCAM2, SLOT(displayImage(QPixmap,int,int,int)));
-//            connect(DetectorPCh2, SIGNAL(Finished()),
-//                    DisplayCAM2, SLOT(deleteLater()));
-//            DisplayCAM2->show();
-//            //
-//            LiveThreadCAM2->start();
-//        }
-
-//        ui->pushButtonLive->setText("Stop Live");
-//        ui->pushButtonOpenCAM0->setEnabled(false);
-//        ui->pushButtonOpenCAM1->setEnabled(false);
-//        ui->pushButtonOpenCAM2->setEnabled(false);
-//    }
-//    else {
-//    DetectorBBCh->stopAcquisition();
-//    DetectorPCh1->stopAcquisition();
-//    DetectorPCh2->stopAcquisition();
-//    ui->pushButtonOpenCAM0->setEnabled(true);
-//    ui->pushButtonOpenCAM1->setEnabled(true);
-//    ui->pushButtonOpenCAM2->setEnabled(true);
-//    ui->pushButtonLive->setText("Start Live");
-//    }
 
 }
 
@@ -1664,200 +1562,3 @@ void MainWindow::on_pushButtonClearLog_clicked()
 {
     ui->plainTextEditLog->clear();
 }
-
-/***
-void MainWindow::getScienceData()
-{
-    Observation = new AcqObservation();
-    ThreadAcquisition = new QThread();
-    Observation->Mode = ui->toolBoxAcquisition->currentIndex();
-    Observation->NCycles = ui->spinBoxObsScienceCyc->value();
-    Observation->AutoSaveDir = ui->lineEditAutoSave->text().toStdString();
-    // Sub-dir for science data
-    Observation->AutoSaveSubDir = Observation->AutoSaveDir + "/Science";
-    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()){
-        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-    }
-    // Sub-dir for the day
-    Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("/yyyyMMdd").toStdString();
-    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()){
-        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-    }
-    // Sub-dir for the time
-    Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("/hhmm").toStdString();
-    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()){
-        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-    }
-    // Log file name
-    std::string TempName = Observation->AutoSaveSubDir + "/HELLRIDE_" +
-                            QDateTime::currentDateTime().toString("yyyyMMmm_hhmmsszzz").toStdString() + "_log.txt";
-    DevLog = std::ofstream(TempName);
-    addLog("Observation log will be saved as: " + QString::fromStdString(TempName));
-    QString TempSettingsName = QString::fromStdString(Observation->AutoSaveSubDir) + "/HELLRIDE_" +
-                            QDateTime::currentDateTime().toString("yyyyMMmm_hhmmsszzz") + "_settings.ini";
-    QSettings *TempSettings = new QSettings(TempSettingsName, QSettings::IniFormat);
-    foreach (const QString &Key, obsSettings->allKeys()){
-        TempSettings->setValue(Key, obsSettings->value(Key));
-    }
-    TempSettings->sync();
-    addLog("Settings will be saved as: " + TempSettingsName);
-    //
-    Observation->moveToThread(ThreadAcquisition);
-    connect(ThreadAcquisition, SIGNAL(started()),
-            Observation, SLOT(getScienceData()));
-    connect(this, SIGNAL(stopAcquisition()),
-            Observation, SLOT(Interrupt()));
-    connect(Observation, SIGNAL(Finished()),
-            ThreadAcquisition, SLOT(quit()));
-    connect(ThreadAcquisition, SIGNAL(finished()),
-            ThreadAcquisition, SLOT(deleteLater()));
-    connect(ThreadAcquisition, SIGNAL(finished()),
-            this, SLOT(finishAcquisition()));
-    connect(Observation, SIGNAL(addLog(QString)),
-            this, SLOT(addLog(QString)));
-    connect(Observation, SIGNAL(updateProgress(int)),
-            ui->progressBarStatus, SLOT(setValue(int)));
-    connect(Observation, SIGNAL(updateOProgress(int)),
-            ui->progressBarOStatus, SLOT(setValue(int)));
-    //
-    prepareAcquisition();
-    prepareDisplay(1, 1, 1);
-    ThreadAcquisition->start();
-    ui->pushButtonAcquisition->setText("Stop Acquisition");
-}
-
-void MainWindow::getFlatsData()
-{
-    Observation = new AcqObservation();
-    AcquisitionThread = new QThread();
-    Observation->Mode = ui->toolBoxAcquisition->currentIndex();
-    Observation->NCycles = ui->spinBoxObsFlatsCyc->value();
-    Observation->AutoSaveDir = ui->lineEditAutoSave->text().toStdString();
-    // Sub-dir for science data
-    Observation->AutoSaveSubDir = Observation->AutoSaveDir + "/Flats";
-    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()){
-        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-    }
-    // Sub-dir for the day
-    Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("/yyyyMMdd").toStdString();
-    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()){
-        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-    }
-    // Sub-dir for the time
-    Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("/hhmm").toStdString();
-    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()){
-        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-    }
-    // Log file name
-    std::string TempName = Observation->AutoSaveSubDir + "/HELLRIDE_" +
-                            QDateTime::currentDateTime().toString("yyyyMMmm_hhmmsszzz").toStdString() + "_log.txt";
-    DevLog = std::ofstream(TempName);
-    addLog("Observation log will be saved as: " + QString::fromStdString(TempName));
-    QString TempSettingsName = QString::fromStdString(Observation->AutoSaveSubDir) + "/HELLRIDE_" +
-                            QDateTime::currentDateTime().toString("yyyyMMmm_hhmmsszzz") + "_settings.ini";
-    QSettings *TempSettings = new QSettings(TempSettingsName, QSettings::IniFormat);
-    foreach (const QString &Key, obsSettings->allKeys()){
-        TempSettings->setValue(Key, obsSettings->value(Key));
-    }
-    TempSettings->sync();
-    addLog("Settings will be saved as: " + TempSettingsName);
-    //
-    Observation->moveToThread(AcquisitionThread);
-    connect(AcquisitionThread, SIGNAL(started()),
-            Observation, SLOT(getFlatsData()));
-    connect(this, SIGNAL(stopAcquisition()),
-            Observation, SLOT(Interrupt()));
-    connect(Observation, SIGNAL(Finished()),
-            AcquisitionThread, SLOT(quit()));
-    connect(AcquisitionThread, SIGNAL(finished()),
-            AcquisitionThread, SLOT(deleteLater()));
-    connect(AcquisitionThread, SIGNAL(finished()),
-            this, SLOT(finishAcquisition()));
-    connect(Observation, SIGNAL(addLog(QString)),
-            this, SLOT(addLog(QString)));
-    connect(Observation, SIGNAL(updateProgress(int)),
-            ui->progressBarStatus, SLOT(setValue(int)));
-    connect(Observation, SIGNAL(updateOProgress(int)),
-            ui->progressBarOStatus, SLOT(setValue(int)));
-    //
-    prepareDisplay(1, 1, 1);
-    prepareAcquisition();
-    AcquisitionThread->start();
-    ui->pushButtonAcquisition->setText("Stop Acquisition");
-}
-
-void MainWindow::getCalibrationData()
-{
-    Observation = new AcqObservation();
-    AcquisitionThread = new QThread();
-    Observation->Mode = ui->toolBoxAcquisition->currentIndex();
-    addLog("Beginning acquisition of calibration frames");
-    Observation->NICUPolCalib = ui->spinBoxObsPCalPol->value();
-    Observation->NICURetCalib = ui->spinBoxObsPCalRet->value();
-    Observation->NCycles = Observation->NICUPolCalib*Observation->NICURetCalib;
-    Observation->AutoSaveDir = ui->lineEditAutoSave->text().toStdString();
-    // Sub-dir for science data
-    Observation->AutoSaveSubDir = Observation->AutoSaveDir + "/PCalibration";
-    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()){
-        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-    }
-    // Sub-dir for the day
-    Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("/yyyyMMdd").toStdString();
-    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()){
-        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-    }
-    // Sub-dir for the time
-    Observation->AutoSaveSubDir += QDateTime::currentDateTime().toString("/hhmm").toStdString();
-    if (!QDir(QString::fromStdString(Observation->AutoSaveSubDir)).exists()){
-        QDir().mkdir(QString::fromStdString(Observation->AutoSaveSubDir));
-        addLog("Creating directory : " + QString::fromStdString(Observation->AutoSaveSubDir));
-    }
-    // Log file name
-    std::string TempName = Observation->AutoSaveSubDir + "/HELLRIDE_" +
-                            QDateTime::currentDateTime().toString("yyyyMMmm_hhmmsszzz").toStdString() + "_log.txt";
-    DevLog = std::ofstream(TempName);
-    addLog("Observation log will be saved as: " + QString::fromStdString(TempName));
-    QString TempSettingsName = QString::fromStdString(Observation->AutoSaveSubDir) + "/HELLRIDE_" +
-                            QDateTime::currentDateTime().toString("yyyyMMmm_hhmmsszzz") + "_settings.ini";
-    QSettings *TempSettings = new QSettings(TempSettingsName, QSettings::IniFormat);
-    foreach (const QString &Key, obsSettings->allKeys()){
-        TempSettings->setValue(Key, obsSettings->value(Key));
-    }
-    TempSettings->sync();
-    addLog("Settings will be saved as: " + TempSettingsName);
-    //
-    Observation->moveToThread(AcquisitionThread);
-    connect(AcquisitionThread, SIGNAL(started()),
-            Observation, SLOT(getFlatsData()));
-    connect(this, SIGNAL(stopAcquisition()),
-            Observation, SLOT(Interrupt()));
-    connect(Observation, SIGNAL(Finished()),
-            AcquisitionThread, SLOT(quit()));
-    connect(AcquisitionThread, SIGNAL(finished()),
-            AcquisitionThread, SLOT(deleteLater()));
-    connect(AcquisitionThread, SIGNAL(finished()),
-            this, SLOT(finishAcquisition()));
-    connect(Observation, SIGNAL(addLog(QString)),
-            this, SLOT(addLog(QString)));
-    connect(Observation, SIGNAL(updateProgress(int)),
-            ui->progressBarStatus, SLOT(setValue(int)));
-    connect(Observation, SIGNAL(updateOProgress(int)),
-            ui->progressBarOStatus, SLOT(setValue(int)));
-//    connect(Observation, SIGNAL(updateCycles(QString)),
-//            ui->lineEditCycles, SLOT(setText(QString)));
-    //
-    prepareAcquisition();
-    prepareDisplay(1, 1, 1);
-    AcquisitionThread->start();
-    ui->pushButtonAcquisition->setText("Stop Acquisition");
-}
-***/
-

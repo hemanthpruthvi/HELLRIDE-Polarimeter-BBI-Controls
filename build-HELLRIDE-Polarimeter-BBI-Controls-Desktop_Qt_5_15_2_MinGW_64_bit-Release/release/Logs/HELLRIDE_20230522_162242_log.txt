@@ -1,0 +1,64 @@
+07:49:28.509   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+07:49:28.514   BroadbandDetector exposure time is set to 10000
+07:49:28.514   BroadbandDetector frame binning is set to 1
+07:49:28.514   BroadbandDetector frame width is set to 1280
+07:49:28.514   BroadbandDetector frame height is set to 1280
+07:49:28.514   BroadbandDetector frame x-offset is set to 384
+07:49:28.514   BroadbandDetector frame y-offset is set to 384
+07:49:28.514   BroadbandDetector buffer queue size set to 39 frames
+07:49:28.514   BroadbandDetector setting up trigger: 0
+07:49:28.944   BroadbandDetector started acquisition
+08:31:07.923   BroadbandDetector stopped acquisition
+10:00:03.777   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+10:00:03.782   BroadbandDetector exposure time is set to 10000
+10:00:03.782   BroadbandDetector frame binning is set to 1
+10:00:03.782   BroadbandDetector frame width is set to 1280
+10:00:03.782   BroadbandDetector frame height is set to 1280
+10:00:03.782   BroadbandDetector frame x-offset is set to 384
+10:00:03.782   BroadbandDetector frame y-offset is set to 384
+10:00:03.782   BroadbandDetector buffer queue size set to 39 frames
+10:00:03.782   BroadbandDetector setting up trigger: 0
+10:00:04.146   BroadbandDetector started acquisition
+10:03:26.205   BroadbandDetector stopped acquisition
+10:03:37.821   FilterMatrix connecting (192.168.90.101:400)...
+10:03:37.834   FilterMatrix sending controller command: version
+10:03:37.887   FilterMatrix sending controller command: 100.000000 1 snv
+10:03:37.889   FilterMatrix received controller response: 5.050000
+
+10:03:37.941   FilterMatrix sending controller command: 100.000000 2 snv
+10:03:37.994   FocusStages connecting (192.168.90.103:400)...
+10:03:37.999   FocusStages sending controller command: version
+10:03:38.052   FocusStages sending controller command: 5.000000 1 snv
+10:03:38.054   FocusStages received controller response: 5.320000
+
+10:03:38.107   FocusStages sending controller command: 5.000000 2 snv
+10:03:38.159   ET50 connecting (192.168.90.114:10001).
+10:03:38.192   ET50 controller command sent: !QT
+10:03:38.246   ET70 connecting (192.168.90.115:10001).
+10:03:38.278   ET70 controller command sent: !QT
+Selecting pre-filter: 1
+10:03:38.333   FilterMatrix sending controller command: 394.000000 1 nm
+10:03:38.335   FilterMatrix sending controller command: 340.500000 2 nm
+Selecting pre-filter: 1
+10:03:38.338   FilterMatrix sending controller command: 394.000000 1 nm
+10:03:38.340   FilterMatrix sending controller command: 340.500000 2 nm
+10:03:38.344   FocusStages sending controller command: 12.200000 1 nm
+10:03:38.345   FocusStages sending controller command: 12.400000 2 nm
+10:03:38.347   ET50 controller command sent: I420FP1P0?
+10:03:38.349   ET70 controller command sent: I4266P1P0?
+10:03:38.380   ET50 Z-spacing counts read: 527
+10:03:38.383   ET70 Z-spacing counts read: 614
+10:03:41.691   BroadbandDetector frame description: 1280x1280 - 384||384 (1x1)
+10:03:41.696   BroadbandDetector exposure time is set to 10000
+10:03:41.696   BroadbandDetector frame binning is set to 1
+10:03:41.696   BroadbandDetector frame width is set to 1280
+10:03:41.696   BroadbandDetector frame height is set to 1280
+10:03:41.696   BroadbandDetector frame x-offset is set to 384
+10:03:41.696   BroadbandDetector frame y-offset is set to 384
+10:03:41.696   BroadbandDetector buffer queue size set to 39 frames
+10:03:41.696   BroadbandDetector setting up trigger: 0
+10:03:42.072   BroadbandDetector started acquisition
+10:03:52.665   BroadbandDetector stopped acquisition
+Creating directory : D:/20230502
+Creating directory : D:/20230502/Science_20230502_1004
+Creating directory : D:/20230502/Science_20230502_1004_20230502_1004
